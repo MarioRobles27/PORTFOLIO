@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    
+    scroll-behavior: smooth;
+}
+
+@font-face {
+    font-family: 'PPAcma';
+    src: url('../FONTS/PPAcma-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'PPFormula';
+    src: url('../FONTS/PPFormula-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+  }
+body {
+    margin: 0;
+    background-color: #262623;
+    color: #E2E2D0;
+    font-family: 'PPAcma', sans-serif;
+  }
+  
+  .main-header {
+    position: relative;
+    padding: 2rem;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .menu-toggle {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    font-size: 2rem;
+    background: none;
+    border: 2px solid #eee;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    color: #eee;
+    cursor: pointer;
+  }
+  
+  .header-content h1 {
+    font-size: 12rem;
+    font-weight: bold;
+    line-height: 1;
+    color: #f4f2e7;
+  }
+  
+  .year {
+    font-weight: normal;
+  }
+  
+  .highlight {
+    color: #D0CC25;
+  }
+  
+
+  .subtitle {
+    margin-top: 2rem;
+    text-align: center;
+  }
+  
+  .nombre {
+    font-family: 'PPFormula', sans-serif;
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: #f4f2e7;
+  }
+  
+  .profesion {
+    font-family: 'PPFormula', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #f4f2e7;
+  }
+  
+  .formula {
+    font-family: 'PPFormula', sans-serif;
+    font-weight: 500;
+  }
+  .scroll-icon {
+    margin-top: 2rem;
+  }
+  
+  .scroll-icon img {
+    width: 32px;
+    height: 32px;
+  } 
