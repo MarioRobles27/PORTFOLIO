@@ -6,42 +6,169 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mario Robles Caña</title>
   <link href="CSS/style.css" rel="stylesheet" type="text/css">
+  
 
 
   <!-- Vinculo a la hoja de estilos -->
   <link rel="stylesheet" href="style.css" />
 </head>
 
-  <header class="main-header">
-    <!-- Botón hamburguesa -->
-    <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
+  <!-- HEADER -->
+  <header class="main-header text-center py-5">
+    <button class="menu-toggle btn btn-outline-light rounded-circle position-absolute top-0 start-0 m-3" id="menu-toggle" aria-label="Abrir menú">
       &#9776;
     </button>
-  
-    <!-- Título principal -->
+
     <div class="header-content">
-      <h1>
+      <h1 class="display-1 fw-bold">
         <span class="line1">PORT <span class="year">20</span></span><br />
         <span class="line2">FOLIO <span class="year highlight">25</span></span>
       </h1>
-  
-      <div class="subtitle formula">
-        <p class="nombre">Mario Robles Caña</p>
-        <p class="profesion">Diseñador <span class="highlight">gráfico</span></p>
-      </div>
-  
-      <!-- Icono de scroll o acción -->
-      <div class="scroll-icon">
-        <img src="ruta/a/tu-icono.svg" alt="Scroll icon" />
+
+      <div class="subtitle formula d-flex flex-column align-items-center">
+        <p class="nombre fs-2">Mario Robles Caña</p>
+        <p class="profesion fs-4">Diseñador <span class="highlight">gráfico</span></p>
+        <div class="contenedor-circulo border border-light rounded-circle d-flex justify-content-center align-items-center" style="width:60px; height:60px;">
+          <img src="IMG/estrella.png" alt="Estrella decorativa" class="imagen-circulo w-75">
+        </div>
       </div>
     </div>
   </header>
-
+  
 <body>
   
 
+  <!-- MAIN CONTENT - TWO COLUMN LAYOUT -->
+  <div class="portfolio-container">
+    <div class="container">
+      <div class="row g-5">
+        <!-- LEFT COLUMN -->
+        <div class="col-lg-5">
+          <!-- Profile Image -->
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" 
+               alt="Mario Robles Caña" class="profile-image">
+          
+          <!-- Contact Section -->
+          <div class="content-card">
+            <h2 class="section-title">Contacto</h2>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-birthday-cake"></i>
+              </div>
+              <div>27 – 11 – 1999</div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div>marioroblesudit@gmail.com</div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div>+34 600 123 456</div>
+            </div>
+          </div>
+          
+          <!-- Technical Skills -->
+          <div class="content-card">
+            <h2 class="section-title">Habilidades Técnicas</h2>
+            <div class="skills-container">
+              <span class="skill-badge">Photoshop</span>
+              <span class="skill-badge">Illustrator</span>
+              <span class="skill-badge">InDesign</span>
+              <span class="skill-badge">After Effects</span>
+              <span class="skill-badge">Premiere Pro</span>
+              <span class="skill-badge">Figma</span>
+              <span class="skill-badge">Blender</span>
+              <span class="skill-badge">Cinema 4D</span>
+              <span class="skill-badge">HTML/CSS</span>
+              <span class="skill-badge">Typography</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- RIGHT COLUMN -->
+        <div class="col-lg-7">
+          <!-- About Me -->
+          <div class="content-card">
+            <h2 class="section-title">Sobre Mí</h2>
+            <p>
+              Soy Mario Robles, diseñador gráfico con especial interés en la tipografía, la identidad visual y la dirección de arte. Me gusta construir sistemas visuales claros, funcionales y con personalidad, cuidando tanto el concepto como el detalle.
+            </p>
+            <p>
+              Trabajo entre lo técnico y lo emocional, combinando diseño editorial, branding y motion graphics con conocimientos de código, animación y desarrollo tipográfico. Creo en el diseño como herramienta para comunicar con honestidad, claridad y un punto de humor.
+            </p>
+          </div>
+          
+          <!-- Education -->
+          <div class="content-card">
+            <h2 class="section-title">Educación</h2>
+            <div class="timeline-item">
+              <div class="timeline-date">2021 – 2025</div>
+              <h4>Diseño Multimedia y Gráfico</h4>
+              <p>Universidad de Diseño e Innovación (UDIT)</p>
+              <p class="text-light-emphasis">Especialización en diseño tipográfico y dirección de arte</p>
+            </div>
+          </div>
+          
+          <!-- Experience -->
+          <div class="content-card">
+            <h2 class="section-title">Experiencia</h2>
+            <div class="timeline-item">
+              <div class="timeline-date">2024 - Actualidad</div>
+              <h4>Vecario Studio</h4>
+              <p>Diseñador gráfico en prácticas</p>
+              <p class="text-light-emphasis">Desarrollo de identidad visual para clientes internacionales</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">2023 - 2024</div>
+              <h4>Freelance</h4>
+              <p>Diseñador gráfico y tipográfico</p>
+              <p class="text-light-emphasis">Proyectos de branding y diseño editorial</p>
+            </div>
+          </div>
+          
+          <!-- Languages -->
+          <div class="content-card">
+            <h2 class="section-title">Idiomas</h2>
+            <div class="language-level">
+              <span class="fw-bold">Español</span>
+              <div class="level-bar">
+                <div class="level-fill native"></div>
+              </div>
+              <span class="ms-2">Nativo</span>
+            </div>
+            <div class="language-level">
+              <span class="fw-bold">Inglés</span>
+              <div class="level-bar">
+                <div class="level-fill b2"></div>
+              </div>
+              <span class="ms-2">B2</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   
-</body>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <p class="mb-2">Mario Robles Caña &copy; 2025 - Todos los derechos reservados</p>
+      <div class="d-flex justify-content-center gap-3">
+        <a href="#" class="text-light"><i class="fab fa-behance fa-lg"></i></a>
+        <a href="#" class="text-light"><i class="fab fa-linkedin-in fa-lg"></i></a>
+        <a href="#" class="text-light"><i class="fab fa-dribbble fa-lg"></i></a>
+        <a href="#" class="text-light"><i class="fab fa-instagram fa-lg"></i></a>
+      </div>
+    </div>
+  </footer>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 <script src="JS/script.js"></script>
+</body>
 
 </html>
