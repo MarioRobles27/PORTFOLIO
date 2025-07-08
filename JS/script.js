@@ -1,7 +1,5 @@
-
 // 🔌 Registro de plugins GSAP
 gsap.registerPlugin(ScrollTrigger, CSSRulePlugin);
-
 
 // Hover: acelera y escala ligeramente
 document.querySelectorAll(".section-title").forEach(title => {
@@ -66,46 +64,41 @@ splitText(".line2");
 splitText(".nombre");
 splitText(".profesion");
 
-// Animación: cada letra gira desde X=90° (opacity:0) → X=0° (opacity:1)
+// ✨ ANIMACIÓN “POP & BOUNCE” por letra (corregida)
 gsap.fromTo(".reveal-char",
+  { y: 50, opacity: 0, scale: 0.3 },
   {
-    rotationX: 90,
-    opacity: 0
-  },
-  {
-    rotationX: 0,
-    opacity: 1,
-    ease: "power2.out",
-    duration: 2,         // duración total “virtual”
-    stagger: 0.05,       // retardo entre letras
+    y: 0, opacity: 1, scale: 1,
+    duration: 0.8,
+    ease: "back.out(1.7)",
+    stagger: 0.05,
     scrollTrigger: {
-      trigger: ".main-header h1",  // título como disparador
-      start: "top 70%",             // cuando el top del h1 alcance el 70% del viewport
-      end: "top 30%",               // fin de la zona de scrubbing
-      scrub: true,                  // anima según scroll y revierte suave
-      // markers: true,            // descomenta para ver puntos de inicio/fin
+      trigger: ".main-header h1",
+      start: "top 75%",
+      toggleActions: "play none none reverse",
+      immediateRender: false,
+      // markers: true  // descomenta para debug
     }
   }
 );
 
-
 // 🧨 ANIMACIÓN de letras (reveal-scroll interactivo)
-gsap.to(".reveal-char", {
-  scrollTrigger: {
-    trigger: ".header-content",
-    start: "top 80%",
-    end: "top 30%",
-    scrub: true
-  },
-  opacity: 1,
-  y: 0,
-  duration: 1,
-  ease: "power3.out",
-  stagger: {
-    each: 0.04,
-    from: "start"
-  }
-});
+// gsap.to(".reveal-char", {
+//   scrollTrigger: {
+//     trigger: ".header-content",
+//     start: "top 80%",
+//     end: "top 30%",
+//     scrub: true
+//   },
+//   opacity: 1,
+//   y: 0,
+//   duration: 1,
+//   ease: "power3.out",
+//   stagger: {
+//     each: 0.04,
+//     from: "start"
+//   }
+// });
 
 // 🔥 Animación PORT (ahora letra a letra)
 gsap.fromTo(".year",
@@ -143,6 +136,7 @@ gsap.fromTo(".subtitle p",
     stagger: 0.25
   }
 );
+
 // ––––– Flip + ScrollTrigger + frases –––––
 gsap.registerPlugin(Flip, ScrollTrigger);
 
@@ -151,12 +145,10 @@ function createFlipTimeline() {
   if (flipCtx) flipCtx.revert();
 
   flipCtx = gsap.context(() => {
-    // referencias a los textos
     const initialText = document.querySelector(".anim-initial .anim-text");
     const secondText  = document.querySelector(".anim-second  .anim-text");
     const thirdText   = document.querySelector(".anim-third   .anim-text");
 
-    // estados de destino
     const secondState = Flip.getState(".anim-second .anim-marker");
     const thirdState  = Flip.getState(".anim-third  .anim-marker");
     const cfg = { ease: "none", duration: 1 };
@@ -171,18 +163,11 @@ function createFlipTimeline() {
       }
     });
 
-    // 1) al principio, muestro el texto inicial
-    tl.to(initialText, { opacity: 1, duration: 0.5 });
-
-    // 2) encaja en segundo cubo
-    tl.add(Flip.fit(".anim-box", secondState, cfg))
-      // oculto inicial y muestro segundo
+    tl.to(initialText, { opacity: 1, duration: 0.5 })
+      .add(Flip.fit(".anim-box", secondState, cfg))
       .to(initialText, { opacity: 0, duration: 0.3 }, "<")
-      .to(secondText,  { opacity: 1, duration: 0.5 }, "<");
-
-    // 3) encaja en tercer cubo
-    tl.add(Flip.fit(".anim-box", thirdState, cfg), "+=0.5")
-      // oculto segundo y muestro tercero
+      .to(secondText,  { opacity: 1, duration: 0.5 }, "<")
+      .add(Flip.fit(".anim-box", thirdState, cfg), "+=0.5")
       .to(secondText, { opacity: 0, duration: 0.3 }, "<")
       .to(thirdText,  { opacity: 1, duration: 0.5 }, "<");
   });

@@ -126,7 +126,7 @@
     .reveal-char {
       display: inline-block;
       opacity: 0;
-      transform-origin: top center;      /* punto de giro */
+       transform-origin: top center;      /* punto de giro */
       backface-visibility: hidden;       /* oculta la “cara trasera” */
     }
 
