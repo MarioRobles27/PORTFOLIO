@@ -1,35 +1,56 @@
-    :root {
-      --dark-bg: #262623;
-      --light-text: #E2E2D0;
-      --accent-yellow: #D0CC25;
-      --light-bg: #f4f2e7;
-    }
-    
-    * {
-      margin: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-    
+/* DEFINICIÓN DE TIPOGRAFÍAS */
     @font-face {
       font-family: 'PPAcma';
-      src: url('https://fonts.cdnfonts.com/s/85071/PPAcma-Thin.woff') format('woff');
-      font-weight: 100;
+      src: url('../FONTS/PPAcma-Black.woff') format('woff');
+      font-weight: 900;
       font-style: normal;
     }
     
     @font-face {
       font-family: 'PPFormula';
-      src: url('https://fonts.cdnfonts.com/s/85071/PPFormula-Medium.woff') format('woff');
+      src: url('../FONTS/PPFormula-Medium.woff') format('woff');
       font-weight: 500;
       font-style: normal;
+    }
+    
+    /* VARIABLES Y RESET */
+    :root {
+      --dark-bg: #262623;
+      --light-text: #E2E2D0;
+      --accent-yellow: #D0CC25;
+      --light-bg: #f4f2e7;
+      --page-padding: clamp(2rem, 5vw, 4rem);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
     }
     
     body {
       background-color: var(--dark-bg);
       color: var(--light-text);
-      
       overflow-x: hidden;
+      padding: 0 var(--page-padding);
+    }
+    
+    /* APLICACIÓN ESTRICTA DE TIPOGRAFÍAS */
+    /* TODOS LOS TÍTULOS Y SUBTÍTULOS USAN PP ACMA */
+    h1, h2, h3, h4, h5, h6,
+    .header-title, .section-title, .timeline-date,
+    .skill-badge, .contact-label, .language-label {
+      font-family: 'PPAcma', sans-serif;
+      font-weight: 900;
+    }
+    
+    /* TODOS LOS CUERPOS DE TEXTO USAN PP FORMULA */
+    p, li, .contact-value, .language-level,
+    .timeline-content, .skill-container, .profesion,
+    .subtitle-text, .footer-text, .card-content {
+      font-family: 'PPFormula', sans-serif;
+      font-weight: 500;
     }
     
     /* HEADER STYLES */
@@ -42,6 +63,8 @@
       align-items: center;
       text-align: center;
       
+      padding: 2rem var(--page-padding);
+      margin: 0 calc(-1 * var(--page-padding));
     }
     
     .menu-toggle {
@@ -65,23 +88,50 @@
       transform: rotate(90deg);
     }
     
-    .header-content {
-      font-family: 'PPAcma', sans-serif;
-      font-weight: bold;
+    /* .header-title {
+      font-weight: 900;
       line-height: 1;
       color: var(--light-text);
       padding: 0 1rem;
+      letter-spacing: -0.03em;
+      max-width: 1200px;
+      margin: 0 auto;
     }
     
-    .header-content h1 {
-      font-size: 8rem;
-      font-weight: bold;
+    .header-title h1 {
+      font-size: clamp(3.5rem, 8vw, 8rem);
       line-height: 0.9;
       margin-bottom: 2rem;
+    } */
+    #scroll-button {
+      display: flex;           /* para centrar icono/texto si lo hay */
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      background: var(--primary-color);
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 1000;
     }
-    
+    .header-content {
+      font-size: 5rem;
+      perspective: 600px; /* <— perspectiva 3D */
+      
+    }
+
+    .reveal-char {
+      display: inline-block;
+      opacity: 0;
+      transform-origin: top center;      /* punto de giro */
+      backface-visibility: hidden;       /* oculta la “cara trasera” */
+    }
+
     .year {
-      font-weight: normal;
+      font-weight: 900;
     }
     
     .highlight {
@@ -98,18 +148,16 @@
     }
     
     .nombre {
-      font-family: 'PPFormula', sans-serif;
-      font-size: 2.2rem;
-      font-weight: 500;
+      font-size: clamp(1.8rem, 3vw, 2.2rem);
       margin-bottom: 0.3rem;
       color: var(--light-text);
+      letter-spacing: -0.02em;
     }
     
     .profesion {
-      font-family: 'PPFormula', sans-serif;
-      font-size: 1.4rem;
-      font-weight: 500;
+      font-size: clamp(1.2rem, 2vw, 1.4rem);
       color: var(--light-text);
+      letter-spacing: -0.01em;
     }
     
     .contenedor-circulo {
@@ -128,7 +176,8 @@
     .contenedor-circulo:hover {
       background-color: var(--accent-yellow);
       border-color: var(--accent-yellow);
-      transform: translateY(5px);
+      transform: scale(1.1) translateY(2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
     
     .imagen-circulo {
@@ -141,24 +190,58 @@
     .portfolio-container {
       padding: 5rem 0;
       background-color: var(--dark-bg);
+      max-width: 1400px;
+      margin: 0 auto;
     }
-    
+
+    .contact-icon {
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .contact-icon i,
+    .contact-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+        
     .section-title {
-      font-family: 'PPAcma', sans-serif;
       color: var(--accent-yellow);
       position: relative;
       padding-bottom: 15px;
       margin-bottom: 25px;
-      font-size: 1.8rem;
+      font-size: clamp(1.6rem, 2.5vw, 1.8rem);
+      letter-spacing: -0.01em;position: relative; /* necesario para el ::after absoluto */
+      display: inline-block; /* para que el ancho sea el del contenido */
     }
     
+    
+
     .section-title::after {
       content: "✦";
-      position: absolute;
-      right: 0;
-      top: 0;
+      
       color: var(--light-text);
+      display: inline-block;           /* permite aplicar transform */
+      transform-origin: 50% 50%;        /* punto de giro en el centro */
+      /* opcional: si quieres alejar la estrella un poco más */
+      /* right: -1em; */
     }
+
+    /* .section-title { position: relative; }
+    .section-title .star {
+      position: absolute;
+      top: 0; right: 0;
+      display: inline-block;
+      transform-origin: 50% 50%;
+      color: var(--light-text);
+    } */
+
+
+    
     
     .profile-image {
       width: 100%;
@@ -186,7 +269,6 @@
     .contact-icon {
       width: 35px;
       height: 35px;
-      background-color: var(--accent-yellow);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -234,9 +316,10 @@
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     }
     
-    .content-card p {
+    .card-content p {
       line-height: 1.7;
       margin-bottom: 1.2rem;
+      font-size: clamp(1rem, 1.2vw, 1.05rem);
     }
     
     .timeline-item {
@@ -259,9 +342,8 @@
     }
     
     .timeline-date {
-      font-family: 'PPAcma', sans-serif;
       color: var(--accent-yellow);
-      font-size: 1.1rem;
+      font-size: clamp(1rem, 1.2vw, 1.1rem);
       margin-bottom: 5px;
     }
     
@@ -290,42 +372,121 @@
     
     .footer {
       background-color: rgba(0, 0, 0, 0.3);
-      padding: 2rem 0;
+      padding: 2rem var(--page-padding);
       text-align: center;
       border-top: 1px solid rgba(226, 226, 208, 0.1);
+      margin: 0 calc(-1 * var(--page-padding));
     }
+    
+
+    /* ––––– Animación Flip Scroll ––––– */
+.anim-spacer {
+  width: 100%;
+  height: 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--light-text);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.anim-main {
+  position: relative;
+  height: 100vh;
+  min-height: 800px;
+}
+
+.anim-container {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed var(--accent-yellow);
+  border-radius: 10px;
+}
+
+.anim-initial { left: 60%; top: 10%; }
+.anim-second  { left: 10%; top: 50%; }
+.anim-third   { right: 10%; bottom: 3rem; }
+
+.anim-box,
+.anim-marker {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+}
+
+.anim-box {
+  background-image: url("https://assets.codepen.io/16327/circle.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.anim-container {
+  position: absolute;
+  /* resto de estilos… */
+  overflow: visible; /* para que el texto pueda sobresalir */
+}
+
+/* texto dentro del cubo */
+.anim-text {
+  position: absolute;
+  top: 100%;                    /* empieza justo tras el borde inferior del cubo */
+  margin-top: 0.8em;            /* separación extra que tú quieras */
+  width: 100%;
+  text-align: center;
+  font-family: 'PPFormula', sans-serif;
+  font-size: 1.2rem;
+  color: var(--light-text);
+  opacity: 0;
+  pointer-events: none;
+}
+
+
+
+/* .anim-marker {
+  background-color: var(--light-bg);
+} */
+
+
+    
     
     /* RESPONSIVE ADJUSTMENTS */
-    @media (max-width: 992px) {
-      .header-content h1 {
-        font-size: 6rem;
-      }
-    }
-    
     @media (max-width: 768px) {
-      .header-content h1 {
-        font-size: 4.5rem;
+      :root {
+        --page-padding: 1.5rem;
       }
-      
-      .section-title {
-        font-size: 1.6rem;
+
+      .header-content {
+        font-size: 4rem;
       }
       
       .portfolio-container {
         padding: 3rem 0;
       }
+      
+      .content-card {
+        padding: 20px;
+      }
     }
     
-    @media (max-width: 576px) {
-      .header-content h1 {
+    @media (max-width: 480px) {
+      :root {
+        --page-padding: 1rem;
+      }
+      .header-content {
         font-size: 3.2rem;
       }
-      
-      .nombre {
-        font-size: 1.8rem;
+      .contact-item {
+        flex-direction: column;
+        align-items: flex-start;
       }
       
-      .profesion {
-        font-size: 1.2rem;
+      .contact-icon {
+        margin-bottom: 10px;
       }
     }
