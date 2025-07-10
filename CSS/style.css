@@ -123,6 +123,18 @@
       
     }
 
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s, transform 0.6s;
+    }
+
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+
     .reveal-char {
       display: inline-block;
       opacity: 0;
@@ -185,201 +197,262 @@
       height: auto;
       filter: invert(1);
     }
-    
-    /* MAIN CONTENT STYLES */
-    .portfolio-container {
-      padding: 5rem 0;
-      background-color: var(--dark-bg);
-      max-width: 1400px;
-      margin: 0 auto;
-    }
 
-    .contact-icon {
-      width: 24px;
-      height: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
 
-    .contact-icon i,
-    .contact-icon img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-        
-    .section-title {
-      color: var(--accent-yellow);
-      position: relative;
-      padding-bottom: 15px;
-      margin-bottom: 25px;
-      font-size: clamp(1.6rem, 2.5vw, 1.8rem);
-      letter-spacing: -0.01em;position: relative; /* necesario para el ::after absoluto */
-      display: inline-block; /* para que el ancho sea el del contenido */
-    }
-    
-    
 
-    .section-title::after {
-      content: "✦";
-      
-      color: var(--light-text);
-      display: inline-block;           /* permite aplicar transform */
-      transform-origin: 50% 50%;        /* punto de giro en el centro */
-      /* opcional: si quieres alejar la estrella un poco más */
-      /* right: -1em; */
-    }
 
-    /* .section-title { position: relative; }
-    .section-title .star {
-      position: absolute;
-      top: 0; right: 0;
-      display: inline-block;
-      transform-origin: 50% 50%;
-      color: var(--light-text);
-    } */
+
 
 
     
-    
-    .profile-image {
-      width: 100%;
-      height: 300px;
-      object-fit: cover;
-      border: 3px solid var(--accent-yellow);
-      border-radius: 5px;
-      margin-bottom: 2rem;
-    }
-    
-    .contact-item {
-      display: flex;
-      align-items: center;
-      margin-bottom: 20px;
-      padding: 10px;
-      border-bottom: 1px solid rgba(226, 226, 208, 0.2);
-      transition: all 0.3s ease;
-    }
-    
-    .contact-item:hover {
-      background-color: rgba(208, 204, 37, 0.1);
-      transform: translateX(5px);
-    }
-    
-    .contact-icon {
-      width: 35px;
-      height: 35px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-right: 15px;
-      color: var(--dark-bg);
-    }
-    
-    .skills-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      margin-top: 1rem;
-    }
-    
-    .skill-badge {
-      background-color: rgba(208, 204, 37, 0.15);
-      color: var(--light-text);
-      border: 1px solid var(--accent-yellow);
-      border-radius: 30px;
-      padding: 8px 20px;
-      font-size: 0.95rem;
-      transition: all 0.2s ease;
-    }
-    
-    .skill-badge:hover {
-      background-color: var(--accent-yellow);
-      color: var(--dark-bg);
-      transform: translateY(-3px);
-    }
-    
-    .content-card {
-      background-color: rgba(38, 38, 35, 0.7);
-      border: 1px solid rgba(226, 226, 208, 0.1);
-      border-radius: 8px;
-      padding: 25px;
-      margin-bottom: 25px;
-      transition: all 0.3s ease;
-      height: 100%;
-    }
-    
-    .content-card:hover {
-      border-color: var(--accent-yellow);
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    }
-    
-    .card-content p {
-      line-height: 1.7;
-      margin-bottom: 1.2rem;
-      font-size: clamp(1rem, 1.2vw, 1.05rem);
-    }
-    
-    .timeline-item {
-      position: relative;
-      padding-left: 30px;
-      margin-bottom: 30px;
-      border-left: 2px solid var(--accent-yellow);
-      padding-bottom: 10px;
-    }
-    
-    .timeline-item:before {
-      content: "";
-      position: absolute;
-      left: -8px;
-      top: 0;
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      background-color: var(--accent-yellow);
-    }
-    
-    .timeline-date {
-      color: var(--accent-yellow);
-      font-size: clamp(1rem, 1.2vw, 1.1rem);
-      margin-bottom: 5px;
-    }
-    
-    .language-level {
-      display: flex;
-      align-items: center;
-      margin-bottom: 15px;
-    }
-    
-    .level-bar {
-      height: 6px;
-      background-color: rgba(226, 226, 208, 0.2);
-      border-radius: 3px;
-      flex-grow: 1;
-      margin-left: 15px;
-      overflow: hidden;
-    }
-    
-    .level-fill {
-      height: 100%;
-      background-color: var(--accent-yellow);
-    }
-    
-    .native .level-fill { width: 100%; }
-    .b2 .level-fill { width: 80%; }
-    
-    .footer {
-      background-color: rgba(0, 0, 0, 0.3);
-      padding: 2rem var(--page-padding);
-      text-align: center;
-      border-top: 1px solid rgba(226, 226, 208, 0.1);
-      margin: 0 calc(-1 * var(--page-padding));
-    }
+/* MAIN CONTENT STYLES */
+.portfolio-container {
+  padding: 5rem 0;
+  background-color: var(--dark-bg);
+  max-width: 1400px;
+  margin: 0 auto;
+  min-height: 100vh;         /* asegura altura de pantalla completa en escritorio */
+  display: flex;             /* alineación vertical */
+  align-items: center;       /* centra contenido verticalmente */
+}
+
+/* ROW: fuerza el alineado arriba y el margen de separación entre columnas */
+.row.align-items-start {
+  align-items: flex-start !important;
+}
+
+/* Imagen de perfil (por defecto, fuera de la sección “Sobre mí”) */
+.profile-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border: 3px solid var(--accent-yellow);
+  border-radius: 5px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 28px rgba(0,0,0,0.10);
+  max-width: 320px;    /* máximo tamaño en escritorio */
+  display: block;
+}
+
+/* Contacto */
+.contact-icon {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  color: var(--dark-bg);
+}
+.contact-icon i,
+.contact-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Títulos de sección */
+.section-title {
+  color: var(--accent-yellow);
+  position: relative;
+  padding-bottom: 15px;
+  margin-bottom: 25px;
+  font-size: clamp(1.6rem, 2.5vw, 1.8rem);
+  letter-spacing: -0.01em;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: "✦";
+  color: var(--light-text);
+  display: inline-block;
+}
+
+/* Tarjetas generales */
+.content-card {
+  background-color: rgba(38, 38, 35, 0.7);
+  border: 1px solid rgba(226, 226, 208, 0.1);
+  border-radius: 8px;
+  padding: 25px;
+  /* margin-bottom: 25px; */
+  transition: all 0.3s ease;
+  height: 100%;
+}
+.content-card:hover {
+  border-color: var(--accent-yellow);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Habilidades técnicas */
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 1rem;
+}
+.skill-badge {
+  background-color: rgba(208, 204, 37, 0.15);
+  color: var(--light-text);
+  border: 1px solid var(--accent-yellow);
+  border-radius: 30px;
+  padding: 8px 20px;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+.skill-badge:hover {
+  background-color: var(--accent-yellow);
+  color: var(--dark-bg);
+  transform: translateY(-3px);
+}
+
+/* Contacto - items */
+.contact-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-bottom: 1px solid rgba(226, 226, 208, 0.2);
+  transition: all 0.3s ease;
+}
+.contact-item:hover {
+  background-color: rgba(208, 204, 37, 0.1);
+  transform: translateX(5px);
+}
+
+/* Educación y experiencia - timeline */
+.timeline-item {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 30px;
+  border-left: 2px solid var(--accent-yellow);
+  padding-bottom: 10px;
+}
+.timeline-item:before {
+  content: "";
+  position: absolute;
+  left: -8px;
+  top: 0;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: var(--accent-yellow);
+}
+.timeline-date {
+  color: var(--accent-yellow);
+  font-size: clamp(1rem, 1.2vw, 1.1rem);
+  margin-bottom: 5px;
+}
+
+/* Idiomas */
+.language-level {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.level-bar {
+  height: 6px;
+  background-color: rgba(226, 226, 208, 0.2);
+  border-radius: 3px;
+  flex-grow: 1;
+  margin-left: 15px;
+  overflow: hidden;
+  max-width: 120px;
+}
+.level-fill {
+  height: 100%;
+  background-color: var(--accent-yellow);
+  border-radius: 3px;
+}
+/* Puedes usar directamente .level-fill y width por inline en HTML si lo prefieres */
+
+/* Footer */
+.footer {
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 2rem var(--page-padding);
+  text-align: center;
+  border-top: 1px solid rgba(226, 226, 208, 0.1);
+  margin: 0 calc(-1 * var(--page-padding));
+}
+
+.about-row {
+  display: flex;
+  align-items: stretch;    /* Así ambos bloques tendrán la misma altura si el texto crece */
+  gap: 2.5rem;
+  width: 100%;
+  margin-bottom: 2.5rem;
+}
+
+.about-img-col,
+.about-text-col {
+  flex: 0 0 50%;
+  max-width: 50%;
+  min-width: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Para la imagen: sin max-width, que sea 100% del contenedor */
+.about-img-col .profile-image {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  min-height: 320px;
+  object-fit: cover;
+  border: 3px solid var(--accent-yellow);
+  border-radius: 8px;
+  margin-bottom: 0;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+  background: var(--dark-bg);
+  /* Si quieres que la imagen no se deforme: */
+  aspect-ratio: 1/1.2; /* Por ejemplo, cuadrada/vertical, puedes ajustar */
+}
+
+
+.about-img-col {
+  flex: 0 0 40%;
+  max-width: 40%;
+  min-width: 180px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.about-text-col {
+  flex: 1 1 60%;
+  max-width: 60%;
+  min-width: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Solo para la imagen del retrato en la sección “Sobre mí” */
+.about-row .profile-image {
+  width: 100%;
+  /* height: 320px; */
+  object-fit: cover;
+  border: 3px solid var(--accent-yellow);
+  border-radius: 8px;
+  margin-bottom: 0;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+  background: var(--dark-bg);
+}
+
+/* Footer */
+.footer {
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 2rem var(--page-padding);
+  text-align: center;
+  border-top: 1px solid rgba(226, 226, 208, 0.1);
+  margin: 0 calc(-1 * var(--page-padding));
+}
+
     
 
-    /* ––––– Animación Flip Scroll ––––– */
+      /* ––––– Animación Flip Scroll ––––– */
 .anim-spacer {
   width: 100%;
   height: 20vh;
@@ -454,39 +527,107 @@
 
 
     
-    
-    /* RESPONSIVE ADJUSTMENTS */
-    @media (max-width: 768px) {
-      :root {
-        --page-padding: 1.5rem;
-      }
+ 
+/* ––––– Animación Flip Scroll ––––– */
+.anim-spacer {
+  width: 100%;
+  height: 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--light-text);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
 
-      .header-content {
-        font-size: 4rem;
-      }
-      
-      .portfolio-container {
-        padding: 3rem 0;
-      }
-      
-      .content-card {
-        padding: 20px;
-      }
-    }
-    
-    @media (max-width: 480px) {
-      :root {
-        --page-padding: 1rem;
-      }
-      .header-content {
-        font-size: 3.2rem;
-      }
-      .contact-item {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      
-      .contact-icon {
-        margin-bottom: 10px;
-      }
-    }
+.anim-main {
+  position: relative;
+  height: 100vh;
+  min-height: 800px;
+}
+
+.anim-container {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed var(--accent-yellow);
+  border-radius: 10px;
+}
+
+.anim-initial { left: 60%; top: 10%; }
+.anim-second  { left: 10%; top: 50%; }
+.anim-third   { right: 10%; bottom: 3rem; }
+
+.anim-box,
+.anim-marker {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+}
+
+.anim-box {
+  background-image: url("https://assets.codepen.io/16327/circle.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.anim-container {
+  position: absolute;
+  /* resto de estilos… */
+  overflow: visible; /* para que el texto pueda sobresalir */
+}
+
+/* texto dentro del cubo */
+.anim-text {
+  position: absolute;
+  top: 100%;                    /* empieza justo tras el borde inferior del cubo */
+  margin-top: 0.8em;            /* separación extra que tú quieras */
+  width: 100%;
+  text-align: center;
+  font-family: 'PPFormula', sans-serif;
+  font-size: 1.2rem;
+  color: var(--light-text);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Responsive: apila en móvil/tablet */
+@media (max-width: 991.98px) {
+  .about-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.7rem;
+    margin-bottom: 2rem;
+  }
+  .about-img-col,
+  .about-text-col {
+    flex: 0 0 100%;
+    max-width: 100%;
+    min-width: unset;
+    justify-content: center;
+  }
+  .about-img-col .profile-image {
+    min-height: 220px;
+    max-width: 90vw;
+    aspect-ratio: unset;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .profile-image {
+    height: 220px;
+    max-width: 90vw;
+    margin-bottom: 1.2rem;
+  }
+  .content-card {
+    padding: 12px 5px;
+    margin-bottom: 14px;
+  }
+  .skills-container {
+    gap: 8px;
+  }
+}

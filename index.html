@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Mario Robles Caña</title>
   <link href="CSS/style.css" rel="stylesheet" type="text/css">
 </head>
@@ -17,20 +18,21 @@
       &#9776;
     </button>
 
-    <div class="header-content">
-      <h1 class="display-1 fw-bold">
-        <span class="line1">PORT <span class="year">20</span></span><br />
-        <span class="line2">FOLIO <span class="year highlight">25</span></span>
-      </h1>
+    <div class="header-content animate-on-scroll">
+  <h1 class="display-1 fw-bold">
+    <span class="line1">PORT</span> <span class="year-text">20</span><br />
+    <span class="line2">FOLIO</span> <span class="year-text highlight">25</span>
+  </h1>
 
-      <div class="subtitle formula d-flex flex-column align-items-center">
-        <p class="nombre fs-2">Mario Robles Caña</p>
-        <p class="profesion fs-4">Diseñador <span class="highlight">gráfico</span></p>
-        <div class="contenedor-circulo border border-light rounded-circle d-flex justify-content-center align-items-center" style="width:60px; height:60px;">
-          <img src="IMG/estrella.png" alt="Estrella decorativa" class="imagen-circulo w-75">
-        </div>
-      </div>
+  <div class="subtitle formula d-flex flex-column align-items-center">
+    <p class="nombre fs-2">Mario Robles Caña</p>
+    <p class="profesion fs-4">Diseñador <span class="highlight">gráfico</span></p>
+    <div class="contenedor-circulo border border-light rounded-circle d-flex justify-content-center align-items-center" style="width:60px; height:60px;">
+      <img src="IMG/estrella.png" alt="Estrella decorativa" class="imagen-circulo w-75">
     </div>
+  </div>
+</div>
+
   </header>
   
 
@@ -53,154 +55,150 @@
 
  
 
-  <!-- MAIN CONTENT - TWO COLUMN LAYOUT -->
-  <div class="portfolio-container">
-    <div class="container-fluid">
-      <div class="row g-5">
-        <!-- LEFT COLUMN -->
-        <div class="col-lg-5">
-          <!-- Profile Image -->
-          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" 
-               alt="Mario Robles Caña" class="profile-image">
-          
-          <!-- Contact Section -->
-          <div class="content-card">
-            <h2 class="section-title">Contacto</h2>
-
-            <div class="contact-item">
-               <div class="contact-icon">
-                <img src="IMG/Recurso 14.png" alt="icono email">
-              </div>
-              <div class="contact-value">27 – 11 – 1999</div>
-            </div>
-
-            <div class="contact-item">
-              <div class="contact-icon">
-                <img src="IMG/mail.png" alt="icono email">
-              </div>
-              <div class="contact-value">marioroblesudit@gmail.com</div>
-            </div>
-
-            <div class="contact-item">
-               <div class="contact-icon">
-                <img src="IMG/linkeding.png" alt="icono email">
-              </div>
-              <div class="contact-value">+34 600 123 456</div>
-            </div>
-
-            <div class="contact-item">
-               <div class="contact-icon">
-                <img src="IMG/mail.png" alt="icono email">
-              </div>
-              <div class="contact-value">Madrid, España</div>
-            </div>
+<!-- MAIN CONTENT - TWO COLUMN LAYOUT -->
+<div class="portfolio-container">
+  <div class="container-fluid">
+    <div class="row g-5 align-items-start">
+      <!-- COLUMNA IZQUIERDA -->
+      <div class="col-lg-5 col-12">
+        <!-- Bloque retrato + Sobre mí horizontal -->
+        <div class="about-row">
+          <div class="about-img-col">
+            <img src="IMG/retrato.png" alt="Mario Robles Caña" class="profile-image">
           </div>
-          
-          <!-- Technical Skills -->
-          <div class="content-card">
-            <h2 class="section-title">Habilidades Técnicas</h2>
-            <div class="skills-container">
-              <span class="skill-badge">Photoshop</span>
-              <span class="skill-badge">Illustrator</span>
-              <span class="skill-badge">InDesign</span>
-              <span class="skill-badge">After Effects</span>
-              <span class="skill-badge">Premiere Pro</span>
-              <span class="skill-badge">Figma</span>
-              <span class="skill-badge">Blender</span>
-              <span class="skill-badge">Cinema 4D</span>
-              <span class="skill-badge">HTML/CSS</span>
-              <span class="skill-badge">Typography</span>
-              <span class="skill-badge">Branding</span>
-              <span class="skill-badge">UI/UX</span>
+          <div class="about-text-col">
+            <div class="content-card">
+              <h2 class="section-title">Sobre Mí</h2>
+              <div class="card-content">
+                <p>
+                  Soy Mario Robles, diseñador gráfico con especial interés en la tipografía, la identidad visual y la dirección de arte. Me gusta construir sistemas visuales claros, funcionales y con personalidad, cuidando tanto el concepto como el detalle.
+                </p>
+                <p>
+                  Trabajo entre lo técnico y lo emocional, combinando diseño editorial, branding y motion graphics con conocimientos de código, animación y desarrollo tipográfico. Creo en el diseño como herramienta para comunicar con honestidad, claridad y un punto de humor.
+                </p>
+                <p>
+                  Mi enfoque se basa en la creación de soluciones visuales que no solo cumplen con los objetivos del cliente, sino que también aportan valor estético y funcional. Busco constantemente nuevos desafíos que me permitan crecer profesionalmente y expandir mis habilidades.
+                </p>
+              </div>
             </div>
           </div>
         </div>
-        
-        <!-- RIGHT COLUMN -->
-        <div class="col-lg-7">
-          <!-- About Me -->
-          <div class="content-card">
-            <h2 class="section-title">Sobre Mí</h2>
-            <div class="card-content">
-              <p>
-                Soy Mario Robles, diseñador gráfico con especial interés en la tipografía, la identidad visual y la dirección de arte. Me gusta construir sistemas visuales claros, funcionales y con personalidad, cuidando tanto el concepto como el detalle.
-              </p>
-              <p>
-                Trabajo entre lo técnico y lo emocional, combinando diseño editorial, branding y motion graphics con conocimientos de código, animación y desarrollo tipográfico. Creo en el diseño como herramienta para comunicar con honestidad, claridad y un punto de humor.
-              </p>
-              <p>
-                Mi enfoque se basa en la creación de soluciones visuales que no solo cumplen con los objetivos del cliente, sino que también aportan valor estético y funcional. Busco constantemente nuevos desafíos que me permitan crecer profesionalmente y expandir mis habilidades.
-              </p>
+        <!-- Contacto -->
+        <div class="content-card">
+          <h2 class="section-title">Contacto</h2>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <img src="IMG/Recurso 14.png" alt="icono nacimiento">
             </div>
+            <div class="contact-value">27 – 11 – 1999</div>
           </div>
-          
-          <!-- Education -->
-          <div class="content-card">
-            <h2 class="section-title">Educación</h2>
-            <div class="timeline-item">
-              <div class="timeline-date">2021 – 2025</div>
-              <h4>Diseño Multimedia y Gráfico</h4>
-              <p class="timeline-content">Universidad de Diseño e Innovación (UDIT)</p>
-              <p class="text-light-emphasis timeline-content">Especialización en diseño tipográfico y dirección de arte</p>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <img src="IMG/mail.png" alt="icono email">
             </div>
-            <div class="timeline-item">
-              <div class="timeline-date">2020</div>
-              <h4>Curso Avanzado de Tipografía</h4>
-              <p class="timeline-content">Escuela Superior de Diseño de Madrid</p>
-            </div>
+            <div class="contact-value">marioroblesudit@gmail.com</div>
           </div>
-          
-          <!-- Experience -->
-          <div class="content-card">
-            <h2 class="section-title">Experiencia</h2>
-            <div class="timeline-item">
-              <div class="timeline-date">2024 - Actualidad</div>
-              <h4>Vecario Studio</h4>
-              <p class="timeline-content">Diseñador gráfico en prácticas</p>
-              <p class="text-light-emphasis timeline-content">Desarrollo de identidad visual para clientes internacionales</p>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <img src="IMG/linkeding.png" alt="icono linkedin">
             </div>
-            <div class="timeline-item">
-              <div class="timeline-date">2023 - 2024</div>
-              <h4>Freelance</h4>
-              <p class="timeline-content">Diseñador gráfico y tipográfico</p>
-              <p class="text-light-emphasis timeline-content">Proyectos de branding y diseño editorial</p>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-date">2022</div>
-              <h4>Becario en Estudio Creativo</h4>
-              <p class="timeline-content">Diseño de materiales promocionales</p>
-            </div>
+            <div class="contact-value">+34 600 123 456</div>
           </div>
-          
-          <!-- Languages -->
-          <div class="content-card">
-            <h2 class="section-title">Idiomas</h2>
-            <div class="language-level">
-              <span class="language-label">Español</span>
-              <div class="level-bar">
-                <div class="level-fill native"></div>
-              </div>
-              <span class="ms-2 language-level">Nativo</span>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <img src="IMG/mail.png" alt="icono ubicación">
             </div>
-            <div class="language-level">
-              <span class="language-label">Inglés</span>
-              <div class="level-bar">
-                <div class="level-fill b2"></div>
-              </div>
-              <span class="ms-2 language-level">B2</span>
+            <div class="contact-value">Madrid, España</div>
+          </div>
+        </div>
+        <!-- Habilidades técnicas -->
+        <div class="content-card">
+          <h2 class="section-title">Habilidades Técnicas</h2>
+          <div class="skills-container">
+            <span class="skill-badge">Photoshop</span>
+            <span class="skill-badge">Illustrator</span>
+            <span class="skill-badge">InDesign</span>
+            <span class="skill-badge">After Effects</span>
+            <span class="skill-badge">Premiere Pro</span>
+            <span class="skill-badge">Figma</span>
+            <span class="skill-badge">Blender</span>
+            <span class="skill-badge">Cinema 4D</span>
+            <span class="skill-badge">HTML/CSS</span>
+            <span class="skill-badge">Typography</span>
+            <span class="skill-badge">Branding</span>
+            <span class="skill-badge">UI/UX</span>
+          </div>
+        </div>
+      </div>
+      <!-- COLUMNA DERECHA -->
+      <div class="col-lg-7 col-12">
+        <!-- Educación -->
+        <div class="content-card">
+          <h2 class="section-title">Educación</h2>
+          <div class="timeline-item">
+            <div class="timeline-date">2021 – 2025</div>
+            <h4>Diseño Multimedia y Gráfico</h4>
+            <p class="timeline-content">Universidad de Diseño e Innovación (UDIT)</p>
+            <p class="text-light-emphasis timeline-content">Especialización en diseño tipográfico y dirección de arte</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">2020</div>
+            <h4>Curso Avanzado de Tipografía</h4>
+            <p class="timeline-content">Escuela Superior de Diseño de Madrid</p>
+          </div>
+        </div>
+        <!-- Experiencia -->
+        <div class="content-card">
+          <h2 class="section-title">Experiencia</h2>
+          <div class="timeline-item">
+            <div class="timeline-date">2024 - Actualidad</div>
+            <h4>Vecario Studio</h4>
+            <p class="timeline-content">Diseñador gráfico en prácticas</p>
+            <p class="text-light-emphasis timeline-content">Desarrollo de identidad visual para clientes internacionales</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">2023 - 2024</div>
+            <h4>Freelance</h4>
+            <p class="timeline-content">Diseñador gráfico y tipográfico</p>
+            <p class="text-light-emphasis timeline-content">Proyectos de branding y diseño editorial</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">2022</div>
+            <h4>Becario en Estudio Creativo</h4>
+            <p class="timeline-content">Diseño de materiales promocionales</p>
+          </div>
+        </div>
+        <!-- Idiomas -->
+        <div class="content-card">
+          <h2 class="section-title">Idiomas</h2>
+          <div class="language-level">
+            <span class="language-label">Español</span>
+            <div class="level-bar">
+              <div class="level-fill native"></div>
             </div>
-            <div class="language-level">
-              <span class="language-label">Francés</span>
-              <div class="level-bar">
-                <div class="level-fill" style="width: 40%"></div>
-              </div>
-              <span class="ms-2 language-level">A2</span>
+            <span class="ms-2 language-level">Nativo</span>
+          </div>
+          <div class="language-level">
+            <span class="language-label">Inglés</span>
+            <div class="level-bar">
+              <div class="level-fill b2"></div>
             </div>
+            <span class="ms-2 language-level">B2</span>
+          </div>
+          <div class="language-level">
+            <span class="language-label">Francés</span>
+            <div class="level-bar">
+              <div class="level-fill" style="width: 40%"></div>
+            </div>
+            <span class="ms-2 language-level">A2</span>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
+
+
   
   <!-- FOOTER -->
   <footer class="footer">
@@ -223,17 +221,13 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/CSSRulePlugin.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/Flip.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/CSSRulePlugin.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script src="JS/script.js"></script>
 
   
 </body>
-
+ 
 </html>
