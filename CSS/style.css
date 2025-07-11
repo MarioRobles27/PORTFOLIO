@@ -124,7 +124,7 @@
     }
 
     .animate-on-scroll {
-      opacity: 0;
+      opacity: 0; 
       transform: translateY(20px);
       transition: opacity 0.6s, transform 0.6s;
     }
