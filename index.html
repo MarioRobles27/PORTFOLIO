@@ -1,224 +1,738 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Mario Robles Caña</title>
   <link href="CSS/style.css" rel="stylesheet" type="text/css">
-</head>
+  </head>
+  <body>
 
-  
- <body>
+    <!-- Barra de progreso (scroll) -->
+    <div id="progress" class="progress" aria-hidden="true"></div>
 
-  <!-- HEADER -->
-  <header class="main-header text-center py-5">
-    <button class="menu-toggle btn btn-outline-light rounded-circle position-absolute top-0 start-0 m-3" id="menu-toggle" aria-label="Abrir menú">
-      &#9776;
-    </button>
+    <!-- Header / Navegación -->
+    <header class="site-header" id="top">
+      <nav class="nav" aria-label="principal">
+        <a class="brand magnetic" href="#hero"><span class="dot" aria-hidden="true"></span> MARIO ROBLES</a>
 
-    <div class="header-content animate-on-scroll">
-  <h1 class="display-1 fw-bold">
-    <span class="line1">PORT</span> <span class="year-text">20</span><br />
-    <span class="line2">FOLIO</span> <span class="year-text highlight">25</span>
-  </h1>
+        <!-- Botón hamburguesa -->
+        <button
+          class="nav-toggle magnetic"
+          aria-label="Abrir menú"
+          aria-controls="siteMenu"
+          aria-expanded="false"
+          data-js="nav-toggle">
+          <span class="line line--top" aria-hidden="true"></span>
+          <span class="line line--mid" aria-hidden="true"></span>
+          <span class="line line--bot" aria-hidden="true"></span>
+        </button>
 
-  <div class="subtitle formula d-flex flex-column align-items-center">
-    <p class="nombre fs-2">Mario Robles Caña</p>
-    <p class="profesion fs-4">Diseñador <span class="highlight">gráfico</span></p>
-    <div class="contenedor-circulo border border-light rounded-circle d-flex justify-content-center align-items-center" style="width:60px; height:60px;">
-      <img src="IMG/estrella.png" alt="Estrella decorativa" class="imagen-circulo w-75">
-    </div>
-  </div>
-</div>
+        <!-- Panel de menú -->
+        <div class="menu" id="siteMenu" hidden>
+          <!-- Botón cerrar dentro del panel -->
+          <button class="nav-close" aria-label="Cerrar menú" data-js="nav-close">
+            <span class="x x--a" aria-hidden="true"></span>
+            <span class="x x--b" aria-hidden="true"></span>
+          </button>
 
-  </header>
-  
+          <a href="#about">Sobre mí</a>
+          <a href="#works">Trabajos</a>
+          <a href="#skills">Habilidades</a>
+          <a href="#edu">Educación</a>
+          <a href="#exp">Experiencia</a>
+          <a href="#langs">Idiomas</a>
+          <a href="#type">Tipografía</a>
+          <a class="cta magnetic" href="#contacto">Contacto</a>
+        </div>
+      </nav>
+    </header>
 
-  
-    <div class="anim-main">
-      <div class="anim-container anim-initial">
-        <div class="anim-box"></div>
-        <span class="anim-text">Aquí empieza el viaje</span>
-      </div>
-      <div class="anim-container anim-second">
-        <div class="anim-marker"></div>
-        <span class="anim-text">Segundo destino alcanzado</span>
-      </div>
-      <div class="anim-container anim-third">
-        <div class="anim-marker"></div>
-        <span class="anim-text">Meta final conseguida</span>
-      </div>
-  </div>
-    <div class="anim-spacer anim-final"></div>
+    <main>
 
- 
+      <!-- HERO -->
+      <section id="hero" class="section hero">
+        <div id="bg" class="bg" aria-hidden="true"></div>
 
-<!-- MAIN CONTENT - TWO COLUMN LAYOUT -->
-<div class="portfolio-container">
-  <div class="container-fluid">
-    <div class="row g-5 align-items-start">
-      <!-- COLUMNA IZQUIERDA -->
-      <div class="col-lg-5 col-12">
-        <!-- Bloque retrato + Sobre mí horizontal -->
-        <div class="about-row">
-          <div class="about-img-col">
-            <img src="IMG/retrato.png" alt="Mario Robles Caña" class="profile-image">
+        <div class="wrap hero-inner">
+          <p class="kicker">Tipografía · Identidad visual</p>
+
+          <h1 class="display" data-split>
+            Diseño claro, funcional y con personalidad.
+          </h1>
+
+          <p class="sub">
+            Trabajo entre lo técnico y lo emocional para construir sistemas visuales que comuniquen con honestidad, claridad y un punto de humor.
+          </p>
+
+          <div class="actions">
+            <a class="btn magnetic" href="#about">Conóceme</a>
+            <a class="btn magnetic" href="#contacto">Escríbeme</a>
           </div>
-          <div class="about-text-col">
-            <div class="content-card">
-              <h2 class="section-title">Sobre Mí</h2>
-              <div class="card-content">
-                <p>
-                  Soy Mario Robles, diseñador gráfico con especial interés en la tipografía, la identidad visual y la dirección de arte. Me gusta construir sistemas visuales claros, funcionales y con personalidad, cuidando tanto el concepto como el detalle.
-                </p>
-                <p>
-                  Trabajo entre lo técnico y lo emocional, combinando diseño editorial, branding y motion graphics con conocimientos de código, animación y desarrollo tipográfico. Creo en el diseño como herramienta para comunicar con honestidad, claridad y un punto de humor.
-                </p>
-                <p>
-                  Mi enfoque se basa en la creación de soluciones visuales que no solo cumplen con los objetivos del cliente, sino que también aportan valor estético y funcional. Busco constantemente nuevos desafíos que me permitan crecer profesionalmente y expandir mis habilidades.
-                </p>
+
+          <div class="arrow" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M12 4v16M12 20l-6-6M12 20l6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- Marquee -->
+      <section id="marquee" class="marquee" aria-label="marquee">
+        <div class="marquee__track" style="--speed:22s">
+          <div class="marquee__group">
+            <span class="marquee__item">MARIO ROBLES • TIPOGRAFÍA • IDENTIDAD VISUAL • DIRECCIÓN DE ARTE</span>
+            <span class="marquee__item">DISEÑO EDITORIAL • BRANDING • MOTION GRAPHICS</span>
+            <span class="marquee__item">PROLEXIA • KELETRA • UI/UX</span>
+          </div>
+          <div class="marquee__group" aria-hidden="true">
+            <span class="marquee__item">MARIO ROBLES • TIPOGRAFÍA • IDENTIDAD VISUAL • DIRECCIÓN DE ARTE</span>
+            <span class="marquee__item">DISEÑO EDITORIAL • BRANDING • MOTION GRAPHICS</span>
+            <span class="marquee__item">PROLEXIA • KELETRA • UI/UX</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- SOBRE MÍ -->
+      <section id="about" class="section wrap reveal">
+        <div class="about-shell">
+          <div class="about-grid">
+
+            <!-- 1) FOTO -->
+            <figure id="aboutPhoto" class="card portrait popout-card">
+              <div class="pop">
+                <img
+                  class="pop__base"
+                  src="https://freight.cargo.site/t/original/i/Q2511318037260635922316373982233/retrato.png"
+                  alt="Retrato de Mario Robles">
+              </div>
+            </figure>
+
+            <!-- 2) TEXTO -->
+            <article class="card about-text" data-anim="fade-up">
+              <h2>¿Quién soy?</h2>
+              <p>Soy Mario Robles, tengo 25 años y soy diseñador gráfico. Me mueven las ganas de aprender ya que me marco metas constantes para superarme y un enfoque que combina lo técnico con lo emocional. Mi interés principal está en la tipografía y la identidad visual, siempre cuidando el concepto y el detalle.</p>
+
+              <h2>¿Qué hago?</h2>
+              <p>Soy graduado en Diseño Gráfico y Multimedia por UDIT (Madrid). Desarrollo sistemas visuales claros y funcionales con personalidad: identidad, diseño editorial y motion graphics; también trabajo con código y desarrollo tipográfico cuando el proyecto lo requiere.</p>
+
+              <h2>¿Cómo trabajo?</h2>
+              <p>Entre 2021 y 2023 compaginé un empleo en una gasolinera con mis estudios. Esa etapa fue clave para forjar hábitos, disciplina y motivación para seguir aprendiendo. Posteriormente, estuve siete meses en COONIC, experiencia que fue fundamental para mi desarrollo profesional y que me ayudó a definir con claridad que quiero centrar mi carrera en tipografía e identidad visual, a no ser que el contexto exija otro camino estratégico.</p>
+
+              <h2>¿Cuáles son mis aptitudes?</h2>
+              <ul>
+                <li>Gestión de proyectos: planificación, seguimiento y comunicación con cliente según objetivos y plazos.</li>
+                <li>Flexibilidad y aprendizaje continuo, también en entornos de presión.</li>
+                <li>Criterio tipográfico e identidad visual orientados a la legibilidad y la claridad.</li>
+                <li>Trabajo en equipo y autonomía cuando hace falta; enfoque analítico y atención al detalle.</li>
+              </ul>
+
+              <h2>Resumen profesional</h2>
+              <p>Diseñador gráfico con base tecnológica y artística. Busco oportunidades donde aportar soluciones honestas y claras que cumplan objetivos y generen valor para la empresa y sus usuarios. Ofrezco compromiso, responsabilidad y capacidad de adaptación a distintos contextos y retos. Disponibilidad preferente de mañanas.</p>
+            </article>
+
+            <!-- 3) DATOS -->
+            <aside id="contacto" class="card about-data">
+              <h3 class="title">Contacto</h3>
+
+              <div class="stack">
+
+                <div class="info">
+                  <svg width="24" height="24" fill="none" aria-hidden="true">
+                    <path d="M8 7a4 4 0 1 1 8 0v2h1a2 2 0 0 1 2 2v7H5v-7a2 2 0 0 1 2-2h1V7Z" stroke="currentColor" stroke-width="1.5"/>
+                    <path d="M9 20v-6a3 3 0 1 1 6 0v6" stroke="currentColor" stroke-width="1.5"/>
+                  </svg>
+                  <div>
+                    <b>Nacimiento</b>
+                    <div class="muted">27 – 11 – 1999</div>
+                  </div>
+                </div>
+
+                <div class="info">
+                  <svg width="24" height="24" fill="none" aria-hidden="true">
+                    <path d="M4 7.5 10.7 12a2 2 0 0 0 2.6 0L20 7.5" stroke="currentColor" stroke-width="1.5"/>
+                    <rect x="3" y="5" width="18" height="14" rx="2" ry="2" stroke="currentColor" stroke-width="1.5"/>
+                  </svg>
+                  <div>
+                    <b>Email</b>
+                    <div class="muted"><a href="mailto:marioroblesudit@gmail.com">marioroblesudit@gmail.com</a></div>
+                  </div>
+                </div>
+
+                <div class="info">
+                  <svg width="24" height="24" fill="none" aria-hidden="true">
+                    <path d="M7 4h10a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3Z" stroke="currentColor" stroke-width="1.5"/>
+                    <path d="M8 6h2v2H8zM14 16h2v2h-2zM10 10h4v4h-4z" fill="currentColor"/>
+                  </svg>
+                  <div>
+                    <b>Teléfono</b>
+                    <div class="muted"><a href="tel:+34600123456">+34 600 123 456</a></div>
+                  </div>
+                </div>
+
+                <div class="info">
+                  <svg width="24" height="24" fill="none" aria-hidden="true">
+                    <path d="M12 21s7-6.2 7-11.2A7 7 0 0 0 5 9.8C5 14.8 12 21 12 21Z" stroke="currentColor" stroke-width="1.5"/>
+                  </svg>
+                  <div>
+                    <b>Ubicación</b>
+                    <div class="muted">Madrid, España</div>
+                  </div>
+                </div>
+
+                <div class="chips">
+                  <a class="chip magnetic" href="mailto:marioroblesudit@gmail.com">✉︎ Enviar email</a>
+                  <a class="chip magnetic" href="#" aria-label="LinkedIn (añadir enlace)">in · LinkedIn</a>
+                </div>
+
+              </div>
+            </aside>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- SUPERBLOQUE CV -->
+      <section id="cv-block" class="superblock" aria-label="perfil-formacion">
+
+        <!-- HABILIDADES -->
+        <section id="skills" class="panel-section">
+          <div class="wrap reveal">
+            <h2 class="title">Habilidades Técnicas</h2>
+            <div class="grid">
+              <div class="skill tilt"><b>Photoshop</b><small>Edición y retoque</small></div>
+              <div class="skill tilt"><b>Illustrator</b><small>Vectorial</small></div>
+              <div class="skill tilt"><b>InDesign</b><small>Editorial</small></div>
+              <div class="skill tilt"><b>After Effects</b><small>Animación</small></div>
+              <div class="skill tilt"><b>Premiere Pro</b><small>Edición vídeo</small></div>
+              <div class="skill tilt"><b>Figma</b><small>UI/Prototipado</small></div>
+              <div class="skill tilt"><b>Blender</b><small>3D</small></div>
+              <div class="skill tilt"><b>Cinema 4D</b><small>3D</small></div>
+              <div class="skill tilt"><b>HTML/CSS</b><small>Front-end</small></div>
+              <div class="skill tilt"><b>Typography</b><small>Legibilidad</small></div>
+              <div class="skill tilt"><b>Branding</b><small>Identidad</small></div>
+              <div class="skill tilt"><b>UI/UX</b><small>Experiencia</small></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- EDUCACIÓN -->
+        <section id="edu" class="panel-section">
+          <div class="wrap reveal">
+            <h2 class="title">Educación</h2>
+            <div class="timeline">
+              <div class="item">
+                <span class="dot" aria-hidden="true"></span>
+                <h4>2021 – 2025 · Diseño Multimedia y Gráfico</h4>
+                <div class="meta">Universidad de Diseño e Innovación (UDIT)</div>
+                <p class="muted">Especialización en diseño tipográfico y dirección de arte</p>
+              </div>
+              <div class="item">
+                <span class="dot" aria-hidden="true"></span>
+                <h4>2020 · Curso Avanzado de Tipografía</h4>
+                <div class="meta">Escuela Superior de Diseño de Madrid</div>
               </div>
             </div>
           </div>
+        </section>
+
+        <!-- EXPERIENCIA -->
+        <section id="exp" class="panel-section">
+          <div class="wrap reveal">
+            <h2 class="title">Experiencia</h2>
+            <div class="timeline">
+              <div class="item">
+                <span class="dot" aria-hidden="true"></span>
+                <h4>2024 - Actualidad · Vecario Studio</h4>
+                <div class="meta">Diseñador gráfico en prácticas</div>
+                <p class="muted">Desarrollo de identidad visual para clientes internacionales</p>
+              </div>
+              <div class="item">
+                <span class="dot" aria-hidden="true"></span>
+                <h4>2023 - 2024 · Freelance</h4>
+                <div class="meta">Diseñador gráfico y tipográfico</div>
+                <p class="muted">Proyectos de branding y diseño editorial</p>
+              </div>
+              <div class="item">
+                <span class="dot" aria-hidden="true"></span>
+                <h4>2022 · Becario en Estudio Creativo</h4>
+                <div class="meta">Diseño de materiales promocionales</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- IDIOMAS -->
+        <section id="langs" class="panel-section">
+          <div class="wrap reveal">
+            <h2 class="title">Idiomas</h2>
+            <div class="langs">
+              <div class="lang"><b>Español</b><span class="badge">Nativo</span></div>
+              <div class="lang"><b>Inglés</b><span class="badge">B1</span></div>
+            </div>
+          </div>
+        </section>
+
+      </section>
+
+      <!-- TRABAJOS -->
+      <section id="works" class="section wrap reveal">
+        <h2 class="title">Trabajos</h2>
+
+        <!-- HUB de categorías -->
+        <div id="workHub" class="work-hub" data-js="work-hub">
+
+          <!-- Packaging -->
+          <div class="work-group" data-group="packaging">
+            <button class="work-tile" aria-controls="submenu-packaging" aria-expanded="false" data-js="submenu-toggle">
+              <span>Packaging</span>
+            </button>
+            <div class="submenu" id="submenu-packaging" hidden>
+              <a class="subitem" href="#!" data-target="renacer">Bodegas Renacer</a>
+              <a class="subitem" href="#!" data-target="dos-cepopesca">Cepopesca</a>
+            </div>
+          </div>
+
+          <!-- Branding -->
+          <div class="work-group" data-group="branding">
+            <button class="work-tile" aria-controls="submenu-branding" aria-expanded="false" data-js="submenu-toggle">
+              <span>Branding</span>
+            </button>
+            <div class="submenu" id="submenu-branding" hidden>
+              <a class="subitem" href="#!" data-target="new-balance">New Balance</a>
+              <a class="subitem" href="#!" data-target="keletra">Keletra</a>
+            </div>
+          </div>
+
+          <!-- Cartelería -->
+          <div class="work-group" data-group="carteleria">
+            <button class="work-tile" aria-controls="submenu-carteleria" aria-expanded="false" data-js="submenu-toggle">
+              <span>Cartelería</span>
+            </button>
+            <div class="submenu" id="submenu-carteleria" hidden>
+              <a class="subitem" href="#!" data-target="chupa-chups">Chupa Chups</a>
+              <a class="subitem" href="#!" data-target="yorokobu">Yorokobu</a>
+              <a class="subitem" href="#!" data-target="aorta">Aorta</a>
+            </div>
+          </div>
+
+          <!-- Ilustración -->
+          <div class="work-group" data-group="ilustracion">
+            <button class="work-tile" aria-controls="submenu-ilustracion" aria-expanded="false" data-js="submenu-toggle">
+              <span>Ilustración</span>
+            </button>
+            <div class="submenu" id="submenu-ilustracion" hidden>
+              <a class="subitem" href="#!" data-target="ilustracion">Ver ilustraciones</a>
+            </div>
+          </div>
         </div>
-        <!-- Contacto -->
-        <div class="content-card">
-          <h2 class="section-title">Contacto</h2>
-          <div class="contact-item">
-            <div class="contact-icon">
-              <img src="IMG/Recurso 14.png" alt="icono nacimiento">
+
+        <!-- Parking de detalles (el JS moverá los detalles al abrir) -->
+        <div id="detailsPark">
+
+          <!-- ===== Detalle: Bodegas Renacer ===== -->
+          <section id="detail-renacer" class="work-detail" aria-hidden="true" hidden>
+            <header class="wd-head">
+              <h3 class="wd-title">Bodegas Renacer</h3>
+              <small class="wd-kicker">Packaging</small>
+            </header>
+
+            <div class="wd-text">
+              <p>La elección del naming para la bodega y sus vinos parte de una experiencia personal y una investigación profunda sobre uno de los episodios más significativos en la historia de la viticultura: la crisis de la filoxera. Durante una visita a las bodegas Franco-Españolas en Logroño, tuve la oportunidad de conocer en detalle cómo esta plaga devastó los viñedos y, a partir de ahí, empecé a profundizar en el tema, buscando la manera de trasladar esa historia a un concepto de marca sólido.</p>
+              <p>El nombre de la bodega, <b>Renacer</b>, responde directamente a la idea de superación y resiliencia. La plaga de la filoxera no solo destruyó los viñedos europeos, sino que obligó a reinventar por completo la viticultura. La solución llegó mediante los injertos de vides americanas, permitiendo recuperar la producción vinícola y dando paso a una nueva era en la industria. <b>Renacer</b> sintetiza ese proceso de destrucción y reconstrucción, reflejando la capacidad de adaptación ante la adversidad.</p>
             </div>
-            <div class="contact-value">27 – 11 – 1999</div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-icon">
-              <img src="IMG/mail.png" alt="icono email">
+
+            <h4 class="wd-subtitle">Concepto de las etiquetas</h4>
+            <div class="wd-text">
+              <ul class="wd-bullets">
+                <li><b>Plaga:</b> El punto de partida, el inicio del desastre.</li>
+                <li><b>Injerto:</b> La solución: injertar raíces resistentes provenientes de América.</li>
+                <li><b>Legado:</b> La culminación: aprendizaje y evolución de la viticultura.</li>
+              </ul>
             </div>
-            <div class="contact-value">marioroblesudit@gmail.com</div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-icon">
-              <img src="IMG/linkeding.png" alt="icono linkedin">
+
+            <h5 class="wd-subtitle minor">Etiquetas</h5>
+            <div class="wd-grid">
+              <figure class="wd-card">
+                <img src="https://freight.cargo.site/t/original/i/T2518949137815464055278529870873/Recurso-9.png" alt="Etiqueta Plaga" loading="lazy">
+                <figcaption>Plaga</figcaption>
+              </figure>
+              <figure class="wd-card">
+                <img src="https://freight.cargo.site/t/original/i/V2518949137833910799352239422489/Recurso-10.png" alt="Etiqueta Injerto" loading="lazy">
+                <figcaption>Injerto</figcaption>
+              </figure>
+              <figure class="wd-card">
+                <img src="https://freight.cargo.site/t/original/i/L2518949137852357543425948974105/Recurso-11.png" alt="Etiqueta Legado" loading="lazy">
+                <figcaption>Legado</figcaption>
+              </figure>
             </div>
-            <div class="contact-value">+34 600 123 456</div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-icon">
-              <img src="IMG/mail.png" alt="icono ubicación">
+
+            <h5 class="wd-subtitle minor">Mockups</h5>
+            <div class="wd-grid">
+              <figure class="wd-card">
+                <img src="https://freight.cargo.site/t/original/i/M2518949534604929080770985131033/PLAGA_DUO.png" alt="Mockup Plaga" loading="lazy">
+                <figcaption>Plaga</figcaption>
+              </figure>
+              <figure class="wd-card">
+                <img src="https://freight.cargo.site/t/original/i/X2518949534568035592623566027801/INGERTO_DUO.png" alt="Mockup Injerto" loading="lazy">
+                <figcaption>Injerto</figcaption>
+              </figure>
+              <figure class="wd-card">
+                <img src="https://freight.cargo.site/t/original/i/L2518949534586482336697275579417/LEGADO_DUO.png" alt="Mockup Legado" loading="lazy">
+                <figcaption>Legado</figcaption>
+              </figure>
             </div>
-            <div class="contact-value">Madrid, España</div>
-          </div>
+          </section>
+
+          <!-- ===== Detalle: Cepopesca ===== -->
+          <section id="detail-dos-cepopesca" class="work-detail" aria-hidden="true" hidden>
+            <header class="wd-head">
+              <h3 class="wd-title">Cepopesca</h3>
+              <small class="wd-kicker">Packaging</small>
+            </header>
+
+            <div class="wd-text">
+              <p><b>Packaging de conservas.</b></p>
+              <p>Para esta línea he querido poner el foco, plenamente, en la acción de comer. No solo en el producto, ya que lo esencial es ese gesto cotidiano y compartido: una mano que se acerca a la lata y un utensilio que invita a empezar. En cada variedad el utensilio cambia según el ritual real de consumo y, a no ser que se indique lo contrario, no aparece ningún claim en la etiqueta: solo el título del producto. Así, sardinas en aceite → tenedor; mejillones en escabeche → palillo; y atún claro en escabeche → pan (modo tapa). La escena resume lo que me interesa contar: momentos sencillos, cercanos y muy de estar juntos alrededor de algo rico, sin complicaciones.</p>
+              <p>Trabajé tres etiquetas —sardinas en aceite, mejillones en escabeche y atún claro en escabeche— como una familia coherente que se reconoce de un vistazo, pero donde cada variedad conserva su carácter propio. La ilustración principal (mano + utensilio específico) actúa como “gancho emocional”: habla de rituales y compañía; de abrir, compartir, picar y seguir la conversación. No es un bodegón estático; es un instante en marcha.</p>
+            </div>
+
+            <h4 class="wd-subtitle">Concepto de las etiquetas</h4>
+            <div class="wd-text">
+              <ul class="wd-bullets">
+                <li><b>Sardinas</b>: utensilio <i>tenedor</i> (levantar y degustar sin esfuerzo).</li>
+                <li><b>Mejillones</b>: utensilio <i>palillo</i> (pinchar, compartir y repetir).</li>
+                <li><b>Atún en escabeche</b>: utensilio <i>pan</i> (montar la tapa y disfrutar).</li>
+              </ul>
+            </div>
+
+            <h5 class="wd-subtitle minor">Etiquetas</h5>
+            <div class="wd-grid">
+              <figure class="wd-card">
+                <img src="https://freight.cargo.site/t/original/i/D2531938629182848573251653139481/Recurso-13.png" alt="Etiqueta Sardinas" loading="lazy">
+                <figcaption>Sardinas</figcaption>
+              </figure>
+              <figure class="wd-card">
+                <img src="https://freight.cargo.site/t/original/i/S2531938629164401829177943587865/Recurso-10.png" alt="Etiqueta Mejillones" loading="lazy">
+                <figcaption>Mejillones</figcaption>
+              </figure>
+              <figure class="wd-card">
+                <img src="https://freight.cargo.site/t/original/i/D2531938629201295317325362691097/Recurso-16.png" alt="Etiqueta Atún en escabeche" loading="lazy">
+                <figcaption>Atún en escabeche</figcaption>
+              </figure>
+            </div>
+
+            <h5 class="wd-subtitle minor">Mockups</h5>
+            <div class="wd-grid">
+              <figure class="wd-card">
+                <img src="https://freight.cargo.site/t/original/i/F2531985821635786296987228765209/MOCKUP2.png" alt="Mockup 1" loading="lazy">
+                <figcaption>Mockup 1</figcaption>
+              </figure>
+              <figure class="wd-card">
+                <img src="https://freight.cargo.site/t/original/i/Z2531985821654233041060938316825/MOCKUP3.png" alt="Mockup 2" loading="lazy">
+                <figcaption>Mockup 2</figcaption>
+              </figure>
+              <figure class="wd-card">
+                <img src="https://freight.cargo.site/t/original/i/F2531985821617339552913519213593/MOCKUP1png.png" alt="Mockup 3" loading="lazy">
+                <figcaption>Mockup 3</figcaption>
+              </figure>
+            </div>
+          </section>
+
+          <!-- ===== Detalle: New Balance ===== -->
+          <section id="detail-new-balance" class="work-detail" aria-hidden="true" hidden>
+            <header class="wd-head">
+              <h3 class="wd-title">New Balance</h3>
+              <small class="wd-kicker">Branding</small>
+            </header>
+
+            <div class="wd-text">
+              <p>En este rebranding de New Balance he buscado transmitir una identidad más contemporánea y dinámica. Para ello, he utilizado la tipografía <b>Avant Garde</b>, que aporta un carácter moderno y sólido a la marca. Además, he destacado las iniciales <b>N</b> y <b>B</b> en mayúsculas dentro del logotipo para reforzar la presencia de la marca y darle un mayor impacto visual.</p>
+              <p>En cuanto al símbolo, he rediseñado la <b>N</b> otorgándole mayor movilidad y fluidez, lo que genera una sensación de velocidad y actualidad. Este nuevo planteamiento convierte al logotipo en una propuesta más funcional, versátil y adaptada a los códigos gráficos actuales, manteniendo la esencia de la marca, pero proyectándola hacia un lenguaje visual más innovador y competitivo.</p>
+            </div>
+
+            <h5 class="wd-subtitle minor">Imágenes</h5>
+            <div class="carousel fullslide drag-only" data-js="carousel">
+              <button class="nav prev" type="button" aria-label="Anterior" disabled>
+                <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path d="M15.5 19.5l-7-7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+
+              <div class="track" data-js="track">
+                <figure class="item"><img alt="New Balance 1" draggable="false" loading="lazy" src="https://freight.cargo.site/t/original/i/Y2536715982679683823729702796313/Recurso-1.png"></figure>
+                <figure class="item"><img alt="New Balance 2" draggable="false" loading="lazy" src="https://freight.cargo.site/t/original/i/W2536715982698130567803412347929/Recurso-2.png"></figure>
+                <figure class="item"><img alt="New Balance 3" draggable="false" loading="lazy" src="https://freight.cargo.site/t/original/i/B2536715982716577311877121899545/Recurso-3.png"></figure>
+                <figure class="item"><img alt="New Balance 4" draggable="false" loading="lazy" src="https://freight.cargo.site/t/original/i/T2536715982735024055950831451161/Recurso-4.png"></figure>
+                <figure class="item"><img alt="New Balance 5" draggable="false" loading="lazy" src="https://freight.cargo.site/t/original/i/D2536715982753470800024541002777/Recurso-5.png"></figure>
+                <figure class="item"><img alt="New Balance 6" draggable="false" loading="lazy" src="https://freight.cargo.site/t/original/i/F2536715982771917544098250554393/Recurso-6.png"></figure>
+                <figure class="item"><img alt="New Balance 7" draggable="false" loading="lazy" src="https://freight.cargo.site/t/original/i/U2536715982790364288171960106009/Recurso-7.png"></figure>
+                <figure class="item"><img alt="New Balance 8" draggable="false" loading="lazy" src="https://freight.cargo.site/t/original/i/Y2536715982808811032245669657625/Recurso-8.png"></figure>
+              </div>
+
+              <button class="nav next" type="button" aria-label="Siguiente">
+                <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path d="M8.5 4.5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
+          </section>
+
+          <!-- ===== Detalle: Keletra ===== -->
+          <section id="detail-keletra" class="work-detail" aria-hidden="true" hidden>
+            <header class="wd-head">
+              <h3 class="wd-title">Keletra</h3>
+              <small class="wd-kicker">Branding</small>
+            </header>
+            <div class="wd-text"><p>Próximamente.</p></div>
+          </section>
+
+          <!-- ===== Detalle: Chupa Chups ===== -->
+          <section id="detail-chupa-chups" class="work-detail" aria-hidden="true" hidden>
+            <header class="wd-head">
+              <h3 class="wd-title">Taste the Game — Chupa Chups x NBA</h3>
+              <small class="wd-kicker">Cartelería</small>
+            </header>
+
+            <div class="wd-text">
+              <p>Campaña gráfica conmemorativa del 45º aniversario de la NBA, desarrollada en colaboración con Chupa Chups. La propuesta combina el universo deportivo con la estética pop y psicodélica de la marca, transformando el balón en un icono visual reinterpretado como un Chupa Chups. Los carteles utilizan leyendas del baloncesto en blanco y negro contrastadas con fondos dinámicos y ondulantes en colores vibrantes, reforzando la energía del juego y el carácter atemporal de ambas marcas.</p>
+            </div>
+
+            <h5 class="wd-subtitle minor">Carteles</h5>
+            <div class="wd-grid">
+              <figure class="wd-card"><img alt="Cartel 1" loading="lazy" src="https://freight.cargo.site/t/original/i/E2541120255315527340658868550681/CARTEL_1.jpg"><figcaption>Cartel 1</figcaption></figure>
+              <figure class="wd-card"><img alt="Cartel 2" loading="lazy" src="https://freight.cargo.site/t/original/i/L2541120255333974084732578102297/CARTEL_2.jpg"><figcaption>Cartel 2</figcaption></figure>
+              <figure class="wd-card"><img alt="Cartel 3" loading="lazy" src="https://freight.cargo.site/t/original/i/N2541120255352420828806287653913/CARTEL_3.jpg"><figcaption>Cartel 3</figcaption></figure>
+            </div>
+
+            <h5 class="wd-subtitle minor">Mockups</h5>
+            <div class="wd-grid">
+              <figure class="wd-card"><img alt="Mockup 1" loading="lazy" src="https://freight.cargo.site/t/original/i/B2541125409907670601392586161177/1.png"><figcaption>Mockup 1</figcaption></figure>
+              <figure class="wd-card"><img alt="Mockup 2" loading="lazy" src="https://freight.cargo.site/t/original/i/P2541126797803801219151830645785/2.png"><figcaption>Mockup 2</figcaption></figure>
+              <figure class="wd-card"><img alt="Mockup 3" loading="lazy" src="https://freight.cargo.site/t/original/i/O2541126797822247963225540197401/3.png"><figcaption>Mockup 3</figcaption></figure>
+            </div>
+          </section>
+
+          <!-- ===== Detalle: Yorokobu ===== -->
+          <section id="detail-yorokobu" class="work-detail" aria-hidden="true" hidden>
+            <header class="wd-head">
+              <h3 class="wd-title">YOTOKOBU – Exploración tipográfica y branding experimental</h3>
+              <small class="wd-kicker">Cartelería</small>
+            </header>
+
+            <div class="wd-text">
+              <p>Proyecto gráfico desarrollado para YOTOKOBU en el que se experimenta con la deconstrucción tipográfica y la reinterpretación de un logotipo corporativo bajo un enfoque visual disruptivo. A través de volúmenes metálicos, texturas brillantes y formas afiladas, se crea una estética agresiva y contemporánea que fusiona lo digital con lo artesanal. El resultado transmite fuerza, dinamismo e innovación, alineándose con la esencia experimental y arriesgada de la marca.</p>
+            </div>
+
+            <h5 class="wd-subtitle minor">Imágenes</h5>
+            <div class="wd-grid">
+              <figure class="wd-card"><img alt="Yorokobu 1" loading="lazy" src="https://freight.cargo.site/t/original/i/G2541150773922517534994124438553/letras_4.jpg"><figcaption>Exploración 1</figcaption></figure>
+              <figure class="wd-card"><img alt="Yorokobu 2" loading="lazy" src="https://freight.cargo.site/t/original/i/H2541150773940964279067833990169/LOGO_3.jpg"><figcaption>Exploración 2</figcaption></figure>
+            </div>
+
+            <h5 class="wd-subtitle minor">Mockup</h5>
+            <div class="wd-grid">
+              <figure class="wd-card"><img alt="Mockup Yorokobu" loading="lazy" src="https://freight.cargo.site/t/original/i/F2541157662563943956646822607897/plantilla_portada_contra_yorokobu_nueva.jpg"><figcaption>Portada / contra</figcaption></figure>
+            </div>
+          </section>
+
+          <!-- ===== Detalle: AORTA ===== -->
+          <section id="detail-aorta" class="work-detail" aria-hidden="true" hidden>
+            <header class="wd-head">
+              <h3 class="wd-title">AORTA</h3>
+              <small class="wd-kicker">Cartelería / Audiovisual</small>
+            </header>
+
+            <div class="wd-text">
+              <p><b>AORTA</b> es un cortometraje dirigido por la videoartista Andrea Suárez, protagonizado por Nicole Wallace y con la dirección de fotografía de Elena Baz. La pieza se adentra en un recorrido íntimo y visceral por el interior emocional de su protagonista, quien atraviesa distintas fases psicológicas y afectivas en un proceso de transformación profunda.</p>
+              <p>Mi aportación dentro del proyecto se centró en el desarrollo de la etapa de transición del personaje, trabajando en la representación de sus cambios internos y la manera en que estos se manifiestan visual y narrativamente. Para ello, se exploraron diferentes registros emocionales que van desde la vulnerabilidad hasta la fortaleza, generando un arco interpretativo coherente y con una clara progresión.</p>
+              <p>El resultado es una obra que no solo retrata un estado emocional fragmentado y en constante movimiento, sino que también pone en valor la potencia expresiva de la imagen y del propio cuerpo como medio narrativo. <b>AORTA</b> se presenta como un ejercicio de experimentación audiovisual donde la emoción se convierte en el eje central de la narrativa.</p>
+            </div>
+
+            <h5 class="wd-subtitle minor">Piezas</h5>
+            <div class="wd-grid">
+              <figure class="wd-card"><img alt="Cartel AORTA" loading="lazy" src="https://freight.cargo.site/t/original/i/S2541400175820855471797766126617/CARTEL_AORTA---copia.jpg"><figcaption>Cartel</figcaption></figure>
+              <figure class="wd-card"><img alt="Fotograma AORTA" loading="lazy" src="https://freight.cargo.site/t/original/i/D2541400175802408727724056575001/1.jpg"><figcaption>Fotograma</figcaption></figure>
+            </div>
+          </section>
+
+          <!-- ===== Detalle: Ilustración ===== -->
+          <section id="detail-ilustracion" class="work-detail" aria-hidden="true" hidden>
+            <header class="wd-head">
+              <h3 class="wd-title">Ilustración</h3>
+              <small class="wd-kicker">Selección</small>
+            </header>
+
+            <div class="wd-grid illu-grid">
+              <!-- Póster vertical -->
+              <figure class="wd-card illu tall">
+                <div class="wd-media">
+                  <img alt="Madrid Gráfica — cartel" loading="lazy" src="https://freight.cargo.site/t/original/i/K2541412620049747828482414935065/MADRIDGRAFICA_CONCURSO_ALTA2.jpg">
+                </div>
+                <figcaption>Madrid Gráfica — cartel</figcaption>
+              </figure>
+
+              <!-- GIF animado -->
+              <figure class="wd-card illu gif">
+                <div class="wd-media">
+                  <img alt="Ilustración animada" loading="lazy" src="https://freight.cargo.site/t/original/i/X2541420834329543619124620885017/GIF_FINAL.gif">
+                </div>
+                <figcaption>Ilustración animada</figcaption>
+              </figure>
+            </div>
+          </section>
+
         </div>
-        <!-- Habilidades técnicas -->
-        <div class="content-card">
-          <h2 class="section-title">Habilidades Técnicas</h2>
-          <div class="skills-container">
-            <span class="skill-badge">Photoshop</span>
-            <span class="skill-badge">Illustrator</span>
-            <span class="skill-badge">InDesign</span>
-            <span class="skill-badge">After Effects</span>
-            <span class="skill-badge">Premiere Pro</span>
-            <span class="skill-badge">Figma</span>
-            <span class="skill-badge">Blender</span>
-            <span class="skill-badge">Cinema 4D</span>
-            <span class="skill-badge">HTML/CSS</span>
-            <span class="skill-badge">Typography</span>
-            <span class="skill-badge">Branding</span>
-            <span class="skill-badge">UI/UX</span>
-          </div>
+      </section>
+
+      <!-- TIPOGRAFÍA -->
+      <section id="type" class="section wrap reveal">
+        <h2 class="title">Tipografía</h2>
+
+        <!-- 1) Keletra — Fundición Tipográfica -->
+        <h3 class="subtitle">Keletra — Fundición Tipográfica</h3>
+        <div class="media-grid">
+          <figure class="media-item wide">
+            <div class="ratio" role="img" aria-label="Sustituye por imagen hero de Keletra (1200×675)"></div>
+            <figcaption>Fundición Keletra — Hero</figcaption>
+          </figure>
+          <figure class="media-item">
+            <div class="ratio" role="img" aria-label="Sustituye por imagen: Identidad Keletra 01"></div>
+            <figcaption>Identidad Keletra — Aplicación 01</figcaption>
+          </figure>
+          <figure class="media-item">
+            <div class="ratio" role="img" aria-label="Sustituye por imagen: Identidad Keletra 02"></div>
+            <figcaption>Identidad Keletra — Aplicación 02</figcaption>
+          </figure>
         </div>
-      </div>
-      <!-- COLUMNA DERECHA -->
-      <div class="col-lg-7 col-12">
-        <!-- Educación -->
-        <div class="content-card">
-          <h2 class="section-title">Educación</h2>
-          <div class="timeline-item">
-            <div class="timeline-date">2021 – 2025</div>
-            <h4>Diseño Multimedia y Gráfico</h4>
-            <p class="timeline-content">Universidad de Diseño e Innovación (UDIT)</p>
-            <p class="text-light-emphasis timeline-content">Especialización en diseño tipográfico y dirección de arte</p>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-date">2020</div>
-            <h4>Curso Avanzado de Tipografía</h4>
-            <p class="timeline-content">Escuela Superior de Diseño de Madrid</p>
-          </div>
+
+        <!-- 2) Logotipo modular -->
+        <h3 class="subtitle">Logotipo modular</h3>
+        <div class="media-grid">
+          <figure class="media-item">
+            <div class="ratio" role="img" aria-label="Sustituye por construcción del logotipo"></div>
+            <figcaption>Construcción del logotipo modular</figcaption>
+          </figure>
+          <figure class="media-item">
+            <div class="ratio" role="img" aria-label="Sustituye por lockups y tamaños"></div>
+            <figcaption>Lockups · Clearspace · Tamaños</figcaption>
+          </figure>
         </div>
-        <!-- Experiencia -->
-        <div class="content-card">
-          <h2 class="section-title">Experiencia</h2>
-          <div class="timeline-item">
-            <div class="timeline-date">2024 - Actualidad</div>
-            <h4>Vecario Studio</h4>
-            <p class="timeline-content">Diseñador gráfico en prácticas</p>
-            <p class="text-light-emphasis timeline-content">Desarrollo de identidad visual para clientes internacionales</p>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-date">2023 - 2024</div>
-            <h4>Freelance</h4>
-            <p class="timeline-content">Diseñador gráfico y tipográfico</p>
-            <p class="text-light-emphasis timeline-content">Proyectos de branding y diseño editorial</p>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-date">2022</div>
-            <h4>Becario en Estudio Creativo</h4>
-            <p class="timeline-content">Diseño de materiales promocionales</p>
-          </div>
+
+        <!-- 3) Campaña publicitaria -->
+        <h3 class="subtitle">Campaña publicitaria</h3>
+        <div class="media-grid">
+          <figure class="media-item">
+            <div class="ratio" role="img" aria-label="Sustituye por foto campaña 01"></div>
+            <figcaption>Campaña — Pieza 01</figcaption>
+          </figure>
+          <figure class="media-item">
+            <div class="ratio" role="img" aria-label="Sustituye por foto campaña 02"></div>
+            <figcaption>Campaña — Pieza 02</figcaption>
+          </figure>
+          <figure class="media-item wide">
+            <video preload="none" controls poster="">
+              <!-- Sustituye src por tu vídeo -->
+              <source src="" type="video/mp4" />
+            </video>
+            <figcaption>Campaña — Vídeo</figcaption>
+          </figure>
         </div>
-        <!-- Idiomas -->
-        <div class="content-card">
-          <h2 class="section-title">Idiomas</h2>
-          <div class="language-level">
-            <span class="language-label">Español</span>
-            <div class="level-bar">
-              <div class="level-fill native"></div>
+
+        <!-- 4) Tester Prolexia -->
+        <h3 class="subtitle">Prolexia — Tester</h3>
+        <div class="type-wrap">
+          <div class="type-canvas">
+            <div
+              id="specimen"
+              class="specimen"
+              aria-label="Editor de muestra tipográfica"
+              contenteditable="true"
+              spellcheck="false"
+              style="font-family: Prolexia, Inter, system-ui, Arial, sans-serif; font-weight: 400; font-size: 64px; letter-spacing: 0px; line-height: 1.15;">
+              Prolexia mejora la legibilidad. Diseño claro, funcional y con personalidad.
             </div>
-            <span class="ms-2 language-level">Nativo</span>
           </div>
-          <div class="language-level">
-            <span class="language-label">Inglés</span>
-            <div class="level-bar">
-              <div class="level-fill b2"></div>
+
+          <form id="typeTools" class="type-tools" onsubmit="return false;">
+            <div class="row">
+              <label for="fontSel">Fuente</label>
+              <select id="fontSel">
+                <option value="'Prolexia', Inter, system-ui, Arial, sans-serif">Prolexia (añade @font-face)</option>
+                <option value="Inter, system-ui, Arial, sans-serif">Inter (fallback)</option>
+              </select>
             </div>
-            <span class="ms-2 language-level">B2</span>
-          </div>
-          <div class="language-level">
-            <span class="language-label">Francés</span>
-            <div class="level-bar">
-              <div class="level-fill" style="width: 40%"></div>
+
+            <div class="row">
+              <label for="size">Tamaño (<span id="sval"></span>px)</label>
+              <input id="size" type="range" min="16" max="140" value="64">
             </div>
-            <span class="ms-2 language-level">A2</span>
+
+            <div class="row">
+              <label for="track">Tracking (<span id="tval"></span>)</label>
+              <input id="track" type="range" min="-2" max="8" step="0.1" value="0">
+            </div>
+
+            <div class="row">
+              <label for="leading">Interlineado (<span id="lval"></span>)</label>
+              <input id="leading" type="range" min="1" max="2" step="0.01" value="1.15">
+            </div>
+
+            <div class="row">
+              <span class="label">Fondo</span>
+              <div class="swatches">
+                <button type="button" data-scheme="dark">Oscuro</button>
+                <button type="button" data-scheme="light">Claro</button>
+              </div>
+            </div>
+
+            <small class="muted">Para usar Prolexia, declara <code>@font-face</code> y selecciónala en el desplegable.</small>
+          </form>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Side footer vertical -->
+    <div class="side-footer" aria-hidden="false">
+      <a class="magnetic" href="#top" title="Volver arriba">↑ Top</a>
+      <span>© Mario Robles · 2025</span>
+    </div>
+
+    <!-- Footer inferior -->
+    <footer class="site-footer">
+      <small>Portafolio diseñado y desarrollado por Mario Robles. Estilo inspirado en experiencias actuales con énfasis tipográfico.</small>
+    </footer>
+
+    <!-- Cursor personalizado -->
+    <div id="cursor" class="cursor" aria-hidden="true"></div>
+
+    <!-- Modal genérico para Trabajos -->
+    <div id="modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true" hidden>
+      <div class="box">
+        <div class="topbar">
+          <strong id="mTitle"></strong>
+          <button id="mClose" class="close" aria-label="Cerrar">Cerrar</button>
+        </div>
+        <div id="mHero" class="hero" aria-hidden="true"></div>
+        <div class="content">
+          <p id="mDesc" class="lead"></p>
+          <div class="chips">
+            <a id="mLink" class="chip" href="#" target="_blank" rel="noopener">Ver proyecto ↗</a>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
 
-
-  
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container">
-      <p class="mb-2 footer-text">Mario Robles Caña &copy; 2025 - Todos los derechos reservados</p>
-      <div class="d-flex justify-content-center gap-3">
-        <a href="#" class="text-light"><i class="fab fa-behance fa-lg"></i></a>
-        <a href="#" class="text-light"><i class="fab fa-linkedin-in fa-lg"></i></a>
-        <a href="#" class="text-light"><i class="fab fa-dribbble fa-lg"></i></a>
-        <a href="#" class="text-light"><i class="fab fa-instagram fa-lg"></i></a>
-      </div>
-    </div>
-  </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/gsap.min.js"></script>
   <!-- 2) Plugin ScrollTrigger -->
    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
 
    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/CSSRulePlugin.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/CSSRulePlugin.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/Flip.min.js"></script>
@@ -226,8 +740,6 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="JS/script.js"></script>
-
-  
-</body>
- 
+  <script src="app.js" defer></script>
+  </body>
 </html>
