@@ -2,14 +2,14 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mario Robles Caña</title>
+    <link href="CSS/style.css" rel="stylesheet" type="text/css">
 
-  <title>Mario Robles Caña</title>
-  <link href="CSS/style.css" rel="stylesheet" type="text/css">
   </head>
-  <body>
+ <body>
 
-    <!-- Barra de progreso (scroll) -->
+    <!-- Barra de progreso -->
     <div id="progress" class="progress" aria-hidden="true"></div>
 
     <!-- Header / Navegación -->
@@ -31,7 +31,6 @@
 
         <!-- Panel de menú -->
         <div class="menu" id="siteMenu" hidden>
-          <!-- Botón cerrar dentro del panel -->
           <button class="nav-close" aria-label="Cerrar menú" data-js="nav-close">
             <span class="x x--a" aria-hidden="true"></span>
             <span class="x x--b" aria-hidden="true"></span>
@@ -105,7 +104,7 @@
               <div class="pop">
                 <img
                   class="pop__base"
-                  src="https://freight.cargo.site/t/original/i/Q2511318037260635922316373982233/retrato.png"
+                  src="IMG/retrato.png"
                   alt="Retrato de Mario Robles">
               </div>
             </figure>
@@ -208,7 +207,6 @@
               <div class="skill tilt"><b>After Effects</b><small>Animación</small></div>
               <div class="skill tilt"><b>Premiere Pro</b><small>Edición vídeo</small></div>
               <div class="skill tilt"><b>Figma</b><small>UI/Prototipado</small></div>
-              <div class="skill tilt"><b>Blender</b><small>3D</small></div>
               <div class="skill tilt"><b>Cinema 4D</b><small>3D</small></div>
               <div class="skill tilt"><b>HTML/CSS</b><small>Front-end</small></div>
               <div class="skill tilt"><b>Typography</b><small>Legibilidad</small></div>
@@ -302,7 +300,7 @@
             </button>
             <div class="submenu" id="submenu-branding" hidden>
               <a class="subitem" href="#!" data-target="new-balance">New Balance</a>
-              <a class="subitem" href="#!" data-target="keletra">Keletra</a>
+              <a class="subitem" data-target="la-taberna" href="#!">La Taberna</a>
             </div>
           </div>
 
@@ -329,10 +327,21 @@
           </div>
         </div>
 
-        <!-- Parking de detalles (el JS moverá los detalles al abrir) -->
+                <!-- Motion Graphics -->
+        <div class="work-group" data-group="motion">
+          <button class="work-tile" aria-controls="submenu-motion" aria-expanded="false">
+            <span>Motion Graphics</span>
+          </button>
+          <div class="submenu" id="submenu-motion" hidden style="max-height: 0; opacity: 0; pointer-events: none;">
+            <a class="subitem" href="#!" data-target="nodrama-babi">Nodrama — BABI</a>
+          </div>
+        </div>
+
+
+        <!-- Detalles -->
         <div id="detailsPark">
 
-          <!-- ===== Detalle: Bodegas Renacer ===== -->
+          <!-- ===== Renacer ===== -->
           <section id="detail-renacer" class="work-detail" aria-hidden="true" hidden>
             <header class="wd-head">
               <h3 class="wd-title">Bodegas Renacer</h3>
@@ -340,8 +349,8 @@
             </header>
 
             <div class="wd-text">
-              <p>La elección del naming para la bodega y sus vinos parte de una experiencia personal y una investigación profunda sobre uno de los episodios más significativos en la historia de la viticultura: la crisis de la filoxera. Durante una visita a las bodegas Franco-Españolas en Logroño, tuve la oportunidad de conocer en detalle cómo esta plaga devastó los viñedos y, a partir de ahí, empecé a profundizar en el tema, buscando la manera de trasladar esa historia a un concepto de marca sólido.</p>
-              <p>El nombre de la bodega, <b>Renacer</b>, responde directamente a la idea de superación y resiliencia. La plaga de la filoxera no solo destruyó los viñedos europeos, sino que obligó a reinventar por completo la viticultura. La solución llegó mediante los injertos de vides americanas, permitiendo recuperar la producción vinícola y dando paso a una nueva era en la industria. <b>Renacer</b> sintetiza ese proceso de destrucción y reconstrucción, reflejando la capacidad de adaptación ante la adversidad.</p>
+              <p>La elección del naming para la bodega y sus vinos parte de una experiencia personal y una investigación profunda sobre uno de los episodios más significativos en la historia de la viticultura: la crisis de la filoxera...</p>
+              <p>El nombre de la bodega, <b>Renacer</b>, responde directamente a la idea de superación y resiliencia...</p>
             </div>
 
             <h4 class="wd-subtitle">Concepto de las etiquetas</h4>
@@ -356,15 +365,15 @@
             <h5 class="wd-subtitle minor">Etiquetas</h5>
             <div class="wd-grid">
               <figure class="wd-card">
-                <img src="https://freight.cargo.site/t/original/i/T2518949137815464055278529870873/Recurso-9.png" alt="Etiqueta Plaga" loading="lazy">
+                <img src="IMG/PLAGA.png" alt="Etiqueta Plaga" loading="lazy">
                 <figcaption>Plaga</figcaption>
               </figure>
               <figure class="wd-card">
-                <img src="https://freight.cargo.site/t/original/i/V2518949137833910799352239422489/Recurso-10.png" alt="Etiqueta Injerto" loading="lazy">
+                <img src="IMG/INGERTO.png" alt="Etiqueta Injerto" loading="lazy">
                 <figcaption>Injerto</figcaption>
               </figure>
               <figure class="wd-card">
-                <img src="https://freight.cargo.site/t/original/i/L2518949137852357543425948974105/Recurso-11.png" alt="Etiqueta Legado" loading="lazy">
+                <img src="IMG/LEGADO.png" alt="Etiqueta Legado" loading="lazy">
                 <figcaption>Legado</figcaption>
               </figure>
             </div>
@@ -372,21 +381,21 @@
             <h5 class="wd-subtitle minor">Mockups</h5>
             <div class="wd-grid">
               <figure class="wd-card">
-                <img src="https://freight.cargo.site/t/original/i/M2518949534604929080770985131033/PLAGA_DUO.png" alt="Mockup Plaga" loading="lazy">
+                <img src="IMG/PLAGA_DUO.png" alt="Mockup Plaga" loading="lazy">
                 <figcaption>Plaga</figcaption>
               </figure>
               <figure class="wd-card">
-                <img src="https://freight.cargo.site/t/original/i/X2518949534568035592623566027801/INGERTO_DUO.png" alt="Mockup Injerto" loading="lazy">
+                <img src="IMG/INGERTO_DUO.png" alt="Mockup Injerto" loading="lazy">
                 <figcaption>Injerto</figcaption>
               </figure>
               <figure class="wd-card">
-                <img src="https://freight.cargo.site/t/original/i/L2518949534586482336697275579417/LEGADO_DUO.png" alt="Mockup Legado" loading="lazy">
+                <img src="IMG/LEGADO_DUO.png" alt="Mockup Legado" loading="lazy">
                 <figcaption>Legado</figcaption>
               </figure>
             </div>
           </section>
 
-          <!-- ===== Detalle: Cepopesca ===== -->
+          <!-- ===== Cepopesca ===== -->
           <section id="detail-dos-cepopesca" class="work-detail" aria-hidden="true" hidden>
             <header class="wd-head">
               <h3 class="wd-title">Cepopesca</h3>
@@ -395,31 +404,30 @@
 
             <div class="wd-text">
               <p><b>Packaging de conservas.</b></p>
-              <p>Para esta línea he querido poner el foco, plenamente, en la acción de comer. No solo en el producto, ya que lo esencial es ese gesto cotidiano y compartido: una mano que se acerca a la lata y un utensilio que invita a empezar. En cada variedad el utensilio cambia según el ritual real de consumo y, a no ser que se indique lo contrario, no aparece ningún claim en la etiqueta: solo el título del producto. Así, sardinas en aceite → tenedor; mejillones en escabeche → palillo; y atún claro en escabeche → pan (modo tapa). La escena resume lo que me interesa contar: momentos sencillos, cercanos y muy de estar juntos alrededor de algo rico, sin complicaciones.</p>
-              <p>Trabajé tres etiquetas —sardinas en aceite, mejillones en escabeche y atún claro en escabeche— como una familia coherente que se reconoce de un vistazo, pero donde cada variedad conserva su carácter propio. La ilustración principal (mano + utensilio específico) actúa como “gancho emocional”: habla de rituales y compañía; de abrir, compartir, picar y seguir la conversación. No es un bodegón estático; es un instante en marcha.</p>
+              <p>Para esta línea he querido poner el foco, plenamente, en la acción de comer...</p>
             </div>
 
             <h4 class="wd-subtitle">Concepto de las etiquetas</h4>
             <div class="wd-text">
               <ul class="wd-bullets">
-                <li><b>Sardinas</b>: utensilio <i>tenedor</i> (levantar y degustar sin esfuerzo).</li>
-                <li><b>Mejillones</b>: utensilio <i>palillo</i> (pinchar, compartir y repetir).</li>
-                <li><b>Atún en escabeche</b>: utensilio <i>pan</i> (montar la tapa y disfrutar).</li>
+                <li><b>Sardinas</b>: utensilio <i>tenedor</i>.</li>
+                <li><b>Mejillones</b>: utensilio <i>palillo</i>.</li>
+                <li><b>Atún en escabeche</b>: utensilio <i>pan</i>.</li>
               </ul>
             </div>
 
             <h5 class="wd-subtitle minor">Etiquetas</h5>
             <div class="wd-grid">
               <figure class="wd-card">
-                <img src="https://freight.cargo.site/t/original/i/D2531938629182848573251653139481/Recurso-13.png" alt="Etiqueta Sardinas" loading="lazy">
+                <img src="IMG/CEPOPESCA_M.png" alt="Etiqueta Sardinas" loading="lazy">
                 <figcaption>Sardinas</figcaption>
               </figure>
               <figure class="wd-card">
-                <img src="https://freight.cargo.site/t/original/i/S2531938629164401829177943587865/Recurso-10.png" alt="Etiqueta Mejillones" loading="lazy">
+                <img src="IMG/CEPOPESCA_S.png" alt="Etiqueta Mejillones" loading="lazy">
                 <figcaption>Mejillones</figcaption>
               </figure>
               <figure class="wd-card">
-                <img src="https://freight.cargo.site/t/original/i/D2531938629201295317325362691097/Recurso-16.png" alt="Etiqueta Atún en escabeche" loading="lazy">
+                <img src="IMG/CEPOPESCA_A.png" alt="Etiqueta Atún en escabeche" loading="lazy">
                 <figcaption>Atún en escabeche</figcaption>
               </figure>
             </div>
@@ -427,21 +435,21 @@
             <h5 class="wd-subtitle minor">Mockups</h5>
             <div class="wd-grid">
               <figure class="wd-card">
-                <img src="https://freight.cargo.site/t/original/i/F2531985821635786296987228765209/MOCKUP2.png" alt="Mockup 1" loading="lazy">
+                <img src="IMG/MOCKUP3.png" alt="Mockup 1" loading="lazy">
                 <figcaption>Mockup 1</figcaption>
               </figure>
               <figure class="wd-card">
-                <img src="https://freight.cargo.site/t/original/i/Z2531985821654233041060938316825/MOCKUP3.png" alt="Mockup 2" loading="lazy">
+                <img src="IMG/MOCKUP2.png" alt="Mockup 2" loading="lazy">
                 <figcaption>Mockup 2</figcaption>
               </figure>
               <figure class="wd-card">
-                <img src="https://freight.cargo.site/t/original/i/F2531985821617339552913519213593/MOCKUP1png.png" alt="Mockup 3" loading="lazy">
+                <img src="IMG/MOCKUP1png.png" alt="Mockup 3" loading="lazy">
                 <figcaption>Mockup 3</figcaption>
               </figure>
             </div>
           </section>
 
-          <!-- ===== Detalle: New Balance ===== -->
+          <!-- ===== New Balance ===== -->
           <section id="detail-new-balance" class="work-detail" aria-hidden="true" hidden>
             <header class="wd-head">
               <h3 class="wd-title">New Balance</h3>
@@ -449,8 +457,7 @@
             </header>
 
             <div class="wd-text">
-              <p>En este rebranding de New Balance he buscado transmitir una identidad más contemporánea y dinámica. Para ello, he utilizado la tipografía <b>Avant Garde</b>, que aporta un carácter moderno y sólido a la marca. Además, he destacado las iniciales <b>N</b> y <b>B</b> en mayúsculas dentro del logotipo para reforzar la presencia de la marca y darle un mayor impacto visual.</p>
-              <p>En cuanto al símbolo, he rediseñado la <b>N</b> otorgándole mayor movilidad y fluidez, lo que genera una sensación de velocidad y actualidad. Este nuevo planteamiento convierte al logotipo en una propuesta más funcional, versátil y adaptada a los códigos gráficos actuales, manteniendo la esencia de la marca, pero proyectándola hacia un lenguaje visual más innovador y competitivo.</p>
+              <p>En este rebranding de New Balance he buscado transmitir una identidad más contemporánea y dinámica...</p>
             </div>
 
             <h5 class="wd-subtitle minor">Imágenes</h5>
@@ -461,35 +468,122 @@
                 </svg>
               </button>
 
-              <div class="track" data-js="track">
-                <figure class="item"><img alt="New Balance 1" draggable="false" loading="lazy" src="https://freight.cargo.site/t/original/i/Y2536715982679683823729702796313/Recurso-1.png"></figure>
-                <figure class="item"><img alt="New Balance 2" draggable="false" loading="lazy" src="https://freight.cargo.site/t/original/i/W2536715982698130567803412347929/Recurso-2.png"></figure>
-                <figure class="item"><img alt="New Balance 3" draggable="false" loading="lazy" src="https://freight.cargo.site/t/original/i/B2536715982716577311877121899545/Recurso-3.png"></figure>
-                <figure class="item"><img alt="New Balance 4" draggable="false" loading="lazy" src="https://freight.cargo.site/t/original/i/T2536715982735024055950831451161/Recurso-4.png"></figure>
-                <figure class="item"><img alt="New Balance 5" draggable="false" loading="lazy" src="https://freight.cargo.site/t/original/i/D2536715982753470800024541002777/Recurso-5.png"></figure>
-                <figure class="item"><img alt="New Balance 6" draggable="false" loading="lazy" src="https://freight.cargo.site/t/original/i/F2536715982771917544098250554393/Recurso-6.png"></figure>
-                <figure class="item"><img alt="New Balance 7" draggable="false" loading="lazy" src="https://freight.cargo.site/t/original/i/U2536715982790364288171960106009/Recurso-7.png"></figure>
-                <figure class="item"><img alt="New Balance 8" draggable="false" loading="lazy" src="https://freight.cargo.site/t/original/i/Y2536715982808811032245669657625/Recurso-8.png"></figure>
+              <div id="nbCarousel" class="carousel slide" data-bs-ride="false" data-bs-interval="false" data-bs-touch="true" aria-label="New Balance – carrusel">
+                <div id="nbCarousel" class="carousel slide" data-bs-ride="false" data-bs-interval="false" data-bs-touch="true" aria-label="New Balance – carrusel">
+              <div class="carousel-indicators">
+                <button type="button" data-bs-target="#nbCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="1"></button>
+                <button type="button" data-bs-target="#nbCarousel" data-bs-slide-to="1" aria-label="2"></button>
+                <button type="button" data-bs-target="#nbCarousel" data-bs-slide-to="2" aria-label="3"></button>
+                <button type="button" data-bs-target="#nbCarousel" data-bs-slide-to="3" aria-label="4"></button>
+                <button type="button" data-bs-target="#nbCarousel" data-bs-slide-to="4" aria-label="5"></button>
+                <button type="button" data-bs-target="#nbCarousel" data-bs-slide-to="5" aria-label="6"></button>
+                <button type="button" data-bs-target="#nbCarousel" data-bs-slide-to="6" aria-label="7"></button>
+                <button type="button" data-bs-target="#nbCarousel" data-bs-slide-to="7" aria-label="8"></button>
               </div>
 
-              <button class="nav next" type="button" aria-label="Siguiente">
-                <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none">
-                  <path d="M8.5 4.5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
+              <div class="carousel-inner">
+                <div class="carousel-item active"><div class="ratio ratio-16x9">
+                  <img src="IMG/Recurso 1.png" class="d-block w-100 h-100 object-fit-contain" alt="New Balance 1" loading="lazy" draggable="false">
+                </div></div>
+
+                <div class="carousel-item"><div class="ratio ratio-16x9">
+                  <img src="IMG/Recurso 2.png" class="d-block w-100 h-100 object-fit-contain" alt="New Balance 2" loading="lazy" draggable="false">
+                </div></div>
+
+                <div class="carousel-item"><div class="ratio ratio-16x9">
+                  <img src="IMG/Recurso 3.png" class="d-block w-100 h-100 object-fit-contain" alt="New Balance 3" loading="lazy" draggable="false">
+                </div></div>
+
+                <div class="carousel-item"><div class="ratio ratio-16x9">
+                  <img src="IMG/Recurso 4.png" class="d-block w-100 h-100 object-fit-contain" alt="New Balance 4" loading="lazy" draggable="false">
+                </div></div>
+
+                <div class="carousel-item"><div class="ratio ratio-16x9">
+                  <img src="IMG/Recurso 5.png" class="d-block w-100 h-100 object-fit-contain" alt="New Balance 5" loading="lazy" draggable="false">
+                </div></div>
+
+                <div class="carousel-item"><div class="ratio ratio-16x9">
+                  <img src="IMG/Recurso 6.png" class="d-block w-100 h-100 object-fit-contain" alt="New Balance 6" loading="lazy" draggable="false">
+                </div></div>
+
+                <div class="carousel-item"><div class="ratio ratio-16x9">
+                  <img src="IMG/Recurso 7.png" class="d-block w-100 h-100 object-fit-contain" alt="New Balance 7" loading="lazy" draggable="false">
+                </div></div>
+
+                <div class="carousel-item"><div class="ratio ratio-16x9">
+                  <img src="IMG/Recurso 8.png" class="d-block w-100 h-100 object-fit-contain" alt="New Balance 8" loading="lazy" draggable="false">
+                </div></div>
+              </div>
+
+              <button class="carousel-control-prev" type="button" data-bs-target="#nbCarousel" data-bs-slide="prev" aria-label="Anterior">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#nbCarousel" data-bs-slide="next" aria-label="Siguiente">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              </button>
+            </div>
+
+          </div><!-- /nb-carousel -->
+          </section>
+
+
+          <!-- ===== La Taberna (Branding) ===== -->
+          <section id="detail-la-taberna" class="work-detail" aria-hidden="true" hidden style="--detail-h:0px">
+            <header class="wd-head">
+              <h3 class="wd-title">La Taberna — Rediseño de identidad visual</h3>
+              <small class="wd-kicker">Branding</small>
+            </header>
+
+            <div class="wd-text">
+              <p>El proyecto consiste en el rediseño de la identidad gráfica de La Taberna, un establecimiento situado en Rascafría que buscaba actualizar su imagen sin perder la esencia que le caracteriza. El cliente me transmitió unas pautas muy claras: quería que la nueva identidad mantuviera un equilibrio entre lo moderno y lo clásico, proyectando una imagen atemporal que conectase tanto con la tradición como con la contemporaneidad.</p>
+              <p>Para responder a esta necesidad, desarrollé una propuesta basada en la construcción de un imagotipo que pudiera funcionar de manera flexible en diferentes aplicaciones. Por un lado, diseñé un isotipo tipográfico, concebido como un símbolo independiente con la fuerza visual de un sello, lo que aporta carácter, autenticidad y solidez a la marca. Por otro lado, creé un logotipo que integra este símbolo con el nombre completo del establecimiento, generando una identidad cohesionada y versátil.</p>
+              <p>Un aspecto fundamental de este trabajo fue el desarrollo de una tipografía propia, diseñada específicamente para el proyecto. Esta tipografía combina rasgos clásicos —como las proporciones equilibradas y ciertos remates que evocan elegancia y tradición— con un tratamiento estilístico contemporáneo que transmite frescura y modernidad. El resultado es un conjunto tipográfico que refuerza la personalidad de la marca y cumple con la intención del cliente de mantenerse entre lo tradicional y lo actual.</p>
+              <p>El isotipo, inspirado en la idea de sello, aporta reconocimiento inmediato y dota a la marca de un símbolo que puede emplearse en aplicaciones reducidas o como emblema distintivo en distintos soportes gráficos y físicos. Esta dualidad entre isotipo e imagotipo ofrece a La Taberna una identidad sólida, adaptable y coherente con la experiencia que busca transmitir a sus clientes: un lugar donde la tradición se encuentra con lo contemporáneo.</p>
+            </div>
+
+            <h5 class="wd-subtitle minor">Imágenes</h5>
+
+            <!-- Carrusel Bootstrap (mismo patrón que NB) -->
+            <div id="carouselLaTaberna" class="carousel slide nb-carousel" data-bs-touch="true" data-bs-interval="false">
+              <div class="carousel-inner">
+                <div class="carousel-item active"><div class="ratio ratio-16x9"><img src="IMG/TABERNA1.png" alt="La Taberna 01" class="d-block w-100 object-fit-contain"></div></div>
+                <div class="carousel-item"><div class="ratio ratio-16x9"><img src="IMG/TABERNA2.png" alt="La Taberna 02" class="d-block w-100 object-fit-contain"></div></div>
+                <div class="carousel-item"><div class="ratio ratio-16x9"><img src="IMG/TABERNA3.png" alt="La Taberna 03" class="d-block w-100 object-fit-contain"></div></div>
+                <div class="carousel-item"><div class="ratio ratio-16x9"><img src="IMG/TABERNA4.png" alt="La Taberna 04" class="d-block w-100 object-fit-contain"></div></div>
+                <div class="carousel-item"><div class="ratio ratio-16x9"><img src="IMG/TABERNA5.png" alt="La Taberna 05" class="d-block w-100 object-fit-contain"></div></div>
+                <div class="carousel-item"><div class="ratio ratio-16x9"><img src="IMG/TABERNA6.png" alt="La Taberna 06" class="d-block w-100 object-fit-contain"></div></div>
+                <div class="carousel-item"><div class="ratio ratio-16x9"><img src="IMG/TABERNA7.png" alt="La Taberna 07" class="d-block w-100 object-fit-contain"></div></div>
+                <div class="carousel-item"><div class="ratio ratio-16x9"><img src="IMG/TABERNA8.png" alt="La Taberna 08" class="d-block w-100 object-fit-contain"></div></div>
+                <div class="carousel-item"><div class="ratio ratio-16x9"><img src="IMG/TABERNA9.png" alt="La Taberna 09" class="d-block w-100 object-fit-contain"></div></div>
+                <div class="carousel-item"><div class="ratio ratio-16x9"><img src="IMG/TABERNA10.png" alt="La Taberna 10" class="d-block w-100 object-fit-contain"></div></div>
+              </div>
+
+              <!-- Controles -->
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselLaTaberna" data-bs-slide="prev" aria-label="Anterior">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselLaTaberna" data-bs-slide="next" aria-label="Siguiente">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              </button>
+
+              <!-- Indicadores -->
+              <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselLaTaberna" data-bs-slide-to="0" class="active" aria-current="true" aria-label="1"></button>
+                <button type="button" data-bs-target="#carouselLaTaberna" data-bs-slide-to="1" aria-label="2"></button>
+                <button type="button" data-bs-target="#carouselLaTaberna" data-bs-slide-to="2" aria-label="3"></button>
+                <button type="button" data-bs-target="#carouselLaTaberna" data-bs-slide-to="3" aria-label="4"></button>
+                <button type="button" data-bs-target="#carouselLaTaberna" data-bs-slide-to="4" aria-label="5"></button>
+                <button type="button" data-bs-target="#carouselLaTaberna" data-bs-slide-to="5" aria-label="6"></button>
+                <button type="button" data-bs-target="#carouselLaTaberna" data-bs-slide-to="6" aria-label="7"></button>
+                <button type="button" data-bs-target="#carouselLaTaberna" data-bs-slide-to="7" aria-label="8"></button>
+                <button type="button" data-bs-target="#carouselLaTaberna" data-bs-slide-to="8" aria-label="9"></button>
+              </div>
             </div>
           </section>
 
-          <!-- ===== Detalle: Keletra ===== -->
-          <section id="detail-keletra" class="work-detail" aria-hidden="true" hidden>
-            <header class="wd-head">
-              <h3 class="wd-title">Keletra</h3>
-              <small class="wd-kicker">Branding</small>
-            </header>
-            <div class="wd-text"><p>Próximamente.</p></div>
-          </section>
 
-          <!-- ===== Detalle: Chupa Chups ===== -->
+
+          <!-- ===== Chupa Chups ===== -->
           <section id="detail-chupa-chups" class="work-detail" aria-hidden="true" hidden>
             <header class="wd-head">
               <h3 class="wd-title">Taste the Game — Chupa Chups x NBA</h3>
@@ -497,25 +591,25 @@
             </header>
 
             <div class="wd-text">
-              <p>Campaña gráfica conmemorativa del 45º aniversario de la NBA, desarrollada en colaboración con Chupa Chups. La propuesta combina el universo deportivo con la estética pop y psicodélica de la marca, transformando el balón en un icono visual reinterpretado como un Chupa Chups. Los carteles utilizan leyendas del baloncesto en blanco y negro contrastadas con fondos dinámicos y ondulantes en colores vibrantes, reforzando la energía del juego y el carácter atemporal de ambas marcas.</p>
+              <p>Campaña gráfica conmemorativa del 45º aniversario de la NBA...</p>
             </div>
 
             <h5 class="wd-subtitle minor">Carteles</h5>
             <div class="wd-grid">
-              <figure class="wd-card"><img alt="Cartel 1" loading="lazy" src="https://freight.cargo.site/t/original/i/E2541120255315527340658868550681/CARTEL_1.jpg"><figcaption>Cartel 1</figcaption></figure>
-              <figure class="wd-card"><img alt="Cartel 2" loading="lazy" src="https://freight.cargo.site/t/original/i/L2541120255333974084732578102297/CARTEL_2.jpg"><figcaption>Cartel 2</figcaption></figure>
-              <figure class="wd-card"><img alt="Cartel 3" loading="lazy" src="https://freight.cargo.site/t/original/i/N2541120255352420828806287653913/CARTEL_3.jpg"><figcaption>Cartel 3</figcaption></figure>
+              <figure class="wd-card"><img alt="Cartel 1" loading="lazy" src="IMG/CHUPACHUPS1.jpg"><figcaption>Cartel 1</figcaption></figure>
+              <figure class="wd-card"><img alt="Cartel 2" loading="lazy" src="IMG/CHUPACHUPS2.jpg"><figcaption>Cartel 2</figcaption></figure>
+              <figure class="wd-card"><img alt="Cartel 3" loading="lazy" src="IMG/CHUPACHUPS3.jpg"><figcaption>Cartel 3</figcaption></figure>
             </div>
 
             <h5 class="wd-subtitle minor">Mockups</h5>
             <div class="wd-grid">
-              <figure class="wd-card"><img alt="Mockup 1" loading="lazy" src="https://freight.cargo.site/t/original/i/B2541125409907670601392586161177/1.png"><figcaption>Mockup 1</figcaption></figure>
-              <figure class="wd-card"><img alt="Mockup 2" loading="lazy" src="https://freight.cargo.site/t/original/i/P2541126797803801219151830645785/2.png"><figcaption>Mockup 2</figcaption></figure>
-              <figure class="wd-card"><img alt="Mockup 3" loading="lazy" src="https://freight.cargo.site/t/original/i/O2541126797822247963225540197401/3.png"><figcaption>Mockup 3</figcaption></figure>
+              <figure class="wd-card"><img alt="Mockup 1" loading="lazy" src="IMG/CHUPACHUPS_MOCKUP1.png"><figcaption>Mockup 1</figcaption></figure>
+              <figure class="wd-card"><img alt="Mockup 2" loading="lazy" src="IMG/CHUPACHUPS_MOCKUP2.png"><figcaption>Mockup 2</figcaption></figure>
+              <figure class="wd-card"><img alt="Mockup 3" loading="lazy" src="IMG/CHUPACHUPS_MOCKUP3.png"><figcaption>Mockup 3</figcaption></figure>
             </div>
           </section>
 
-          <!-- ===== Detalle: Yorokobu ===== -->
+          <!-- ===== Yorokobu ===== -->
           <section id="detail-yorokobu" class="work-detail" aria-hidden="true" hidden>
             <header class="wd-head">
               <h3 class="wd-title">YOTOKOBU – Exploración tipográfica y branding experimental</h3>
@@ -523,22 +617,22 @@
             </header>
 
             <div class="wd-text">
-              <p>Proyecto gráfico desarrollado para YOTOKOBU en el que se experimenta con la deconstrucción tipográfica y la reinterpretación de un logotipo corporativo bajo un enfoque visual disruptivo. A través de volúmenes metálicos, texturas brillantes y formas afiladas, se crea una estética agresiva y contemporánea que fusiona lo digital con lo artesanal. El resultado transmite fuerza, dinamismo e innovación, alineándose con la esencia experimental y arriesgada de la marca.</p>
+              <p>Proyecto gráfico desarrollado para YOTOKOBU...</p>
             </div>
 
             <h5 class="wd-subtitle minor">Imágenes</h5>
             <div class="wd-grid">
-              <figure class="wd-card"><img alt="Yorokobu 1" loading="lazy" src="https://freight.cargo.site/t/original/i/G2541150773922517534994124438553/letras_4.jpg"><figcaption>Exploración 1</figcaption></figure>
-              <figure class="wd-card"><img alt="Yorokobu 2" loading="lazy" src="https://freight.cargo.site/t/original/i/H2541150773940964279067833990169/LOGO_3.jpg"><figcaption>Exploración 2</figcaption></figure>
+              <figure class="wd-card"><img alt="Yorokobu 1" loading="lazy" src="IMG/YOROKOBU.jpg"><figcaption>Exploración 1</figcaption></figure>
+              <figure class="wd-card"><img alt="Yorokobu 2" loading="lazy" src="IMG/LOGO_YOROKO.jpg"><figcaption>Exploración 2</figcaption></figure>
             </div>
 
             <h5 class="wd-subtitle minor">Mockup</h5>
             <div class="wd-grid">
-              <figure class="wd-card"><img alt="Mockup Yorokobu" loading="lazy" src="https://freight.cargo.site/t/original/i/F2541157662563943956646822607897/plantilla_portada_contra_yorokobu_nueva.jpg"><figcaption>Portada / contra</figcaption></figure>
+              <figure class="wd-card"><img alt="Mockup Yorokobu" loading="lazy" src="IMG/MOCKUP_YOROKO.jpg"><figcaption>Portada / contra</figcaption></figure>
             </div>
           </section>
 
-          <!-- ===== Detalle: AORTA ===== -->
+          <!-- ===== AORTA ===== -->
           <section id="detail-aorta" class="work-detail" aria-hidden="true" hidden>
             <header class="wd-head">
               <h3 class="wd-title">AORTA</h3>
@@ -546,19 +640,17 @@
             </header>
 
             <div class="wd-text">
-              <p><b>AORTA</b> es un cortometraje dirigido por la videoartista Andrea Suárez, protagonizado por Nicole Wallace y con la dirección de fotografía de Elena Baz. La pieza se adentra en un recorrido íntimo y visceral por el interior emocional de su protagonista, quien atraviesa distintas fases psicológicas y afectivas en un proceso de transformación profunda.</p>
-              <p>Mi aportación dentro del proyecto se centró en el desarrollo de la etapa de transición del personaje, trabajando en la representación de sus cambios internos y la manera en que estos se manifiestan visual y narrativamente. Para ello, se exploraron diferentes registros emocionales que van desde la vulnerabilidad hasta la fortaleza, generando un arco interpretativo coherente y con una clara progresión.</p>
-              <p>El resultado es una obra que no solo retrata un estado emocional fragmentado y en constante movimiento, sino que también pone en valor la potencia expresiva de la imagen y del propio cuerpo como medio narrativo. <b>AORTA</b> se presenta como un ejercicio de experimentación audiovisual donde la emoción se convierte en el eje central de la narrativa.</p>
+              <p><b>AORTA</b> es un cortometraje dirigido por la videoartista Andrea Suárez...</p>
             </div>
 
             <h5 class="wd-subtitle minor">Piezas</h5>
             <div class="wd-grid">
-              <figure class="wd-card"><img alt="Cartel AORTA" loading="lazy" src="https://freight.cargo.site/t/original/i/S2541400175820855471797766126617/CARTEL_AORTA---copia.jpg"><figcaption>Cartel</figcaption></figure>
-              <figure class="wd-card"><img alt="Fotograma AORTA" loading="lazy" src="https://freight.cargo.site/t/original/i/D2541400175802408727724056575001/1.jpg"><figcaption>Fotograma</figcaption></figure>
+              <figure class="wd-card"><img alt="Cartel AORTA" loading="lazy" src="IMG/AORTA1.jpg"><figcaption>Cartel</figcaption></figure>
+              <figure class="wd-card"><img alt="Fotograma AORTA" loading="lazy" src="IMG/CARTEL_AORTA - copia.jpg"><figcaption>Fotograma</figcaption></figure>
             </div>
           </section>
 
-          <!-- ===== Detalle: Ilustración ===== -->
+          <!-- ===== Ilustración ===== -->
           <section id="detail-ilustracion" class="work-detail" aria-hidden="true" hidden>
             <header class="wd-head">
               <h3 class="wd-title">Ilustración</h3>
@@ -566,26 +658,52 @@
             </header>
 
             <div class="wd-grid illu-grid">
-              <!-- Póster vertical -->
               <figure class="wd-card illu tall">
                 <div class="wd-media">
-                  <img alt="Madrid Gráfica — cartel" loading="lazy" src="https://freight.cargo.site/t/original/i/K2541412620049747828482414935065/MADRIDGRAFICA_CONCURSO_ALTA2.jpg">
+                  <img alt="Madrid Gráfica — cartel" loading="lazy" src="IMG/MADRIDGRAFICA_CONCURSO_ALTA2.jpg">
                 </div>
                 <figcaption>Madrid Gráfica — cartel</figcaption>
               </figure>
 
-              <!-- GIF animado -->
               <figure class="wd-card illu gif">
                 <div class="wd-media">
-                  <img alt="Ilustración animada" loading="lazy" src="https://freight.cargo.site/t/original/i/X2541420834329543619124620885017/GIF_FINAL.gif">
+                  <img alt="Ilustración animada" loading="lazy" src="MEDIA/GIF_FINAL.gif">
                 </div>
                 <figcaption>Ilustración animada</figcaption>
               </figure>
             </div>
           </section>
+          
+          <!-- ===== Detalle: Nodrama — BABI (Motion Graphics) ===== -->
+          <section id="detail-nodrama-babi" class="work-detail" aria-hidden="true" hidden style="--detail-h:0px">
+            <header class="wd-head">
+              <h3 class="wd-title">Nodrama — BABI</h3>
+              <small class="wd-kicker">Motion Graphics</small>
+            </header>
 
+            <div class="wd-text">
+              <p>Pieza de motion graphics. Te dejo el vídeo completo integrado.</p>
+            </div>
+
+            <div class="wd-grid">
+              <figure class="wd-card" style="grid-column: 1 / -1;">
+                <div class="ratio ratio-16x9">
+                  <!-- reemplaza la ruta del mp4/poster por la tuya -->
+                  <video controls playsinline preload="metadata" class="object-fit-contain" poster="VIDEO/NODRAMA_BABI_POSTER.jpg" style="width:100%;height:100%;">
+                    <source src="MEDIA/ROBLES_CAÑA_MARIO_ARTISTA.mp4"video/mp4">
+                    Tu navegador no soporta vídeo HTML5.
+                  </video>
+                </div>
+                <figcaption>Vídeo — Nodrama · BABI</figcaption>
+              </figure>
+            </div>
+          </section>
         </div>
       </section>
+
+     
+
+
 
       <!-- TIPOGRAFÍA -->
       <section id="type" class="section wrap reveal">
@@ -595,15 +713,15 @@
         <h3 class="subtitle">Keletra — Fundición Tipográfica</h3>
         <div class="media-grid">
           <figure class="media-item wide">
-            <div class="ratio" role="img" aria-label="Sustituye por imagen hero de Keletra (1200×675)"></div>
+            <img src="assets/img/type/keletra-hero.jpg" alt="Hero de la fundición Keletra" loading="lazy" />
             <figcaption>Fundición Keletra — Hero</figcaption>
           </figure>
           <figure class="media-item">
-            <div class="ratio" role="img" aria-label="Sustituye por imagen: Identidad Keletra 01"></div>
+            <img src="assets/img/type/keletra-id-01.jpg" alt="Identidad Keletra — Aplicación 01" loading="lazy" />
             <figcaption>Identidad Keletra — Aplicación 01</figcaption>
           </figure>
           <figure class="media-item">
-            <div class="ratio" role="img" aria-label="Sustituye por imagen: Identidad Keletra 02"></div>
+            <img src="assets/img/type/keletra-id-02.jpg" alt="Identidad Keletra — Aplicación 02" loading="lazy" />
             <figcaption>Identidad Keletra — Aplicación 02</figcaption>
           </figure>
         </div>
@@ -612,11 +730,11 @@
         <h3 class="subtitle">Logotipo modular</h3>
         <div class="media-grid">
           <figure class="media-item">
-            <div class="ratio" role="img" aria-label="Sustituye por construcción del logotipo"></div>
+            <img src="assets/img/type/logo-construccion.jpg" alt="Construcción del logotipo modular" loading="lazy" />
             <figcaption>Construcción del logotipo modular</figcaption>
           </figure>
           <figure class="media-item">
-            <div class="ratio" role="img" aria-label="Sustituye por lockups y tamaños"></div>
+            <img src="assets/img/type/logo-lockups.jpg" alt="Lockups, clearspace y tamaños" loading="lazy" />
             <figcaption>Lockups · Clearspace · Tamaños</figcaption>
           </figure>
         </div>
@@ -625,17 +743,16 @@
         <h3 class="subtitle">Campaña publicitaria</h3>
         <div class="media-grid">
           <figure class="media-item">
-            <div class="ratio" role="img" aria-label="Sustituye por foto campaña 01"></div>
+            <img src="assets/img/type/campana-01.jpg" alt="Campaña — Pieza 01" loading="lazy" />
             <figcaption>Campaña — Pieza 01</figcaption>
           </figure>
           <figure class="media-item">
-            <div class="ratio" role="img" aria-label="Sustituye por foto campaña 02"></div>
+            <img src="assets/img/type/campana-02.jpg" alt="Campaña — Pieza 02" loading="lazy" />
             <figcaption>Campaña — Pieza 02</figcaption>
           </figure>
           <figure class="media-item wide">
             <video preload="none" controls poster="">
-              <!-- Sustituye src por tu vídeo -->
-              <source src="" type="video/mp4" />
+              <source src="assets/video/campana.mp4" type="video/mp4" />
             </video>
             <figcaption>Campaña — Vídeo</figcaption>
           </figure>
@@ -728,18 +845,21 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/gsap.min.js"></script>
   <!-- 2) Plugin ScrollTrigger -->
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/CSSRulePlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/Flip.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="JS/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/CSSRulePlugin.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/ScrollTrigger.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/Flip.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="JS/script.js"></script>
-  <script src="app.js" defer></script>
   </body>
 </html>
