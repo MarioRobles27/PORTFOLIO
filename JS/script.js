@@ -45,10 +45,7 @@
   const cursor = document.getElementById("cursor");
   if (!cursor) return;
 
-  let cx = 0,
-    cy = 0,
-    tx = 0,
-    ty = 0;
+  let cx = 0, cy = 0, tx = 0, ty = 0;
   const lerp = (a, b, n) => a + (b - a) * n;
 
   function raf() {
@@ -147,7 +144,6 @@
   const raw = (el.textContent || "").trim().replace(/\s+/g, " ");
   el.setAttribute("aria-label", raw);
 
-  // Escape básico por si hubiera símbolos
   const esc = (s) =>
     s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
@@ -164,7 +160,7 @@
           return out;
         })
         .join("");
-      i++; // pequeño gap entre palabras
+      i++;
       return `<span class="word" style="white-space:nowrap;display:inline-block">${letters}</span>${
         wi < words.length - 1 ? " " : ""
       }`;
@@ -186,8 +182,7 @@
    =========================== */
 (function () {
   document.querySelectorAll('a[href^="#"]').forEach((a) => {
-    a.addEventListener("click", (e) => {
-      // Dejamos el scroll nativo del anchor; sólo gestionamos focus
+    a.addEventListener("click", () => {
       const id = a.getAttribute("href").slice(1);
       if (!id) return;
       const target = document.getElementById(id);
@@ -204,8 +199,8 @@
    Modal genérico (si hubiera .proj)
    =========================== */
 (function () {
-  const pills = document.querySelectorAll(".pill"); // puede no existir
-  const projs = document.querySelectorAll(".proj"); // puede no existir
+  const pills = document.querySelectorAll(".pill");
+  const projs = document.querySelectorAll(".proj");
 
   function setFilter(tag) {
     pills.forEach((p) =>
@@ -257,7 +252,6 @@
     modal.classList.remove("open");
     modal.setAttribute("aria-hidden", "true");
     document.body.style.overflow = "";
-    // Para ocultarlo visualmente si tu CSS no lo hace:
     if (!modal.hasAttribute("hidden")) modal.setAttribute("hidden", "");
   }
 
@@ -395,11 +389,55 @@
   }
 })();
 
-/* ===========================
-   HUB de trabajos + detalles + carrusel
-   =========================== */
+/* ===================================================
+   HUB de trabajos + detalles + carrusel  (v2: dual)
+   - En index.html → hub interactivo (igual que antes)
+   - En works.html  → abrir TODO y desactivar hub
+   =================================================== */
 (function () {
   const hub = document.getElementById("workHub");
+  const details = document.querySelectorAll(".work-detail");
+
+  // Detectar works.html de forma robusta
+  const isWorksPage =
+    document.body.classList.contains("page-works") ||
+    /works(\.html)?$/i.test(location.pathname) ||
+    (!hub && details.length > 0); // no hay hub pero sí detalles → listado
+
+  // ======= MODO LISTADO (works.html) =======
+  if (isWorksPage) {
+    // abrir todos los bloques y garantizar visibilidad
+    details.forEach((d) => {
+      d.classList.add("open", "fluid");
+      d.removeAttribute("hidden");
+      d.setAttribute("aria-hidden", "false");
+      // fijar altura para transiciones que dependan de --detail-h
+      const setH = () =>
+        d.style.setProperty("--detail-h", Math.max(d.scrollHeight, 0) + "px");
+      setH();
+
+      // Ajustar cuando carguen imágenes/videos
+      d.querySelectorAll("img, video").forEach((m) => {
+        if (m.tagName === "IMG" && m.complete) return;
+        m.addEventListener("load", setH, { once: true });
+        if (m.tagName === "VIDEO") {
+          m.addEventListener("loadedmetadata", setH, { once: true });
+        }
+      });
+
+      // ResizeObserver para cambios dinámicos
+      if ("ResizeObserver" in window) {
+        const ro = new ResizeObserver(setH);
+        ro.observe(d);
+        d._ro = ro;
+      }
+    });
+
+    // no hacemos nada más (no hay submenús ni toggles)
+    return;
+  }
+
+  // ======= MODO HUB (index.html) =======
   if (!hub) return;
 
   const groups = Array.from(hub.querySelectorAll(".work-group"));
@@ -461,7 +499,6 @@
       }
     });
 
-    // Por si queremos cerrar desde fuera
     group._closeGroup = () => {
       if (group.classList.contains("open")) {
         group.classList.remove("open");
@@ -471,8 +508,6 @@
     };
   });
 
-  const details = document.querySelectorAll(".work-detail");
-
   const closeDetails = (except = null) => {
     details.forEach((d) => {
       if (d !== except) {
@@ -480,9 +515,7 @@
         d.style.setProperty("--detail-h", "0px");
         d.setAttribute("aria-hidden", "true");
         if (d._ro) {
-          try {
-            d._ro.disconnect();
-          } catch (_) {}
+          try { d._ro.disconnect(); } catch (_) {}
           d._ro = null;
         }
       }
@@ -508,9 +541,7 @@
       detail.style.setProperty("--detail-h", "0px");
       detail.setAttribute("aria-hidden", "true");
       if (detail._ro) {
-        try {
-          detail._ro.disconnect();
-        } catch (_) {}
+        try { detail._ro.disconnect(); } catch (_) {}
         detail._ro = null;
       }
       if (group && group._closeGroup) group._closeGroup();
@@ -558,7 +589,7 @@
     if (e.key === "Escape") closeDetails();
   });
 
-  // Carruseles simples
+  // Carruseles simples (si existiera un carrusel con .track/.nav)
   document.querySelectorAll(".carousel").forEach((carousel) => {
     const track = carousel.querySelector(".track");
     const prev = carousel.querySelector(".nav.prev");
@@ -571,4 +602,54 @@
     if (prev) prev.addEventListener("click", () => scrollBy(-step()));
     if (next) next.addEventListener("click", () => scrollBy(+step()));
   });
+})();
+
+
+/* =========================================
+   Header fijo + shrink + compensación de alto
+   ========================================= */
+(function () {
+  const header = document.querySelector(".site-header");
+  if (!header) return;
+
+  const ROOT = document.documentElement;
+  const BODY = document.body;
+  const SHRINK_AT = 80; // px desde arriba
+
+  // aseguramos clase en body para el padding-top
+  if (!BODY.classList.contains("has-fixed-header")) BODY.classList.add("has-fixed-header");
+
+  // mide el alto actual del header y lo pasa a --header-h
+  function measureHeader() {
+    const h = header.offsetHeight || 72;
+    ROOT.style.setProperty("--header-h", h + "px");
+  }
+
+  // scroll: sombra y shrink
+  let small = false, stuck = false;
+  function onScroll() {
+    const y = window.scrollY || document.documentElement.scrollTop;
+
+    if (y > 2 && !stuck) { header.classList.add("is-stuck"); stuck = true; }
+    else if (y <= 2 && stuck) { header.classList.remove("is-stuck"); stuck = false; }
+
+    // no encogemos mientras el menú móvil esté abierto
+    if (BODY.classList.contains("menu-open")) return;
+
+    if (y > SHRINK_AT && !small) { header.classList.add("shrink"); small = true; measureHeader(); }
+    else if (y <= SHRINK_AT && small) { header.classList.remove("shrink"); small = false; measureHeader(); }
+  }
+
+  // observar cambios que afecten a la altura (resize, clases, etc.)
+  const ro = ("ResizeObserver" in window) ? new ResizeObserver(measureHeader) : null;
+  if (ro) ro.observe(header);
+
+  new MutationObserver(measureHeader).observe(header, { attributes: true, attributeFilter: ["class","style"] });
+
+  window.addEventListener("resize", measureHeader);
+  window.addEventListener("orientationchange", measureHeader);
+  document.addEventListener("scroll", onScroll, { passive: true });
+
+  // medir en arranque
+  window.addEventListener("load", () => { measureHeader(); onScroll(); }, { once: true });
 })();

@@ -404,12 +404,10 @@ body::before{
 @media (max-width:1080px){.superblock{margin:clamp(14px,3vh,24px) var(--grid);border-radius:18px}}
 
 /* asegura que los detalles ocultos no ocupen sitio */
-.work-detail[hidden], .submenu[hidden]{ display:none !important; }
 
 
 /* Forzar comportamiento básico del carrusel dentro de work-detail */
 .work-detail .nb-carousel .carousel-inner{ overflow: hidden; }
-.work-detail .nb-carousel .carousel-item{ display: none; }
 .work-detail .nb-carousel .carousel-item.active{ display: block; }
 
 /* Que los controles se vean siempre (aunque tengas fondos transparentes) */
@@ -424,3 +422,254 @@ body::before{
 .wd-card video{display:block;width:100%;height:auto;background:#000}
 
 
+
+/* CTA única + flecha animada a works */
+.cta-row{
+  margin-top:1.2rem;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:clamp(.6rem,2.4vw,1.2rem);
+  flex-wrap:nowrap;
+}
+
+.btn-works{
+  padding:1rem 1.3rem;
+  font-size:clamp(16px,1.6vw,18px);
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.16);
+  background:rgba(255,255,255,.04);
+  transition:transform .2s, background .2s, border-color .2s;
+}
+.btn-works:hover{
+  transform:translateY(-2px);
+  background:rgba(255,255,255,.06);
+  border-color:rgba(255,255,255,.28);
+}
+
+/* Flecha grande con “empujón” lateral */
+.cta-arrow{
+  display:inline-grid;
+  place-items:center;
+  opacity:.9;
+}
+.cta-arrow svg{
+  width:clamp(40px,6vw,72px);
+  height:auto;
+  animation:nudge 1.2s ease-in-out infinite;
+  filter:drop-shadow(0 6px 18px rgba(0,0,0,.35));
+}
+@keyframes nudge{
+  0%,100%{ transform:translateX(0) }
+  50%{ transform:translateX(8px) }
+}
+
+/* Respeto a usuarios con reduce-motion */
+@media (prefers-reduced-motion: reduce){
+  .cta-arrow svg{ animation:none }
+}
+
+
+
+
+/* Fila única de "Trabajos" con flecha a works.html */
+#works .works-row{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:clamp(.6rem,2.4vw,1.4rem);
+  padding:clamp(18px,3.2vw,28px);
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:26px;
+  background:
+    radial-gradient(70% 60% at 12% -10%,rgba(102,255,204,.12),transparent 60%),
+    radial-gradient(50% 40% at 110% 120%,rgba(154,140,255,.12),transparent 60%),
+    #0e0e12;
+  box-shadow:0 30px 80px rgba(0,0,0,.45);
+  text-decoration:none;
+}
+#works .works-row .title{
+  margin:0;
+  /* hereda tu estilo #works .title con gradiente; lo ampliamos un poco */
+  font-size:clamp(28px,6vw,56px);
+}
+#works .works-arrow svg{
+  width:clamp(40px,6vw,80px); height:auto;
+  animation:nudge 1.15s ease-in-out infinite;
+  filter:drop-shadow(0 8px 22px rgba(0,0,0,.35));
+}
+@keyframes nudge{ 0%,100%{transform:translateX(0)} 50%{transform:translateX(10px)} }
+@media (prefers-reduced-motion: reduce){ #works .works-arrow svg{ animation:none } }
+
+
+
+/* ====== Más aire en works.html ====== */
+.page-works #works{
+  /* controles rápidos: sube/baja estos tres y cambia todo el ritmo */
+  --air-outer:   clamp(64px, 12vh, 160px);   /* padding global de la página */
+  --air-between: clamp(40px, 8vh, 120px);    /* separación entre categorías */
+  --air-inside:  clamp(20px, 2.6vw, 36px);   /* padding/espacio dentro de cada proyecto */
+}
+
+.page-works #works{
+  padding-top: var(--air-outer);
+  padding-bottom: var(--air-outer);
+}
+
+/* separación entre categorías (Packaging / Branding / … / TFG) */
+.page-works #works .cat-block + .cat-block{
+  margin-top: var(--air-between);
+  padding-top: calc(var(--air-between) * .45);
+  border-top: 1px solid rgba(255,255,255,.10);
+}
+
+/* títulos y textos intro de cada categoría */
+.page-works #works .cat-block .title{
+  margin: 0 0 .4rem;
+  font-size: clamp(26px, 3vw, 40px);
+}
+.page-works #works .cat-block .lead{
+  color:#cfcfcf;
+  margin: .25rem 0 var(--air-inside);
+}
+
+/* cada proyecto dentro de la categoría */
+.page-works #works .cat-block .work-detail{
+  margin-top: calc(var(--air-inside) * .9) !important;
+  padding: var(--air-inside) !important;
+}
+
+/* rejillas más sueltas */
+.page-works #works .wd-grid{
+  gap: clamp(14px, 2.4vw, 28px);
+}
+.page-works #works .media-grid{
+  gap: clamp(16px, 2.6vw, 30px);
+}
+.page-works #works .wd-subtitle{
+  margin-top: var(--air-inside);
+  margin-bottom: .4rem;
+}
+
+/* opcional: divisor más “fino” entre categorías (sustituye el border-top si lo prefieres) */
+/*
+.page-works #works .cat-block + .cat-block{
+  border-top: 0;
+  position: relative;
+}
+.page-works #works .cat-block + .cat-block::before{
+  content:""; display:block; height:1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.14), transparent);
+  margin-bottom: calc(var(--air-inside) * .9);
+}
+*/
+/* ================================
+   Works full-width con márgenes
+   ================================ */
+.page-works{
+  /* cambia estos dos valores si quieres más/menos aire o un ancho máximo */
+  --gutter: clamp(16px, 5vw, 64px);   /* margen lateral */
+  --content-max: none;                /* ej.: 1680px si quieres tope */
+}
+
+/* 1) Quitar el “marco” del antiguo superpanel en #works */
+.page-works #works.section.wrap{
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* 2) Hacer que TODO el contenido de works use el ancho de pantalla
+      con un gutter cómodo a los lados */
+.page-works .wrap{
+  max-width: var(--content-max);
+  width: 100%;
+  margin-inline: 0;                  /* fuera el centrado por max-width */
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+/* 3) También el nav de esta página (opcional, queda más uniforme) */
+.page-works .nav{
+  max-width: var(--content-max);
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+/* 4) Los proyectos ya se ven bien; solo damos un pelín más de gap
+      para que el grid aproveche el ancho sin apretar */
+.page-works #works .wd-grid{
+  gap: clamp(18px, 2.8vw, 34px);
+}
+
+/* Si quieres limitar el ancho máximo de la página de trabajos
+   descomenta esta línea y pon el valor que te mole
+.page-works{ --content-max: 1680px; }
+*/
+/* ===== Menú de works EXACTO al de index ===== */
+.page-works .nav{
+  /* volvemos a los valores globales del index */
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding: 12px var(--grid);
+}
+
+/* por si hubieras copiado antes una regla que ensanchaba el nav,
+   esto la pisa y lo deja igual que en index */
+/* ===== Header fijo + shrink ===== */
+:root{ --header-h: 72px; } /* valor inicial; luego JS lo recalcula */
+
+/* forzamos posición fija por encima de todo */
+.site-header{
+  position: fixed !important;
+  top: 0; left: 0; right: 0;
+  z-index: 3000;
+  background: rgba(10,10,10,.68);
+  backdrop-filter: saturate(180%) blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  transition: background .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+
+/* añadimos padding al body para que el contenido no se meta debajo */
+body.has-fixed-header{ padding-top: var(--header-h); }
+
+/* estado “pegado”/scroll (ligera sombra) */
+.site-header.is-stuck{
+  background: rgba(10,10,10,.82);
+  border-bottom-color: rgba(255,255,255,.12);
+  box-shadow: 0 6px 22px rgba(0,0,0,.28);
+}
+
+/* encogido */
+.site-header .nav{ transition: padding .22s ease; }
+.site-header.shrink .nav{ padding: 6px var(--grid); }
+
+.site-header.shrink .brand{
+  font-size: clamp(16px,1.9vw,24px);
+  letter-spacing: .01em;
+}
+.site-header.shrink .menu a{ font-size: clamp(10px,1.05vw,11px); }
+
+@media (max-width:960px){
+  .site-header.shrink .nav{ padding: 10px var(--grid); }
+}
+
+
+
+
+/* Que las cards NO se estiren a la altura del más alto */
+.wd-grid{
+  align-items: start;           /* antes: stretch (por defecto) */
+}
+
+/* Asegura que la tarjeta se adapta al contenido */
+.wd-card{
+  height: auto;
+}
+
+/* Por si alguna imagen venía forzada: 100% de ancho y alto automático */
+.wd-card img{
+  width: 100%;
+  height: auto;
+  object-fit: contain;          /* evita recortes */
+}
+   
