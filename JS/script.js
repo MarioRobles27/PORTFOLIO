@@ -19,23 +19,23 @@
    Reveal on view (IO)
    =========================== */
 (function () {
-  const els = document.querySelectorAll(".reveal");
-  if (!("IntersectionObserver" in window)) {
-    els.forEach((e) => e.classList.add("in"));
-    return;
-  }
-  const io = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) {
-          e.target.classList.add("in");
-          io.unobserve(e.target);
-        }
-      });
-    },
-    { threshold: 0.18 }
-  );
-  els.forEach((el) => io.observe(el));
+    const els = document.querySelectorAll(".reveal");
+    if (!("IntersectionObserver" in window)) {
+      els.forEach((e) => e.classList.add("in"));
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("in");
+            io.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.18 }
+    );
+    els.forEach((el) => io.observe(el));
 })();
 
 /* ===========================
@@ -55,17 +55,13 @@
     requestAnimationFrame(raf);
   }
 
-  window.addEventListener(
-    "pointermove",
-    (e) => {
-      tx = e.clientX;
-      ty = e.clientY;
-      const root = document.documentElement;
-      root.style.setProperty("--mx", e.clientX + "px");
-      root.style.setProperty("--my", e.clientY + "px");
-    },
-    { passive: true }
-  );
+  window.addEventListener("pointermove",(e) => {
+    tx = e.clientX;
+    ty = e.clientY;
+    const root = document.documentElement;
+    root.style.setProperty("--mx", e.clientX + "px");
+    root.style.setProperty("--my", e.clientY + "px");
+  },{ passive: true });
   requestAnimationFrame(raf);
 })();
 
@@ -76,15 +72,11 @@
   const bg = document.getElementById("bg");
   if (!bg) return;
 
-  window.addEventListener(
-    "pointermove",
-    (e) => {
-      const x = e.clientX / window.innerWidth - 0.5;
-      const y = e.clientY / window.innerHeight - 0.5;
-      bg.style.transform = `translate(${x * 10}px, ${y * 10}px)`;
-    },
-    { passive: true }
-  );
+  window.addEventListener("pointermove",(e) => {
+    const x = e.clientX / window.innerWidth - 0.5;
+    const y = e.clientY / window.innerHeight - 0.5;
+    bg.style.transform = `translate(${x * 10}px, ${y * 10}px)`;
+  },{ passive: true });
 })();
 
 /* ===========================
@@ -144,28 +136,20 @@
   const raw = (el.textContent || "").trim().replace(/\s+/g, " ");
   el.setAttribute("aria-label", raw);
 
-  const esc = (s) =>
-    s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
   const words = raw.split(" ");
   let i = 0;
 
-  const html = words
-    .map((w, wi) => {
-      const letters = Array.from(w)
-        .map((ch) => {
-          const out = `<span class="char" style="display:inline-block;transform:translateY(30px);opacity:0;transition:transform .6s ${i *
-            12}ms, opacity .6s ${i * 12}ms">${esc(ch)}</span>`;
-          i++;
-          return out;
-        })
-        .join("");
+  const html = words.map((w, wi) => {
+      const letters = Array.from(w).map((ch) => {
+        const out = `<span class="char" style="display:inline-block;transform:translateY(30px);opacity:0;transition:transform .6s ${i*12}ms, opacity .6s ${i*12}ms">${esc(ch)}</span>`;
+        i++;
+        return out;
+      }).join("");
       i++;
-      return `<span class="word" style="white-space:nowrap;display:inline-block">${letters}</span>${
-        wi < words.length - 1 ? " " : ""
-      }`;
-    })
-    .join("");
+      return `<span class="word" style="white-space:nowrap;display:inline-block">${letters}</span>${wi < words.length - 1 ? " " : ""}`;
+    }).join("");
 
   el.innerHTML = html;
 
@@ -257,18 +241,12 @@
 
   projs.forEach((card) => {
     card.addEventListener("click", () => openModal(card));
-    card.addEventListener("keypress", (e) => {
-      if (e.key === "Enter") openModal(card);
-    });
+    card.addEventListener("keypress", (e) => { if (e.key === "Enter") openModal(card); });
   });
 
   if (mClose) mClose.addEventListener("click", closeModal);
-  modal.addEventListener("click", (e) => {
-    if (e.target === modal) closeModal();
-  });
-  window.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeModal();
-  });
+  modal.addEventListener("click", (e) => { if (e.target === modal) closeModal(); });
+  window.addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal(); });
 })();
 
 /* ===========================
@@ -353,25 +331,17 @@
     const toggleMenu = () => (menu.classList.contains("open") ? closeMenu() : openMenu());
 
     btn.addEventListener("click", toggleMenu);
-    if (closeBtn)
-      closeBtn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        closeMenu();
-      });
+    if (closeBtn) closeBtn.addEventListener("click", (e) => { e.stopPropagation(); closeMenu(); });
 
     // Cierra al hacer click dentro (links)
     menu.addEventListener("click", closeMenu);
 
     // ESC para cerrar
-    window.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") closeMenu();
-    });
+    window.addEventListener("keydown", (e) => { if (e.key === "Escape") closeMenu(); });
 
     // Si pasa a desktop, cerramos
     const mq = window.matchMedia("(min-width: 961px)");
-    const mqHandler = (e) => {
-      if (e.matches) closeMenu();
-    };
+    const mqHandler = (e) => { if (e.matches) closeMenu(); };
     if (mq.addEventListener) mq.addEventListener("change", mqHandler);
     else if (mq.addListener) mq.addListener(mqHandler);
 
@@ -380,9 +350,7 @@
   }
 
   if (!wireMenu()) {
-    const mo = new MutationObserver(() => {
-      if (wireMenu()) mo.disconnect();
-    });
+    const mo = new MutationObserver(() => { if (wireMenu()) mo.disconnect(); });
     mo.observe(document.documentElement, { childList: true, subtree: true });
     window.addEventListener("DOMContentLoaded", wireMenu, { once: true });
     window.addEventListener("load", wireMenu, { once: true });
@@ -390,50 +358,39 @@
 })();
 
 /* ===================================================
-   HUB de trabajos + detalles + carrusel  (v2: dual)
-   - En index.html → hub interactivo (igual que antes)
-   - En works.html  → abrir TODO y desactivar hub
+   HUB de trabajos + detalles (index) / listado (works)
    =================================================== */
 (function () {
   const hub = document.getElementById("workHub");
   const details = document.querySelectorAll(".work-detail");
 
-  // Detectar works.html de forma robusta
+  // Detectar works.html
   const isWorksPage =
     document.body.classList.contains("page-works") ||
     /works(\.html)?$/i.test(location.pathname) ||
-    (!hub && details.length > 0); // no hay hub pero sí detalles → listado
+    (!hub && details.length > 0);
 
-  // ======= MODO LISTADO (works.html) =======
   if (isWorksPage) {
-    // abrir todos los bloques y garantizar visibilidad
+    // Abrir todos los bloques y garantizar visibilidad
     details.forEach((d) => {
       d.classList.add("open", "fluid");
       d.removeAttribute("hidden");
       d.setAttribute("aria-hidden", "false");
-      // fijar altura para transiciones que dependan de --detail-h
-      const setH = () =>
-        d.style.setProperty("--detail-h", Math.max(d.scrollHeight, 0) + "px");
+      const setH = () => d.style.setProperty("--detail-h", Math.max(d.scrollHeight, 0) + "px");
       setH();
 
-      // Ajustar cuando carguen imágenes/videos
       d.querySelectorAll("img, video").forEach((m) => {
         if (m.tagName === "IMG" && m.complete) return;
         m.addEventListener("load", setH, { once: true });
-        if (m.tagName === "VIDEO") {
-          m.addEventListener("loadedmetadata", setH, { once: true });
-        }
+        if (m.tagName === "VIDEO") m.addEventListener("loadedmetadata", setH, { once: true });
       });
 
-      // ResizeObserver para cambios dinámicos
       if ("ResizeObserver" in window) {
         const ro = new ResizeObserver(setH);
         ro.observe(d);
         d._ro = ro;
       }
     });
-
-    // no hacemos nada más (no hay submenús ni toggles)
     return;
   }
 
@@ -456,9 +413,7 @@
     panel.style.opacity = "0";
     panel.style.maxHeight = "0px";
     panel.style.pointerEvents = "none";
-    setTimeout(() => {
-      panel.hidden = true;
-    }, TRANSITION_MS);
+    setTimeout(() => { panel.hidden = true; }, TRANSITION_MS);
   };
 
   const closeAllGroups = (except = null) => {
@@ -531,7 +486,6 @@
     const group = link.closest(".work-group");
     const submenu = group ? group.querySelector(".submenu") : null;
 
-    // Mover el detail bajo su submenu si aún no está ahí
     if (submenu && detail.previousElementSibling !== submenu) {
       submenu.insertAdjacentElement("afterend", detail);
     }
@@ -540,10 +494,7 @@
       detail.classList.remove("open");
       detail.style.setProperty("--detail-h", "0px");
       detail.setAttribute("aria-hidden", "true");
-      if (detail._ro) {
-        try { detail._ro.disconnect(); } catch (_) {}
-        detail._ro = null;
-      }
+      if (detail._ro) { try { detail._ro.disconnect(); } catch (_) {} detail._ro = null; }
       if (group && group._closeGroup) group._closeGroup();
       return;
     }
@@ -568,42 +519,18 @@
 
     detail.querySelectorAll("img").forEach((img) => {
       if (img.complete) return;
-      img.addEventListener(
-        "load",
-        () => {
-          detail.style.setProperty("--detail-h", detail.scrollHeight + "px");
-        },
-        { once: true }
-      );
+      img.addEventListener("load", () => {
+        detail.style.setProperty("--detail-h", detail.scrollHeight + "px");
+      }, { once: true });
     });
   }
 
   hub.querySelectorAll('.subitem[data-target]').forEach((link) => {
-    link.addEventListener("click", (e) => {
-      e.preventDefault();
-      openOrToggleDetail(link);
-    });
+    link.addEventListener("click", (e) => { e.preventDefault(); openOrToggleDetail(link); });
   });
 
-  window.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeDetails();
-  });
-
-  // Carruseles simples (si existiera un carrusel con .track/.nav)
-  document.querySelectorAll(".carousel").forEach((carousel) => {
-    const track = carousel.querySelector(".track");
-    const prev = carousel.querySelector(".nav.prev");
-    const next = carousel.querySelector(".nav.next");
-    if (!track) return;
-
-    const step = () => Math.max(track.clientWidth * 0.9, 240);
-    const scrollBy = (dx) => track.scrollBy({ left: dx, behavior: "smooth" });
-
-    if (prev) prev.addEventListener("click", () => scrollBy(-step()));
-    if (next) next.addEventListener("click", () => scrollBy(+step()));
-  });
+  window.addEventListener("keydown", (e) => { if (e.key === "Escape") closeDetails(); });
 })();
-
 
 /* =========================================
    Header fijo + shrink + compensación de alto
@@ -614,18 +541,15 @@
 
   const ROOT = document.documentElement;
   const BODY = document.body;
-  const SHRINK_AT = 80; // px desde arriba
+  const SHRINK_AT = 80; // px
 
-  // aseguramos clase en body para el padding-top
   if (!BODY.classList.contains("has-fixed-header")) BODY.classList.add("has-fixed-header");
 
-  // mide el alto actual del header y lo pasa a --header-h
   function measureHeader() {
     const h = header.offsetHeight || 72;
     ROOT.style.setProperty("--header-h", h + "px");
   }
 
-  // scroll: sombra y shrink
   let small = false, stuck = false;
   function onScroll() {
     const y = window.scrollY || document.documentElement.scrollTop;
@@ -633,14 +557,12 @@
     if (y > 2 && !stuck) { header.classList.add("is-stuck"); stuck = true; }
     else if (y <= 2 && stuck) { header.classList.remove("is-stuck"); stuck = false; }
 
-    // no encogemos mientras el menú móvil esté abierto
     if (BODY.classList.contains("menu-open")) return;
 
     if (y > SHRINK_AT && !small) { header.classList.add("shrink"); small = true; measureHeader(); }
     else if (y <= SHRINK_AT && small) { header.classList.remove("shrink"); small = false; measureHeader(); }
   }
 
-  // observar cambios que afecten a la altura (resize, clases, etc.)
   const ro = ("ResizeObserver" in window) ? new ResizeObserver(measureHeader) : null;
   if (ro) ro.observe(header);
 
@@ -650,6 +572,103 @@
   window.addEventListener("orientationchange", measureHeader);
   document.addEventListener("scroll", onScroll, { passive: true });
 
-  // medir en arranque
   window.addEventListener("load", () => { measureHeader(); onScroll(); }, { once: true });
+})();
+
+/* =========================================
+   Carrusel Drag & Snap (sin botones)
+   ========================================= */
+(function () {
+  const carousels = document.querySelectorAll(".snap-carousel");
+  carousels.forEach(initSnapCarousel);
+
+  function initSnapCarousel(root){
+    const track = root.querySelector(".snap-track");
+    if (!track) return;
+
+    let isDown = false;
+    let startX = 0;
+    let startScroll = 0;
+    let velocity = 0;
+    let lastX = 0;
+    let lastT = 0;
+    let rafId = 0;
+
+    const friction = 0.94;   // inercia
+    const vClamp   = 70;     // límite velocidad px/frame aprox.
+
+    const onPointerDown = (e) => {
+      isDown = true;
+      track.classList.add("dragging");
+      startX = e.clientX;
+      startScroll = track.scrollLeft;
+      velocity = 0;
+      lastX = e.clientX;
+      lastT = performance.now();
+      cancelMomentum();
+      track.setPointerCapture(e.pointerId);
+    };
+
+    const onPointerMove = (e) => {
+      if (!isDown) return;
+      const dx = e.clientX - startX;
+      track.scrollLeft = startScroll - dx;
+
+      // medir velocidad
+      const now = performance.now();
+      const dt = now - lastT;
+      if (dt > 0) {
+        const dist = e.clientX - lastX;
+        velocity = -dist / (dt / 16.67); // px por frame (~60fps)
+        lastX = e.clientX;
+        lastT = now;
+      }
+      e.preventDefault();
+    };
+
+    const onPointerUp = (e) => {
+      if (!isDown) return;
+      isDown = false;
+      track.classList.remove("dragging");
+      track.releasePointerCapture(e.pointerId);
+      startMomentum(velocity);
+    };
+
+    track.addEventListener("pointerdown", onPointerDown, { passive:false });
+    track.addEventListener("pointermove", onPointerMove, { passive:false });
+    window.addEventListener("pointerup", onPointerUp);
+
+    function momentum() {
+      track.scrollLeft += velocity;
+      velocity *= friction;
+      if (Math.abs(velocity) > 0.5) {
+        rafId = requestAnimationFrame(momentum);
+      } else {
+        snapToNearest();
+      }
+    }
+    function startMomentum(v) {
+      velocity = Math.max(-vClamp, Math.min(vClamp, v));
+      rafId = requestAnimationFrame(momentum);
+    }
+    function cancelMomentum() {
+      if (rafId) cancelAnimationFrame(rafId);
+      rafId = 0;
+    }
+    function snapToNearest() {
+      const w = track.clientWidth; // cada slide ocupa 100% del viewport
+      const i = Math.round(track.scrollLeft / w);
+      track.scrollTo({ left: i * w, behavior: "smooth" });
+    }
+
+    // Si se cambia el tamaño, re-encaja
+    window.addEventListener("resize", () => {
+      // esperar al reflow y ajustar
+      setTimeout(() => {
+        const w = track.clientWidth;
+        const i = Math.round(track.scrollLeft / w);
+        track.scrollLeft = i * w;
+      }, 60);
+    });
+  }
 })();

@@ -74,7 +74,6 @@ body::before{
 .brand{font-weight:800;letter-spacing:.02em;font-size:clamp(18px,2.2vw,28px);display:flex;align-items:center;gap:.5rem}
 .brand .dot{width:.6em;height:.6em;border-radius:50%;background:conic-gradient(from 0deg,var(--acc),var(--acc2));box-shadow:0 0 20px var(--acc)}
 .menu{display:flex;gap:clamp(.5rem,1.6vw,1.2rem);align-items:center}
-/* ⚠️ corregido clamp: antes 12 / 1.2vw / 10 (max menor que min) */
 .menu a{font-size:clamp(10px,1.2vw,12px);text-transform:uppercase;letter-spacing:.12em;opacity:.85}
 .menu a:hover{opacity:1}
 .cta{padding:.7rem 1rem;border:1px solid rgba(255,255,255,.14);border-radius:999px;position:relative;overflow:hidden}
@@ -166,7 +165,6 @@ body::before{
     var(--panel-bg);
   box-shadow:0 30px 80px rgba(0,0,0,.35);overflow:hidden;
 }
-/* ⚠️ antes apuntaba a > .grid (no existe). Ahora aplicamos padding a .about-shell */
 #about.section.wrap .about-shell{padding:clamp(32px,5vw,56px) var(--grid)}
 @media (max-width:1080px){
   #about.section.wrap{margin:clamp(14px,3vh,24px) var(--grid);border-radius:18px}
@@ -265,77 +263,56 @@ body::before{
 .wd-card figcaption{padding:.5rem .6rem;color:#cfcfcf;font-size:.9rem;border-top:1px solid rgba(255,255,255,.08)}
 
 /* ===============================
-   11) CARRUSEL – Bootstrap-lite (sin CSS de Bootstrap)
-   (⚠️ Eliminado el carrusel antiguo con .track/.nav)
+   11) CARRUSEL — Drag & Snap (sin botones)
 ==================================*/
-.carousel{position:relative}
-.carousel-inner{position:relative;width:100%;overflow:hidden}
-.carousel-item{position:relative;display:none;transition:transform .6s ease}
-.carousel-item.active{display:block}
-.carousel-item-next,.carousel-item-prev{position:absolute;top:0;display:block}
-.carousel-item-next.carousel-item-start,.active.carousel-item-end{transform:translateX(100%)}
-.carousel-item-prev.carousel-item-end,.active.carousel-item-start{transform:translateX(-100%)}
+.snap-carousel{
+  --slide-gap: 0px;                 /* sin separación: pegadas */
+  --snap-ease: cubic-bezier(.2,.8,.2,1);
+  position: relative;
+  width: 100%;
+  user-select: none;
+}
+.snap-track{
+  display: flex;
+  gap: var(--slide-gap);
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+  cursor: grab;
+  touch-action: pan-y; /* permite scroll vertical del documento */
+}
+.snap-track::-webkit-scrollbar{ display: none; }
+.snap-track.dragging{
+  cursor: grabbing;
+  scroll-behavior: auto; /* mientras arrastras no suavizamos */
+}
+.snap-slide{
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  position: relative;
+  background: #000;                 /* no parpadeo entre slides */
+}
+.snap-slide .ratio{
+  overflow: hidden;
+  border-radius: 14px;
+  background: #000;
+}
+.snap-slide img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;               /* cambia a cover si quieres llenar */
+  display: block;
+}
 
-/* Indicadores */
-.carousel-indicators{
-  position:absolute;right:0;bottom:.5rem;left:0;
-  display:flex;gap:.5rem;justify-content:center;margin:0;list-style:none
-}
-.carousel-indicators [data-bs-target]{
-  box-sizing:content-box;width:.6rem;height:.6rem;border-radius:999px;
-  background-color:#fff;opacity:.45;border:0
-}
-.carousel-indicators .active{opacity:1}
-
-/* Controles compactos */
-.carousel-control-prev,.carousel-control-next{
-  position:absolute;top:50%;transform:translateY(-50%);
-  width:42px;height:42px;border-radius:9999px;
-  display:grid;place-items:center;padding:0;margin:0;border:0;
-  background:rgba(0,0,0,.45);opacity:1;transition:background .2s ease
-}
-.carousel-control-prev{left:.5rem}
-.carousel-control-next{right:.5rem}
-.carousel-control-prev:hover,.carousel-control-next:hover{background:rgba(0,0,0,.6)}
-.carousel-control-prev-icon,.carousel-control-next-icon{
-  display:inline-block;width:18px;height:18px;background:no-repeat 50%/100% 100%;
-  filter:drop-shadow(0 1px 1px rgba(0,0,0,.5))
-}
-.carousel-control-prev-icon{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 16 16'%3e%3cpath d='M11 1 3 8l8 7' stroke='%23fff' stroke-width='2' fill='none'/%3e%3c/svg%3e")}
-.carousel-control-next-icon{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 16 16'%3e%3cpath d='M5 1l8 7-8 7' stroke='%23fff' stroke-width='2' fill='none'/%3e%3c/svg%3e")}
-
-/* Proporción + contener imágenes */
+/* Proporciones utilitarias */
 .ratio{position:relative;width:100%}
 .ratio>*{position:absolute;inset:0}
 .ratio-16x9::before{content:"";display:block;padding-top:56.25%}
 .object-fit-contain{object-fit:contain}
-
-/* Aislar carrusel de New Balance de estilos de cards */
-.work-detail .nb-carousel,
-.work-detail .nb-carousel *{
-  background: transparent !important;
-  box-shadow: none !important;
-  border: 0 !important;
-  outline: 0 !important;
-}
-.work-detail .nb-carousel .ratio{
-  overflow:hidden; border-radius:14px;
-  background: var(--card, #0f0f0f);
-}
-.work-detail .nb-carousel img{
-  object-fit: contain; width:100%; height:100%; display:block;
-}
-.work-detail .nb-carousel .carousel-control-prev,
-.work-detail .nb-carousel .carousel-control-next{
-  position:absolute; top:50%; transform:translateY(-50%);
-  width:42px; height:42px; border-radius:9999px;
-  display:grid; place-items:center; background:rgba(0,0,0,.45);
-  padding:0; margin:0; border:0; z-index:2;
-}
-.work-detail .nb-carousel .carousel-control-prev{ left:.5rem; }
-.work-detail .nb-carousel .carousel-control-next{ right:.5rem; }
-.work-detail .nb-carousel .carousel-control-prev:hover,
-.work-detail .nb-carousel .carousel-control-next:hover{ background:rgba(0,0,0,.6); }
 
 /* ===============================
    12) TIPOGRAFÍA (tester)
@@ -403,25 +380,8 @@ body::before{
 .superblock .panel-section .wrap{max-width:var(--maxw);margin-inline:auto;padding:0}
 @media (max-width:1080px){.superblock{margin:clamp(14px,3vh,24px) var(--grid);border-radius:18px}}
 
-/* asegura que los detalles ocultos no ocupen sitio */
-
-
-/* Forzar comportamiento básico del carrusel dentro de work-detail */
-.work-detail .nb-carousel .carousel-inner{ overflow: hidden; }
-.work-detail .nb-carousel .carousel-item.active{ display: block; }
-
-/* Que los controles se vean siempre (aunque tengas fondos transparentes) */
-.work-detail .nb-carousel .carousel-control-prev,
-.work-detail .nb-carousel .carousel-control-next{
-  background: rgba(0,0,0,.45) !important;
-  width: 42px; height: 42px; border-radius: 9999px;
-}
-  
-
 /* Video dentro de tarjetas/ratio */
 .wd-card video{display:block;width:100%;height:auto;background:#000}
-
-
 
 /* CTA única + flecha animada a works */
 .cta-row{
@@ -432,7 +392,6 @@ body::before{
   gap:clamp(.6rem,2.4vw,1.2rem);
   flex-wrap:nowrap;
 }
-
 .btn-works{
   padding:1rem 1.3rem;
   font-size:clamp(16px,1.6vw,18px);
@@ -446,7 +405,6 @@ body::before{
   background:rgba(255,255,255,.06);
   border-color:rgba(255,255,255,.28);
 }
-
 /* Flecha grande con “empujón” lateral */
 .cta-arrow{
   display:inline-grid;
@@ -463,14 +421,9 @@ body::before{
   0%,100%{ transform:translateX(0) }
   50%{ transform:translateX(8px) }
 }
-
-/* Respeto a usuarios con reduce-motion */
 @media (prefers-reduced-motion: reduce){
   .cta-arrow svg{ animation:none }
 }
-
-
-
 
 /* Fila única de "Trabajos" con flecha a works.html */
 #works .works-row{
@@ -488,7 +441,6 @@ body::before{
 }
 #works .works-row .title{
   margin:0;
-  /* hereda tu estilo #works .title con gradiente; lo ampliamos un poco */
   font-size:clamp(28px,6vw,56px);
 }
 #works .works-arrow svg{
@@ -499,29 +451,21 @@ body::before{
 @keyframes nudge{ 0%,100%{transform:translateX(0)} 50%{transform:translateX(10px)} }
 @media (prefers-reduced-motion: reduce){ #works .works-arrow svg{ animation:none } }
 
-
-
 /* ====== Más aire en works.html ====== */
 .page-works #works{
-  /* controles rápidos: sube/baja estos tres y cambia todo el ritmo */
-  --air-outer:   clamp(64px, 12vh, 160px);   /* padding global de la página */
-  --air-between: clamp(40px, 8vh, 120px);    /* separación entre categorías */
-  --air-inside:  clamp(20px, 2.6vw, 36px);   /* padding/espacio dentro de cada proyecto */
+  --air-outer:   clamp(64px, 12vh, 160px);
+  --air-between: clamp(40px, 8vh, 120px);
+  --air-inside:  clamp(20px, 2.6vw, 36px);
 }
-
 .page-works #works{
   padding-top: var(--air-outer);
   padding-bottom: var(--air-outer);
 }
-
-/* separación entre categorías (Packaging / Branding / … / TFG) */
 .page-works #works .cat-block + .cat-block{
   margin-top: var(--air-between);
   padding-top: calc(var(--air-between) * .45);
   border-top: 1px solid rgba(255,255,255,.10);
 }
-
-/* títulos y textos intro de cada categoría */
 .page-works #works .cat-block .title{
   margin: 0 0 .4rem;
   font-size: clamp(26px, 3vw, 40px);
@@ -530,14 +474,10 @@ body::before{
   color:#cfcfcf;
   margin: .25rem 0 var(--air-inside);
 }
-
-/* cada proyecto dentro de la categoría */
 .page-works #works .cat-block .work-detail{
   margin-top: calc(var(--air-inside) * .9) !important;
   padding: var(--air-inside) !important;
 }
-
-/* rejillas más sueltas */
 .page-works #works .wd-grid{
   gap: clamp(14px, 2.4vw, 28px);
 }
@@ -549,76 +489,42 @@ body::before{
   margin-bottom: .4rem;
 }
 
-/* opcional: divisor más “fino” entre categorías (sustituye el border-top si lo prefieres) */
-/*
-.page-works #works .cat-block + .cat-block{
-  border-top: 0;
-  position: relative;
-}
-.page-works #works .cat-block + .cat-block::before{
-  content:""; display:block; height:1px;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,.14), transparent);
-  margin-bottom: calc(var(--air-inside) * .9);
-}
-*/
 /* ================================
    Works full-width con márgenes
-   ================================ */
+================================ */
 .page-works{
-  /* cambia estos dos valores si quieres más/menos aire o un ancho máximo */
-  --gutter: clamp(16px, 5vw, 64px);   /* margen lateral */
-  --content-max: none;                /* ej.: 1680px si quieres tope */
+  --gutter: clamp(16px, 5vw, 64px);
+  --content-max: none;
 }
-
-/* 1) Quitar el “marco” del antiguo superpanel en #works */
 .page-works #works.section.wrap{
   border: 0 !important;
   border-radius: 0 !important;
   background: transparent !important;
   box-shadow: none !important;
 }
-
-/* 2) Hacer que TODO el contenido de works use el ancho de pantalla
-      con un gutter cómodo a los lados */
 .page-works .wrap{
   max-width: var(--content-max);
   width: 100%;
-  margin-inline: 0;                  /* fuera el centrado por max-width */
+  margin-inline: 0;
   padding-left: var(--gutter);
   padding-right: var(--gutter);
 }
-
-/* 3) También el nav de esta página (opcional, queda más uniforme) */
 .page-works .nav{
   max-width: var(--content-max);
   padding-left: var(--gutter);
   padding-right: var(--gutter);
 }
-
-/* 4) Los proyectos ya se ven bien; solo damos un pelín más de gap
-      para que el grid aproveche el ancho sin apretar */
 .page-works #works .wd-grid{
   gap: clamp(18px, 2.8vw, 34px);
 }
-
-/* Si quieres limitar el ancho máximo de la página de trabajos
-   descomenta esta línea y pon el valor que te mole
-.page-works{ --content-max: 1680px; }
-*/
-/* ===== Menú de works EXACTO al de index ===== */
 .page-works .nav{
-  /* volvemos a los valores globales del index */
   max-width: var(--maxw);
   margin-inline: auto;
   padding: 12px var(--grid);
 }
 
-/* por si hubieras copiado antes una regla que ensanchaba el nav,
-   esto la pisa y lo deja igual que en index */
 /* ===== Header fijo + shrink ===== */
-:root{ --header-h: 72px; } /* valor inicial; luego JS lo recalcula */
-
-/* forzamos posición fija por encima de todo */
+:root{ --header-h: 72px; }
 .site-header{
   position: fixed !important;
   top: 0; left: 0; right: 0;
@@ -628,48 +534,28 @@ body::before{
   border-bottom: 1px solid rgba(255,255,255,.08);
   transition: background .25s ease, box-shadow .25s ease, border-color .25s ease;
 }
-
-/* añadimos padding al body para que el contenido no se meta debajo */
 body.has-fixed-header{ padding-top: var(--header-h); }
-
-/* estado “pegado”/scroll (ligera sombra) */
 .site-header.is-stuck{
   background: rgba(10,10,10,.82);
   border-bottom-color: rgba(255,255,255,.12);
   box-shadow: 0 6px 22px rgba(0,0,0,.28);
 }
-
-/* encogido */
 .site-header .nav{ transition: padding .22s ease; }
 .site-header.shrink .nav{ padding: 6px var(--grid); }
-
 .site-header.shrink .brand{
   font-size: clamp(16px,1.9vw,24px);
   letter-spacing: .01em;
 }
 .site-header.shrink .menu a{ font-size: clamp(10px,1.05vw,11px); }
-
 @media (max-width:960px){
   .site-header.shrink .nav{ padding: 10px var(--grid); }
 }
 
-
-
-
-/* Que las cards NO se estiren a la altura del más alto */
-.wd-grid{
-  align-items: start;           /* antes: stretch (por defecto) */
-}
-
-/* Asegura que la tarjeta se adapta al contenido */
-.wd-card{
-  height: auto;
-}
-
-/* Por si alguna imagen venía forzada: 100% de ancho y alto automático */
+/* Grids/medias */
+.wd-grid{ align-items: start; }
+.wd-card{ height: auto; }
 .wd-card img{
   width: 100%;
   height: auto;
-  object-fit: contain;          /* evita recortes */
+  object-fit: contain;
 }
-   
