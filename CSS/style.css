@@ -1,5 +1,5 @@
-/* ===============================
-   1) FUENTES
+/* =============================== 
+   1) FUENTES 
 ==================================*/
 @font-face{
   font-family:"PPFormula";
@@ -14,8 +14,8 @@
   font-weight:700; font-style:normal; font-display:swap;
 }
 
-/* ===============================
-   2) RESET + TOKENS
+/* =============================== 
+   2) RESET + TOKENS 
 ==================================*/
 *,*::before,*::after{box-sizing:border-box}
 html,body{height:100%}
@@ -35,8 +35,8 @@ a{color:inherit;text-decoration:none}
   --panel-radius:26px;
 }
 
-/* ===============================
-   3) BASE
+/* =============================== 
+   3) BASE 
 ==================================*/
 body{
   margin:0;
@@ -66,8 +66,8 @@ body::before{
   font-weight:500;
 }
 
-/* ===============================
-   4) HEADER / NAV
+/* =============================== 
+   4) HEADER / NAV 
 ==================================*/
 .site-header{position:sticky;top:0;z-index:999;background:rgba(10,10,10,.6);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid rgba(255,255,255,.06)}
 .nav{max-width:var(--maxw);margin:auto;padding:12px var(--grid);display:flex;gap:var(--grid);align-items:center;justify-content:space-between}
@@ -105,8 +105,8 @@ body::before{
   body.menu-open{height:100dvh;overflow:hidden;overscroll-behavior:contain;touch-action:none}
 }
 
-/* ===============================
-   5) HERO
+/* =============================== 
+   5) HERO 
 ==================================*/
 #hero{position:relative;min-height:86dvh;display:grid;place-items:center;text-align:center}
 #hero .bg{position:absolute;inset:0;z-index:0;pointer-events:none}
@@ -123,8 +123,8 @@ body::before{
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
 .arrow{display:flex;justify-content:center}
 
-/* ===============================
-   6) MARQUEE
+/* =============================== 
+   6) MARQUEE 
 ==================================*/
 .marquee{--size:clamp(12px,2.2vw,24px);--gap:clamp(8px,1.6vw,16px);--speed:18s;position:relative;overflow:hidden;padding:6px 0;border-block:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.02)}
 .marquee__track{display:flex;width:max-content;gap:var(--gap);will-change:transform;animation:marquee var(--speed) linear infinite}
@@ -135,8 +135,8 @@ body::before{
 .marquee::after{right:0;background:linear-gradient(270deg,var(--bg),transparent)}
 @keyframes marquee{to{transform:translate3d(-50%,0,0)}}
 
-/* ===============================
-   7) SOBRE MÍ (compacto)
+/* =============================== 
+   7) SOBRE MÍ (compacto) 
 ==================================*/
 .about-shell{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);padding:clamp(14px,2vw,22px);box-shadow:var(--shadow)}
 .about-grid{display:grid;grid-template-columns:1.05fr 1fr;grid-template-areas:"foto texto" "datos datos";gap:clamp(12px,2vw,22px);align-items:start}
@@ -171,8 +171,8 @@ body::before{
   #about.section.wrap .about-shell{padding:clamp(24px,5vw,40px) var(--grid)}
 }
 
-/* ===============================
-   8) HABILIDADES
+/* =============================== 
+   8) HABILIDADES 
 ==================================*/
 #skills .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.8rem}
 .skill{position:relative;border:1px solid rgba(255,255,255,.1);padding:.9rem;border-radius:14px;background:rgba(255,255,255,.02);overflow:hidden;cursor:pointer;transition:transform .2s,border-color .2s}
@@ -182,8 +182,8 @@ body::before{
 .skill b{display:block;font-size:.98rem}
 .skill small{color:var(--muted)}
 
-/* ===============================
-   9) TIMELINES (Edu/Exp)
+/* =============================== 
+   9) TIMELINES (Edu/Exp) 
 ==================================*/
 .timeline{position:relative;margin-top:.6rem}
 .timeline::before{content:"";position:absolute;left:10px;top:0;bottom:0;width:2px;background:linear-gradient(var(--acc),transparent)}
@@ -192,8 +192,8 @@ body::before{
 .item h4{margin:.05rem 0 .05rem;font-size:1.02rem}
 .timeline .meta{color:var(--muted);font-size:.9rem}
 
-/* ===============================
-   10) TRABAJOS – HUB + DETALLE
+/* =============================== 
+   10) TRABAJOS – HUB + DETALLE 
 ==================================*/
 #works.section.wrap{
   position:relative;border:1px solid rgba(255,255,255,.14);border-radius:26px;
@@ -262,8 +262,9 @@ body::before{
 .wd-card img{width:100%;height:auto;display:block}
 .wd-card figcaption{padding:.5rem .6rem;color:#cfcfcf;font-size:.9rem;border-top:1px solid rgba(255,255,255,.08)}
 
-/* ===============================
+/* =============================== 
    11) CARRUSEL — Drag & Snap (sin botones)
+   (lo puedes usar donde quieras con .snap-carousel)
 ==================================*/
 .snap-carousel{
   --slide-gap: 0px;                 /* sin separación: pegadas */
@@ -294,7 +295,7 @@ body::before{
   flex: 0 0 100%;
   scroll-snap-align: start;
   position: relative;
-  background: #000;                 /* no parpadeo entre slides */
+  background: #000;                 /* evita parpadeo entre slides */
 }
 .snap-slide .ratio{
   overflow: hidden;
@@ -314,8 +315,8 @@ body::before{
 .ratio-16x9::before{content:"";display:block;padding-top:56.25%}
 .object-fit-contain{object-fit:contain}
 
-/* ===============================
-   12) TIPOGRAFÍA (tester)
+/* =============================== 
+   12) TIPOGRAFÍA (tester) 
 ==================================*/
 #type .subtitle{margin:.15rem 0 .8rem;color:#cfcfcf;font-size:clamp(15px,1.1vw,17px);text-transform:uppercase;letter-spacing:.18em}
 .media-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:clamp(.8rem,1.6vw,1.2rem)}
@@ -331,8 +332,8 @@ body::before{
 .type-tools{border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:.8rem;background:rgba(255,255,255,.02);display:grid;gap:.7rem;height:fit-content}
 .row{display:grid;grid-template-columns:120px 1fr;gap:.6rem;align-items:center}
 
-/* ===============================
-   13) IDIOMAS + FOOTER
+/* =============================== 
+   13) IDIOMAS + FOOTER 
 ==================================*/
 .langs{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.8rem;margin-top:.8rem}
 .lang{border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:.9rem;background:rgba(255,255,255,.02)}
@@ -345,15 +346,15 @@ body::before{
 
 .site-footer{padding:1.2rem var(--grid);text-align:center;color:var(--muted);border-top:1px solid rgba(255,255,255,.06);background:rgba(255,255,255,.02)}
 
-/* ===============================
-   14) REVEAL + CURSOR
+/* =============================== 
+   14) REVEAL + CURSOR 
 ==================================*/
 .reveal{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s ease}
 .reveal.in{opacity:1;transform:none}
 #cursor,.cursor{position:fixed;left:0;top:0;width:14px;height:14px;border-radius:50%;border:2px solid rgba(255,255,255,.8);pointer-events:none;transform:translate(-50%,-50%);z-index:2000;mix-blend-mode:exclusion}
 
-/* ===============================
-   15) RESPONSIVE / SUPERBLOCK genérico
+/* =============================== 
+   15) RESPONSIVE / SUPERBLOCK genérico 
 ==================================*/
 @media (min-width:1081px){
   :root{--panel-max:1200px}
@@ -379,6 +380,9 @@ body::before{
 .superblock .panel-section + .panel-section{border-top:1px solid rgba(255,255,255,.07)}
 .superblock .panel-section .wrap{max-width:var(--maxw);margin-inline:auto;padding:0}
 @media (max-width:1080px){.superblock{margin:clamp(14px,3vh,24px) var(--grid);border-radius:18px}}
+
+/* asegura que los detalles ocultos no ocupen sitio */
+/* (la lógica de altura la maneja tu JS) */
 
 /* Video dentro de tarjetas/ratio */
 .wd-card video{display:block;width:100%;height:auto;background:#000}
@@ -441,6 +445,7 @@ body::before{
 }
 #works .works-row .title{
   margin:0;
+  /* hereda tu estilo #works .title con gradiente; lo ampliamos un poco */
   font-size:clamp(28px,6vw,56px);
 }
 #works .works-arrow svg{
@@ -453,19 +458,25 @@ body::before{
 
 /* ====== Más aire en works.html ====== */
 .page-works #works{
-  --air-outer:   clamp(64px, 12vh, 160px);
-  --air-between: clamp(40px, 8vh, 120px);
-  --air-inside:  clamp(20px, 2.6vw, 36px);
+  /* controles rápidos: sube/baja estos tres y cambia todo el ritmo */
+  --air-outer:   clamp(64px, 12vh, 160px);   /* padding global de la página */
+  --air-between: clamp(40px, 8vh, 120px);    /* separación entre categorías */
+  --air-inside:  clamp(20px, 2.6vw, 36px);   /* padding/espacio dentro de cada proyecto */
 }
+
 .page-works #works{
   padding-top: var(--air-outer);
   padding-bottom: var(--air-outer);
 }
+
+/* separación entre categorías (Packaging / Branding / … / TFG) */
 .page-works #works .cat-block + .cat-block{
   margin-top: var(--air-between);
   padding-top: calc(var(--air-between) * .45);
   border-top: 1px solid rgba(255,255,255,.10);
 }
+
+/* títulos y textos intro de cada categoría */
 .page-works #works .cat-block .title{
   margin: 0 0 .4rem;
   font-size: clamp(26px, 3vw, 40px);
@@ -474,10 +485,14 @@ body::before{
   color:#cfcfcf;
   margin: .25rem 0 var(--air-inside);
 }
+
+/* cada proyecto dentro de la categoría */
 .page-works #works .cat-block .work-detail{
   margin-top: calc(var(--air-inside) * .9) !important;
   padding: var(--air-inside) !important;
 }
+
+/* rejillas más sueltas */
 .page-works #works .wd-grid{
   gap: clamp(14px, 2.4vw, 28px);
 }
@@ -491,40 +506,59 @@ body::before{
 
 /* ================================
    Works full-width con márgenes
-================================ */
+   ================================ */
 .page-works{
-  --gutter: clamp(16px, 5vw, 64px);
-  --content-max: none;
+  /* cambia estos dos valores si quieres más/menos aire o un ancho máximo */
+  --gutter: clamp(16px, 5vw, 64px);   /* margen lateral */
+  --content-max: none;                /* ej.: 1680px si quieres tope */
 }
+
+/* 1) Quitar el “marco” del antiguo superpanel en #works */
 .page-works #works.section.wrap{
   border: 0 !important;
   border-radius: 0 !important;
   background: transparent !important;
   box-shadow: none !important;
 }
+
+/* 2) Hacer que TODO el contenido de works use el ancho de pantalla
+      con un gutter cómodo a los lados */
 .page-works .wrap{
   max-width: var(--content-max);
   width: 100%;
-  margin-inline: 0;
+  margin-inline: 0;                  /* fuera el centrado por max-width */
   padding-left: var(--gutter);
   padding-right: var(--gutter);
 }
+
+/* 3) También el nav de esta página (opcional, queda más uniforme) */
 .page-works .nav{
   max-width: var(--content-max);
   padding-left: var(--gutter);
   padding-right: var(--gutter);
 }
+
+/* 4) Los proyectos ya se ven bien; solo damos un pelín más de gap
+      para que el grid aproveche el ancho sin apretar */
 .page-works #works .wd-grid{
   gap: clamp(18px, 2.8vw, 34px);
 }
+
+/* Si quieres limitar el ancho máximo de la página de trabajos
+   descomenta esta línea y pon el valor que te mole
+.page-works{ --content-max: 1680px; }
+*/
+/* ===== Menú de works EXACTO al de index ===== */
 .page-works .nav{
+  /* volvemos a los valores globales del index */
   max-width: var(--maxw);
   margin-inline: auto;
   padding: 12px var(--grid);
 }
 
 /* ===== Header fijo + shrink ===== */
-:root{ --header-h: 72px; }
+:root{ --header-h: 72px; } /* valor inicial; luego JS lo recalcula */
+
 .site-header{
   position: fixed !important;
   top: 0; left: 0; right: 0;
@@ -534,28 +568,200 @@ body::before{
   border-bottom: 1px solid rgba(255,255,255,.08);
   transition: background .25s ease, box-shadow .25s ease, border-color .25s ease;
 }
+
+/* añadimos padding al body para que el contenido no se meta debajo */
 body.has-fixed-header{ padding-top: var(--header-h); }
+
+/* estado “pegado”/scroll (ligera sombra) */
 .site-header.is-stuck{
   background: rgba(10,10,10,.82);
   border-bottom-color: rgba(255,255,255,.12);
   box-shadow: 0 6px 22px rgba(0,0,0,.28);
 }
+
+/* encogido */
 .site-header .nav{ transition: padding .22s ease; }
 .site-header.shrink .nav{ padding: 6px var(--grid); }
+
 .site-header.shrink .brand{
   font-size: clamp(16px,1.9vw,24px);
   letter-spacing: .01em;
 }
 .site-header.shrink .menu a{ font-size: clamp(10px,1.05vw,11px); }
+
 @media (max-width:960px){
   .site-header.shrink .nav{ padding: 10px var(--grid); }
 }
 
 /* Grids/medias */
-.wd-grid{ align-items: start; }
-.wd-card{ height: auto; }
+.wd-grid{
+  align-items: start;           /* antes: stretch (por defecto) */
+}
+.wd-card{
+  height: auto;
+}
 .wd-card img{
   width: 100%;
   height: auto;
-  object-fit: contain;
+  object-fit: contain;          /* evita recortes */
 }
+
+/* WORKS: alinear el subtítulo con el H1 (a la izquierda) */
+.page-works [aria-label="cabecera-trabajos"] .sub{
+  margin-inline: 0;      /* quita el centrado por auto */
+  text-align: left;      /* asegura alineación de texto */
+  max-width: 55ch;       /* mantiene ancho cómodo (opcional) */
+}
+
+/* WORKS: quitar bordes y pie de imagen en las tarjetas */
+.page-works #works .wd-card{
+  border: 0 !important;
+  background: transparent !important;
+  border-radius: 0;          /* sin esquinas redondeadas (opcional) */
+  box-shadow: none !important;
+  overflow: visible;         /* por si el radius anterior estaba recortando */
+}
+.page-works #works .wd-card img{
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border: 0;
+  border-radius: 0;          /* sin esquinas redondeadas en la imagen */
+}
+.page-works #works .wd-card figcaption{
+  display: none !important;
+  border: 0;
+  padding: 0;
+}
+
+/* ===============================
+   16) Carouseles Bootstrap (NB / Taberna)
+   Aplica a los <div class="carousel nb-carousel"> que uses.
+==================================*/
+.nb-carousel .carousel-inner { background: transparent; }
+.nb-carousel .carousel-item img{
+  display:block; width:100%; height:auto; object-fit:contain;
+}
+/* Si quieres forzar altura homogénea sin cortes:
+.nb-carousel .carousel-item .ratio { max-height: 70vh; }
+.nb-carousel .carousel-item img{ height:100%; object-fit:contain; }
+*/
+/* === FIX esencial para carouseles Bootstrap (evita que se apilen) === */
+.carousel{position:relative}
+.carousel-inner{position:relative;width:100%;overflow:hidden}
+.carousel-item{position:relative;display:none;transition:transform .6s ease}
+.carousel-item.active{display:block}
+.carousel-item-next,.carousel-item-prev{position:absolute;top:0;display:block}
+.carousel-item-next.carousel-item-start,.active.carousel-item-end{transform:translateX(100%)}
+.carousel-item-prev.carousel-item-end,.active.carousel-item-start{transform:translateX(-100%)}
+
+
+/* .nb-carousel .carousel-item{background:transparent}
+.nb-carousel .carousel-item img{display:block;width:100%;height:auto;object-fit:contain} */
+
+
+
+/* ===== Carousel "Bootstrap-lite" — scopeado a .work-detail ===== */
+.work-detail .carousel{position:relative}
+.work-detail .carousel-inner{position:relative;width:100%;overflow:hidden}
+.work-detail .carousel-item{position:relative;display:none;transition:transform .6s ease}
+.work-detail .carousel-item.active{display:block}
+.work-detail .carousel-item-next,
+.work-detail .carousel-item-prev{position:absolute;top:0;display:block}
+.work-detail .carousel-item-next.carousel-item-start,
+.work-detail .active.carousel-item-end{transform:translateX(100%)}
+.work-detail .carousel-item-prev.carousel-item-end,
+.work-detail .active.carousel-item-start{transform:translateX(-100%)}
+
+/* Controles (flechas) */
+.work-detail .carousel-control-prev,
+.work-detail .carousel-control-next{
+  position:absolute;top:50%;transform:translateY(-50%);
+  width:42px;height:42px;border:0;border-radius:9999px;
+  display:grid;place-items:center;padding:0;margin:0;z-index:5;
+  background:rgba(0,0,0,.45);color:#fff;cursor:pointer
+}
+.work-detail .carousel-control-prev{left:.5rem}
+.work-detail .carousel-control-next{right:.5rem}
+.work-detail .carousel-control-prev:hover,
+.work-detail .carousel-control-next:hover{background:rgba(0,0,0,.6)}
+.work-detail .carousel-control-prev-icon,
+.work-detail .carousel-control-next-icon{
+  display:inline-block;width:18px;height:18px;background:no-repeat 50%/100% 100%;
+  filter:drop-shadow(0 1px 1px rgba(0,0,0,.5))
+}
+.work-detail .carousel-control-prev-icon{
+  background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 16 16'%3e%3cpath d='M11 1 3 8l8 7' stroke='%23fff' stroke-width='2' fill='none'/%3e%3c/svg%3e")
+}
+.work-detail .carousel-control-next-icon{
+  background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 16 16'%3e%3cpath d='M5 1l8 7-8 7' stroke='%23fff' stroke-width='2' fill='none'/%3e%3c/svg%3e")
+}
+
+/* Indicadores (puntos) */
+.work-detail .carousel-indicators{
+  position:absolute;right:0;bottom:.5rem;left:0;
+  display:flex;gap:.5rem;justify-content:center;margin:0;list-style:none
+}
+.work-detail .carousel-indicators [data-bs-target]{
+  box-sizing:content-box;width:.6rem;height:.6rem;border-radius:999px;
+  background-color:#fff;opacity:.45;border:0
+}
+.work-detail .carousel-indicators .active{opacity:1}
+
+/* Utilidades de proporción y ajuste de imagen */
+.work-detail .ratio{position:relative;width:100%}
+.work-detail .ratio>*{position:absolute;inset:0}
+.work-detail .ratio-16x9::before{content:"";display:block;padding-top:56.25%}
+.work-detail .object-fit-contain{object-fit:contain}
+.work-detail .carousel img{width:100%;height:100%;object-fit:contain;display:block}
+
+
+/* ===============================
+   BOOTSTRAP-LITE: CAROUSEL (solo lo necesario)
+   — no cambia colores del sitio —
+==================================*/
+.carousel{position:relative}
+.carousel-inner{position:relative;width:100%;overflow:hidden}
+.carousel-item{position:relative;display:none;transition:transform .6s ease}
+.carousel-item.active{display:block}
+.carousel-item-next,.carousel-item-prev{position:absolute;top:0;display:block}
+.carousel-item-next.carousel-item-start,.active.carousel-item-end{transform:translateX(100%)}
+.carousel-item-prev.carousel-item-end,.active.carousel-item-start{transform:translateX(-100%)}
+
+/* Indicadores */
+.carousel-indicators{
+  position:absolute;right:0;bottom:.5rem;left:0;
+  display:flex;gap:.5rem;justify-content:center;margin:0;list-style:none
+}
+.carousel-indicators [data-bs-target]{
+  box-sizing:content-box;width:.6rem;height:.6rem;border-radius:999px;background:#fff;opacity:.45;border:0
+}
+.carousel-indicators .active{opacity:1}
+
+/* Controles */
+.carousel-control-prev,.carousel-control-next{
+  position:absolute;top:50%;transform:translateY(-50%);
+  width:42px;height:42px;border-radius:9999px;display:grid;place-items:center;
+  padding:0;margin:0;border:0;background:rgba(0,0,0,.45);opacity:1;transition:background .2s ease
+}
+.carousel-control-prev{left:.5rem}
+.carousel-control-next{right:.5rem}
+.carousel-control-prev:hover,.carousel-control-next:hover{background:rgba(0,0,0,.6)}
+.carousel-control-prev-icon,.carousel-control-next-icon{
+  display:inline-block;width:18px;height:18px;background:no-repeat 50%/100% 100%;
+  filter:drop-shadow(0 1px 1px rgba(0,0,0,.5))
+}
+.carousel-control-prev-icon{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 16 16'%3e%3cpath d='M11 1 3 8l8 7' stroke='%23fff' stroke-width='2' fill='none'/%3e%3c/svg%3e")}
+.carousel-control-next-icon{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 16 16'%3e%3cpath d='M5 1l8 7-8 7' stroke='%23fff' stroke-width='2' fill='none'/%3e%3c/svg%3e")}
+
+/* Utilidades que ya usas */
+.ratio{position:relative;width:100%}
+.ratio>*{position:absolute;inset:0}
+.ratio-16x9::before{content:"";display:block;padding-top:56.25%}
+.object-fit-contain{object-fit:contain}
+
+/* Aislar estilos del carrusel dentro de works */
+.nb-carousel,.nb-carousel *{box-shadow:none;border:0;outline:0}
+.nb-carousel .carousel-inner{overflow:hidden}
+.nb-carousel .ratio{overflow:hidden;border-radius:14px;background:#000} /* evita “tramo negro” al transicionar */
+.nb-carousel img{display:block;width:100%;height:100%;object-fit:contain}
