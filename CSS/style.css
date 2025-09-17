@@ -768,3 +768,121 @@ body.has-fixed-header{ padding-top: var(--header-h); }
 
 
 
+/* ===== Carouseles SIN FONDO (Bootstrap + Snap) ===== */
+
+/* Bootstrap */
+.carousel,
+.carousel-inner,
+.carousel-item,
+.carousel .ratio,
+.carousel .carousel-caption {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Flechas/controles sin fondo */
+.carousel-control-prev,
+.carousel-control-next {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  border: 0 !important;
+}
+
+/* Indicadores sin “pastilla” opaca */
+.carousel-indicators [data-bs-target]{
+  background-color: transparent !important;   /* quita relleno */
+  border: 1px solid rgba(255,255,255,.55);    /* opcional: solo contorno */
+}
+.carousel-indicators .active{
+  background-color: #fff !important;          /* puntito visible */
+}
+
+/* Tu Snap carousel */
+.snap-carousel,
+.snap-track,
+.snap-slide,
+.snap-slide .ratio {
+  background: transparent !important;
+}
+
+
+
+
+
+/* ===== TFG: que se vea como el resto de categorías (Packaging, etc.) ===== */
+.page-works #tfg{
+  /* separación y línea superior como las otras secciones */
+  --air-inside:  clamp(20px, 2.6vw, 36px);
+  --air-between: clamp(40px, 8vh, 120px);
+  margin-top: var(--air-between);
+  padding-top: calc(var(--air-between) * .45);
+  border-top: 1px solid rgba(255,255,255,.10);
+}
+
+/* Título con el mismo color/acento que usas en Packaging */
+.page-works #tfg .title{
+  margin: 0 0 .4rem;
+  font-size: clamp(26px, 3vw, 40px);
+  color: var(--acc);                 /* mismo verde menta */
+  background: none !important;       /* por si hereda un degradado */
+  -webkit-text-fill-color: var(--acc);
+}
+
+/* Subtítulo alineado y con el mismo tono que en la 2ª imagen */
+.page-works #tfg .sub{
+  margin: .25rem 0 var(--air-inside);
+  color: #cfcfcf;
+  text-align: left;
+  max-width: 55ch;                   /* ancho cómodo como en el resto */
+}
+
+/* Paneles internos iguales a los de otras categorías */
+.page-works #tfg .work-detail{
+  margin-top: calc(var(--air-inside) * .9) !important;
+  padding: var(--air-inside) !important;
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 18px;
+  background: rgba(255,255,255,.03);
+}
+.page-works #tfg .wd-subtitle{
+  margin-top: var(--air-inside);
+  margin-bottom: .4rem;
+}
+
+
+/* TFG: imagen a ancho completo dentro del panel */
+.page-works #tfg .fullwidth-media{
+  width:100%;
+  margin:0;                 /* sigue los márgenes del panel */
+  border:0;
+}
+.page-works #tfg .fullwidth-media img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+}
+
+
+/* ===== TFG — espaciado extra en subtítulos ===== */
+.page-works #tfg .wd-subtitle{
+  margin-top: clamp(28px, 4vw, 100px);
+  margin-bottom: clamp(14px, 2vw, 40px);
+}
+.page-works #tfg .wd-subtitle.minor{
+  margin-top: clamp(22px, 3vw, 100px);
+  margin-bottom: clamp(12px, 1.8vw, 100px);
+}
+
+/* separación del contenido que sigue a un subtítulo */
+.page-works #tfg .wd-subtitle + .wd-grid,
+.page-works #tfg .wd-subtitle + .fullwidth-media,
+.page-works #tfg .wd-subtitle + .carousel{
+  margin-top: clamp(10px, 1.6vw, 100px);
+}
+
+/* margen inferior cómodo para las imágenes a ancho completo */
+.page-works #tfg .fullwidth-media{
+  margin-bottom: clamp(22px, 3vw, 100px);
+}
+
