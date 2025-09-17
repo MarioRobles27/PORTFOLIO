@@ -765,3 +765,6 @@ body.has-fixed-header{ padding-top: var(--header-h); }
 .nb-carousel .carousel-inner{overflow:hidden}
 .nb-carousel .ratio{overflow:hidden;border-radius:14px;background:#000} /* evita “tramo negro” al transicionar */
 .nb-carousel img{display:block;width:100%;height:100%;object-fit:contain}
+
+
+
