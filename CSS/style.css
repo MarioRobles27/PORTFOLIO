@@ -1006,3 +1006,159 @@ body.has-fixed-header{ padding-top: var(--header-h); }
   margin-top: clamp(48px, 7vh, 120px) !important;
   margin-bottom: clamp(28px, 5vh, 80px) !important;
 }
+
+
+/* =========================================================
+   Bootstrap-lite — Carouseles del portfolio (versión unificada)
+   Sustituye el bloque inline anterior por este en CSS/style.css
+   ========================================================= */
+
+/* Contenedor general */
+.nb-carousel { position: relative; }
+
+/* Pista y slides */
+.nb-carousel .carousel-inner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;     /* evita desbordes y parpadeos */
+  padding: 0;           /* ver variante “peek” al final */
+}
+
+.nb-carousel .carousel-item {
+  position: relative;
+  display: none;
+  transition: transform .6s ease; /* animación horizontal */
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.nb-carousel .carousel-item.active { display: block; }
+
+/* Estados de transición (compatibles con Bootstrap) */
+.nb-carousel .carousel-item-next,
+.nb-carousel .carousel-item-prev {
+  position: absolute;
+  top: 0;
+  display: block;
+  width: 100%;
+}
+
+.nb-carousel .carousel-item-next.carousel-item-start,
+.nb-carousel .active.carousel-item-end { transform: translateX(100%); }
+
+.nb-carousel .carousel-item-prev.carousel-item-end,
+.nb-carousel .active.carousel-item-start { transform: translateX(-100%); }
+
+/* Indicadores (chips alargados) */
+.nb-carousel .carousel-indicators {
+  position: absolute;
+  right: 0;
+  bottom: .5rem;
+  left: 0;
+  display: flex;
+  gap: .5rem;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  pointer-events: auto;
+}
+
+.nb-carousel .carousel-indicators [data-bs-target]{
+  width: 28px;
+  height: 6px;
+  border-radius: 999px;
+  background: #fff;
+  opacity: .35;
+  border: 0;
+  cursor: pointer;
+}
+
+.nb-carousel .carousel-indicators .active { opacity: 1; }
+
+/* Controles prev/next */
+.nb-carousel .carousel-control-prev,
+.nb-carousel .carousel-control-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  border-radius: 9999px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: rgba(0,0,0,.45);
+  opacity: 1;
+  transition: background .2s ease;
+  cursor: pointer;
+}
+
+.nb-carousel .carousel-control-prev { left: .5rem; }
+.nb-carousel .carousel-control-next { right: .5rem; }
+
+.nb-carousel .carousel-control-prev:hover,
+.nb-carousel .carousel-control-next:hover { background: rgba(0,0,0,.65); }
+
+.nb-carousel .carousel-control-prev:focus-visible,
+.nb-carousel .carousel-control-next:focus-visible {
+  outline: 2px solid rgba(102,255,204,.6);
+  outline-offset: 2px;
+}
+
+/* Iconos SVG embebidos (blancos) */
+.nb-carousel .carousel-control-prev-icon,
+.nb-carousel .carousel-control-next-icon {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background: no-repeat 50% / 100% 100%;
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,.5));
+}
+
+.nb-carousel .carousel-control-prev-icon{
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 16 16'%3e%3cpath d='M11 1 3 8l8 7' stroke='%23fff' stroke-width='2' fill='none'/%3e%3c/svg%3e");
+}
+.nb-carousel .carousel-control-next-icon{
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 16 16'%3e%3cpath d='M5 1l8 7-8 7' stroke='%23fff' stroke-width='2' fill='none'/%3e%3c/svg%3e");
+}
+
+/* Helpers ratio (16:9) y media */
+.ratio { position: relative; width: 100%; }
+.ratio > * { position: absolute; inset: 0; }
+
+.ratio-16x9::before {
+  content: "";
+  display: block;
+  padding-top: 56.25%;
+}
+
+/* Marco visual del media dentro del carrusel */
+.nb-carousel .ratio {
+  overflow: hidden;
+  border-radius: 14px;
+  background: #000;        /* evita “parches” al cargar imágenes */
+}
+
+/* Imágenes: encaje consistente */
+.object-fit-contain { object-fit: contain; }
+.nb-carousel img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;     /* cambia a 'cover' si buscas look más “cinemático” */
+}
+
+/* Reduce animaciones para usuarios con RRM */
+@media (prefers-reduced-motion: reduce) {
+  .nb-carousel .carousel-item { transition: none; }
+}
+
+/* =========================================================
+   (OPCIONAL) Efecto “peek”: que asome la siguiente slide
+   — Añade la clase .nb-peek al carrusel: <div class="carousel slide nb-carousel nb-peek" ...>
+   ========================================================= */
+.nb-carousel.nb-peek .carousel-inner { padding: 0 8%; }
+.nb-carousel.nb-peek .ratio { border-radius: 16px; }
