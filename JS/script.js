@@ -674,3 +674,198 @@
 })();
 
 
+// /* ===============================
+//    PROLEXIA — Visualizador de glifos
+// ==================================*/
+// (function(){
+//   const root     = document.querySelector('#prolexia-glyphs');
+//   if(!root) return;
+
+//   // --- Datos de glifos (puedes añadir/ordenar a gusto)
+//   const glyphs = [
+//     ..."ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+//     ..."abcdefghijklmnopqrstuvwxyz",
+//     ..."0123456789",
+//     ..."ÁÉÍÓÚÜÑÇÀÈÌÒÙÂÊÎÔÛÃÕÄËÏÖÜŸÐÞ",
+//     ..."áéíóúüñçàèìòùâêîôûãõäëïöüÿðþß",
+//     ..."¿?¡!&@#%*()[]{}<>/\\|=+—–-·•…",
+//   ];
+
+//   // --- Elementos
+//   const grid      = root.querySelector('#glyphGrid');
+//   const weightTabs= root.querySelectorAll('.weight-tab');
+//   const fontSel   = root.querySelector('#fontSelect');
+//   const bigInput  = root.querySelector('#largeGlyph');
+//   const sizeRange = root.querySelector('#sizeRange');
+//   const sizeOut   = root.querySelector('#sizeOut');
+
+//   // --- Render grid
+//   grid.innerHTML = glyphs.map(ch=> `<button class="glyph-cell" type="button" aria-label="${ch}">${ch}</button>`).join('');
+
+//   // --- Estado
+//   let currentWght = 300;
+//   let currentFont = fontSel.value;
+
+//   // --- Helpers
+//   const applyTypography = ()=>{
+//     root.style.setProperty('--wght', currentWght);
+//     [grid, bigInput].forEach(el=>{
+//       el.style.fontFamily = `"${currentFont}", system-ui, -apple-system, Segoe UI, Arial, sans-serif`;
+//       el.style.fontVariationSettings = `"wght" ${currentWght}`;
+//       el.style.fontWeight = currentWght; // fallback
+//     });
+//   };
+
+//   // --- Eventos
+//   grid.addEventListener('click', e=>{
+//     const btn = e.target.closest('.glyph-cell');
+//     if(!btn) return;
+//     bigInput.value = btn.textContent;
+//   });
+
+//   weightTabs.forEach(tab=>{
+//     tab.addEventListener('click', ()=>{
+//       weightTabs.forEach(t=>t.classList.remove('active'));
+//       tab.classList.add('active');
+//       currentWght = +tab.dataset.wght || 400;
+//       applyTypography();
+//     });
+//   });
+
+//   fontSel.addEventListener('change', ()=>{
+//     currentFont = fontSel.value;
+//     applyTypography();
+//   });
+
+//   sizeRange.addEventListener('input', ()=>{
+//     const v = +sizeRange.value;
+//     bigInput.style.fontSize = v + 'px';
+//     sizeOut.textContent = v;
+//   });
+
+//   // Permite teclear directamente
+//   bigInput.addEventListener('input', ()=>{
+//     // nada extra; mantenemos el valor tecleado
+//   });
+
+//   // --- Init
+//   applyTypography();
+// })();
+
+
+(() => {
+  // ====== 1) Conjunto de glifos ======
+  const A_Z  = Array.from({length:26}, (_,i)=>String.fromCharCode(65+i));
+  const a_z  = Array.from({length:26}, (_,i)=>String.fromCharCode(97+i));
+  const nums = Array.from({length:10}, (_,i)=>String(i));
+
+  const acentosMay = ['Á','É','Í','Ó','Ú','Ü','Ñ','Ç','À','È','Ì','Ò','Ù','Â','Ê','Î','Ô','Û','Ã','Õ','Ä','Ë','Ï','Ö','Ÿ'];
+  const acentosMin = ['á','é','í','ó','ú','ü','ñ','ç','à','è','ì','ò','ù','â','ê','î','ô','û','ã','õ','ä','ë','ï','ö','ÿ'];
+  const signos     = ['.',',',';','‧',':','…','!','¡','?','¿','-','–','—','_','/','\\','(',')','[',']','{','}','«','»',
+                      '\'','"','@','#','$','%','&','*','+','=','<','>','^','~','|'];
+
+  // Puedes recortar/ampliar esta lista si quieres:
+  const GLYPHS = [...A_Z, ...a_z, ...nums, ...acentosMay, ...acentosMin, ...signos];
+
+  // ====== 2) Referencias ======
+  const grid     = document.getElementById('glyphGrid');
+  const largeInp = document.getElementById('largeGlyph');
+  const sizeRng  = document.getElementById('sizeRange');
+  const sizeOut  = document.getElementById('sizeOut');
+
+  if (!grid || !largeInp || !sizeRng || !sizeOut) {
+    console.warn('[Prolexia Glyphs] Faltan nodos esperados en el DOM.');
+    return;
+  }
+
+  // ====== 3) Render del grid ======
+  grid.setAttribute('role','grid');
+  grid.innerHTML = ''; // limpia
+
+  const frag = document.createDocumentFragment();
+  GLYPHS.forEach((ch, idx) => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'glyph-key';
+    btn.textContent = ch;
+    btn.dataset.ch = ch;
+    btn.setAttribute('aria-label', `Glifo ${ch}`);
+    btn.setAttribute('tabindex', '0');
+    btn.setAttribute('role','gridcell');
+    frag.appendChild(btn);
+  });
+  grid.appendChild(frag);
+
+  // ====== 4) Interacciones ======
+  // Click en un glifo -> lo muestra en grande
+  grid.addEventListener('click', (e) => {
+    const key = e.target.closest('.glyph-key');
+    if (!key) return;
+    largeInp.value = key.dataset.ch || key.textContent;
+    largeInp.focus();
+  });
+
+  // Tecla Enter/Espacio sobre un glifo enfocado -> selecciona
+  grid.addEventListener('keydown', (e) => {
+    const key = e.target.closest('.glyph-key');
+    if (!key) return;
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      key.click();
+    }
+  });
+
+  // Cambiar tamaño con el slider
+  const applySize = (val) => {
+    largeInp.style.fontSize = `${val}px`;
+    sizeOut.textContent = val;
+  };
+  applySize(sizeRng.value);
+  sizeRng.addEventListener('input', (e) => applySize(e.target.value));
+
+  // Al escribir en el visor grande, se ve al momento (sin recortar)
+  largeInp.addEventListener('input', () => {
+    // Nada que hacer: el propio input renderiza lo tecleado
+    // Si prefieres mantener SOLO el último carácter, descomenta:
+    // largeInp.value = (largeInp.value.slice(-1) || 'A');
+  });
+
+  // ====== 5) Ajustes visuales por si no tienes CSS aplicado ======
+  // Puedes quitar este bloque si ya estilizas en tu CSS global.
+  const ensureBaseStyles = () => {
+    const id = 'glyphs-inline-base';
+    if (document.getElementById(id)) return;
+    const css = `
+      #prolexia-glyphs .glyph-grid{
+        display:grid;gap:.5rem;
+        grid-template-columns:repeat(auto-fill,minmax(42px,1fr));
+      }
+      #prolexia-glyphs .glyph-key{
+        display:inline-grid;place-items:center;
+        height:42px;border-radius:12px;border:1px solid rgba(255,255,255,.12);
+        background:rgba(255,255,255,.04); color:#eaeaea; cursor:pointer;
+        transition:transform .12s ease, border-color .12s ease, box-shadow .12s ease;
+        font: 600 16px/1 var(--font-prolexia, inherit);
+      }
+      #prolexia-glyphs .glyph-key:focus{ outline:2px solid rgba(102,255,204,.6); outline-offset:2px; }
+      #prolexia-glyphs .large-glyph-wrap{
+        margin-top: clamp(28px,6vh,60px);
+        display:grid;gap:1rem;justify-items:center;
+      }
+      #prolexia-glyphs #largeGlyph{
+        width: min(90%, 900px); text-align:center; background:transparent;
+        border:1px dashed rgba(255,255,255,.15); border-radius:16px;
+        color:#fff; padding:1.25rem 1rem; font: 700 160px/1 var(--font-prolexia, inherit);
+      }
+      #prolexia-glyphs .large-controls{
+        display:flex;align-items:center;gap:.6rem; color:#cfcfcf;
+      }
+      #prolexia-glyphs input[type="range"]{ width:min(720px, 86vw); }
+    `;
+    const style = document.createElement('style');
+    style.id = id;
+    style.textContent = css;
+    document.head.appendChild(style);
+  };
+  ensureBaseStyles();
+})();

@@ -864,25 +864,145 @@ body.has-fixed-header{ padding-top: var(--header-h); }
 }
 
 
-/* ===== TFG — espaciado extra en subtítulos ===== */
-.page-works #tfg .wd-subtitle{
-  margin-top: clamp(28px, 4vw, 100px);
-  margin-bottom: clamp(14px, 2vw, 40px);
-}
-.page-works #tfg .wd-subtitle.minor{
-  margin-top: clamp(22px, 3vw, 100px);
-  margin-bottom: clamp(12px, 1.8vw, 100px);
+/* ===============================
+   PROLEXIA — Visualizador de glifos
+==================================*/
+
+/* Carga de la tipografía (ajusta rutas/nombres) */
+@font-face{
+  font-family:"Prolexia";
+  src:url("../FONTS/PROLEXIA-REGULAR.woff2") format("woff2");
+  font-weight:100 900;
+  font-style:normal;
+  font-display:swap;
 }
 
-/* separación del contenido que sigue a un subtítulo */
-.page-works #tfg .wd-subtitle + .wd-grid,
-.page-works #tfg .wd-subtitle + .fullwidth-media,
-.page-works #tfg .wd-subtitle + .carousel{
-  margin-top: clamp(10px, 1.6vw, 100px);
+/* Contenedor del panel */
+#prolexia-glyphs.section.wrap{
+  --wght: 400;                  /* peso por defecto */
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:26px;
+  background:rgba(255,255,255,.02);
+  box-shadow:0 30px 80px rgba(0,0,0,.35);
 }
 
-/* margen inferior cómodo para las imágenes a ancho completo */
-.page-works #tfg .fullwidth-media{
-  margin-bottom: clamp(22px, 3vw, 100px);
+/* Título/subtítulo */
+#prolexia-glyphs .title{
+  margin:0 0 .35rem;
+  background:linear-gradient(90deg,var(--acc),var(--acc2));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+#prolexia-glyphs .lead{
+  color:#cfcfcf;
+  margin:.15rem 0 1.2rem;
 }
 
+/* Tabs de peso */
+.weight-tabs{
+  display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;
+  margin: .6rem 0 1rem;
+}
+.weight-tab{
+  padding:.5rem .8rem;border:1px solid rgba(255,255,255,.16);
+  background:rgba(255,255,255,.04);border-radius:12px;
+  font-size:.92rem;letter-spacing:.04em;text-transform:uppercase;
+  transition:transform .2s,background .2s,border-color .2s;
+}
+.weight-tab:hover{transform:translateY(-2px);background:rgba(255,255,255,.06)}
+.weight-tab.active{background:#fff;color:#111;border-color:#fff}
+
+/* Selector (opcional) */
+.font-select{
+  display:flex;gap:.6rem;align-items:center;justify-content:center;
+  margin:.4rem 0 1.2rem;color:#cfcfcf;
+}
+.font-select select{
+  background:rgba(255,255,255,.06);color:#fff;border:1px solid rgba(255,255,255,.18);
+  padding:.45rem .6rem;border-radius:10px;
+}
+
+/* Grid de glifos */
+.glyph-grid{
+  font-family:"Prolexia",system-ui,-apple-system,Segoe UI,Arial,sans-serif;
+  font-variation-settings: "wght" var(--wght);
+  font-weight: var(--wght);
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(48px,1fr));
+  gap:.5rem;
+  border-top:1px solid rgba(255,255,255,.08);
+  padding-top:1rem;
+}
+.glyph-cell{
+  display:grid;place-items:center;height:48px;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:10px;background:#0f0f10;
+  color:#eaeaea;cursor:pointer;user-select:none;
+  transition:transform .12s,background .2s,border-color .2s;
+}
+.glyph-cell:hover{transform:translateY(-2px);background:#fff;color:#111;border-color:#fff}
+.glyph-cell:active{transform:translateY(0)}
+
+/* Visor grande */
+.large-glyph-wrap{
+  margin:1rem 0 0;
+  border-top:1px solid rgba(255,255,255,.08);
+  padding-top:clamp(14px,2.6vw,32px);
+}
+#largeGlyph{
+  width:100%;
+  border:0;background:transparent;color:var(--fg);
+  font-family:"Prolexia",system-ui,-apple-system,Segoe UI,Arial,sans-serif;
+  font-variation-settings: "wght" var(--wght);
+  font-weight: var(--wght);
+  font-size:clamp(72px, 18vw, 240px);
+  line-height:1; text-align:center; outline:none;
+}
+.large-controls{
+  display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center;align-items:center;
+  margin-top:.6rem;color:#cfcfcf;
+}
+.large-controls input[type="range"]{
+  width:min(520px,90%); accent-color: var(--acc);
+}
+
+/* Pequeño helper: ocupa todo el ancho sin bordes extra */
+.full-bleed{margin-inline:0}
+
+
+
+
+/* Aire generoso para la imagen "Logotipo modular" en TFG */
+#tfg .fullwidth-media{
+  display:block;
+  width:100%;
+  /* MUCHO aire arriba y abajo */
+  margin-block: clamp(80px, 14vh, 220px) !important;
+}
+
+/* Asegura que el contenedor no colapse el margen */
+#tfg .work-detail.open{
+  overflow: visible;
+}
+
+/* La caja de relación se mantiene limpia y sin fondo */
+#tfg .fullwidth-media .ratio{
+  display:block;
+  width:100%;
+  border-radius:14px;      /* opcional */
+  overflow:hidden;         /* opcional */
+  background:transparent;  /* sin fondo */
+}
+
+/* Imagen a todo el ancho de la sección (dentro de .wrap) */
+#tfg .fullwidth-media img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  display:block;
+}
+
+/* (Opcional) más aire entre subtítulos de la sección TFG */
+#tfg .wd-subtitle{
+  margin-top: clamp(48px, 7vh, 120px) !important;
+  margin-bottom: clamp(28px, 5vh, 80px) !important;
+}
