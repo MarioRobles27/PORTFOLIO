@@ -1162,3 +1162,71 @@ body.has-fixed-header{ padding-top: var(--header-h); }
    ========================================================= */
 .nb-carousel.nb-peek .carousel-inner { padding: 0 8%; }
 .nb-carousel.nb-peek .ratio { border-radius: 16px; }
+
+
+
+
+/* ===== TFG · Galería en 2 columnas verticales ===== */
+.tfg-grid{
+  --gap: clamp(10px, 1.6vw, 18px);
+  --row-h: clamp(180px, 26vh, 280px);  /* altura base de una “unidad” */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);  /* SIEMPRE dos columnas (mismo ancho) */
+  grid-auto-rows: var(--row-h);           /* altura base de fila */
+  gap: var(--gap);
+}
+
+/* Tarjeta base */
+.tfg-tile{
+  display: grid;
+  grid-template-rows: 1fr auto;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 14px;
+  background: rgba(255,255,255,.03);
+  overflow: hidden;
+  box-shadow: 0 10px 28px rgba(0,0,0,.22);
+}
+
+/* Alto según tipo: horizontal = 1 unidad; vertical = 2 unidades */
+.tfg-tile.h{ grid-row: span 1; }
+.tfg-tile.v{ grid-row: span 2; }
+
+.tfg-tile .tile-media{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background:#000;
+}
+.tfg-tile img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* cambia a 'contain' si no quieres recorte */
+  display: block;
+}
+
+.tfg-tile figcaption{
+  padding: .55rem .7rem;
+  font-size: .86rem;
+  color: #cfcfcf;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+
+/* Vídeo final (queda a ancho de columna; si lo quieres full-bleed, mira nota abajo) */
+.tfg-video{
+  grid-column: 1 / -1;               /* ocupa las dos columnas */
+  margin-top: clamp(16px, 3vh, 28px);
+}
+.tfg-video figcaption{
+  margin-top: .4rem;
+  color: #cfcfcf;
+  font-size: .9rem;
+}
+
+/* Responsive: 1 columna en móvil */
+@media (max-width: 720px){
+  .tfg-grid{
+    grid-template-columns: 1fr;
+    grid-auto-rows: clamp(160px, 28vh, 240px);
+  }
+}
+
