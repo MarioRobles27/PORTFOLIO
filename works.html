@@ -22,6 +22,19 @@
         background:rgba(255,255,255,.03);
       }
       #works .work-detail[hidden]{ display:block !important; }
+        /* Failsafe visual para el TFG */
+    #tfg { opacity: 1 !important; transform: none !important; }
+    #tfg .work-detail{
+      opacity:1 !important;
+      max-height:none !important;
+      overflow:visible !important;
+      margin-top:.6rem;
+      padding:clamp(14px,1.6vw,18px);
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:18px;
+      background:rgba(255,255,255,.03);
+    }
+    #tfg .work-detail[hidden]{ display:block !important; }
     </style>
 
     <!-- Bootstrap-lite SOLO para carousels (no cambia tu paleta).
@@ -138,14 +151,14 @@
               </ul>
             </div>
 
-            <h5 class="wd-subtitle minor">Etiquetas</h5>
+            
             <div class="wd-grid">
               <figure class="wd-card"><img src="IMG/PLAGA.png" alt="Etiqueta Plaga" loading="lazy"><figcaption>Plaga</figcaption></figure>
               <figure class="wd-card"><img src="IMG/INJERTO.png" alt="Etiqueta Injerto" loading="lazy"><figcaption>Injerto</figcaption></figure>
               <figure class="wd-card"><img src="IMG/LEGADO.png" alt="Etiqueta Legado" loading="lazy"><figcaption>Legado</figcaption></figure>
             </div>
 
-            <h5 class="wd-subtitle minor">Mockups</h5>
+            
             <div class="wd-grid">
               <figure class="wd-card"><img src="IMG/PLAGA_DUO.png" alt="Mockup Plaga" loading="lazy"><figcaption>Plaga</figcaption></figure>
               <figure class="wd-card"><img src="IMG/INGERTO_DUO.png" alt="Mockup Injerto" loading="lazy"><figcaption>Injerto</figcaption></figure>
@@ -175,14 +188,12 @@
               </ul>
             </div>
 
-            <h5 class="wd-subtitle minor">Etiquetas</h5>
             <div class="wd-grid">
               <figure class="wd-card"><img src="IMG/CEPOPESCA_M.png" alt="Etiqueta Sardinas" loading="lazy"><figcaption>Sardinas</figcaption></figure>
               <figure class="wd-card"><img src="IMG/CEPOPESCA_S.png" alt="Etiqueta Mejillones" loading="lazy"><figcaption>Mejillones</figcaption></figure>
               <figure class="wd-card"><img src="IMG/CEPOPESCA_A.png" alt="Etiqueta Atún en escabeche" loading="lazy"><figcaption>Atún en escabeche</figcaption></figure>
             </div>
 
-            <h5 class="wd-subtitle minor">Mockups</h5>
             <div class="wd-grid">
               <figure class="wd-card"><img src="IMG/MOCKUP3.png" alt="Mockup 1" loading="lazy"><figcaption>Mockup 1</figcaption></figure>
               <figure class="wd-card"><img src="IMG/MOCKUP2.png" alt="Mockup 2" loading="lazy"><figcaption>Mockup 2</figcaption></figure>
@@ -210,7 +221,6 @@
               <p>En cuanto al símbolo, he rediseñado la <b>N</b> otorgándole mayor movilidad y fluidez, lo que genera una sensación de velocidad y actualidad. Este nuevo planteamiento convierte al logotipo en una propuesta más funcional, versátil y adaptada a los códigos gráficos actuales, manteniendo la esencia de la marca, pero proyectándola hacia un lenguaje visual más innovador y competitivo.</p>
             </div>
 
-            <h5 class="wd-subtitle minor">Imágenes</h5>
             <div id="nbCarousel" class="carousel slide nb-carousel" data-bs-touch="true" data-bs-interval="false">
               <div class="carousel-indicators">
                 <button type="button" data-bs-target="#nbCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="1"></button>
@@ -257,7 +267,6 @@
               <p>El isotipo, inspirado en la idea de sello, aporta reconocimiento inmediato y dota a la marca de un símbolo que puede emplearse en aplicaciones reducidas o como emblema distintivo en distintos soportes gráficos y físicos. Esta dualidad entre isotipo e imagotipo ofrece a La Taberna una identidad sólida, adaptable y coherente con la experiencia que busca transmitir a sus clientes: un lugar donde la tradición se encuentra con lo contemporáneo.</p>
             </div>
 
-            <h5 class="wd-subtitle minor">Imágenes</h5>
             <div id="tabernaCarousel" class="carousel slide nb-carousel" data-bs-touch="true" data-bs-interval="false">
               <div class="carousel-indicators">
                 <button type="button" data-bs-target="#tabernaCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="1"></button>
@@ -298,7 +307,6 @@
 
         <!-- ====================== CARTELERÍA ====================== -->
         <div class="cat-block" id="carteleria">
-          <h2 class="title">Cartelería</h2>
           <p class="lead">Piezas impresas y mockups con tono experimental y composición tipográfica.</p>
 
           <section id="detail-chupa-chups" class="work-detail open fluid" aria-hidden="false">
@@ -310,14 +318,12 @@
               <p>Campaña gráfica conmemorativa del 45º aniversario de la NBA, desarrollada en colaboración con Chupa Chups. La propuesta combina el universo deportivo con la estética pop y psicodélica de la marca, transformando el balón en un icono visual reinterpretado como un Chupa Chups. Los carteles utilizan leyendas del baloncesto en blanco y negro contrastadas con fondos dinámicos y ondulantes en colores vibrantes, reforzando la energía del juego y el carácter atemporal de ambas marcas.</p>
             </div>
 
-            <h5 class="wd-subtitle minor">Carteles</h5>
             <div class="wd-grid">
               <figure class="wd-card"><img alt="Cartel 1" loading="lazy" src="IMG/CHUPACHUPS1.jpg"><figcaption>Cartel 1</figcaption></figure>
               <figure class="wd-card"><img alt="Cartel 2" loading="lazy" src="IMG/CHUPACHUPS2.jpg"><figcaption>Cartel 2</figcaption></figure>
               <figure class="wd-card"><img alt="Cartel 3" loading="lazy" src="IMG/CHUPACHUPS3.jpg"><figcaption>Cartel 3</figcaption></figure>
             </div>
 
-            <h5 class="wd-subtitle minor">Mockups</h5>
             <div class="wd-grid">
               <figure class="wd-card"><img alt="Mockup 1" loading="lazy" src="IMG/CHUPACHUPS_MOCKUP1.png"><figcaption>Mockup 1</figcaption></figure>
               <figure class="wd-card"><img alt="Mockup 2" loading="lazy" src="IMG/CHUPACHUPS_MOCKUP2.png"><figcaption>Mockup 2</figcaption></figure>
@@ -334,13 +340,11 @@
               <p>Proyecto gráfico desarrollado para YOTOKOBU en el que se experimenta con la deconstrucción tipográfica y la reinterpretación de un logotipo corporativo bajo un enfoque visual disruptivo. A través de volúmenes metálicos, texturas brillantes y formas afiladas, se crea una estética agresiva y contemporánea que fusiona lo digital con lo artesanal. El resultado transmite fuerza, dinamismo e innovación, alineándose con la esencia experimental y arriesgada de la marca.</p>
             </div>
 
-            <h5 class="wd-subtitle minor">Imágenes</h5>
             <div class="wd-grid">
               <figure class="wd-card"><img alt="Yorokobu 1" loading="lazy" src="IMG/YOROKOBU.jpg"><figcaption>Exploración 1</figcaption></figure>
               <figure class="wd-card"><img alt="Yorokobu 2" loading="lazy" src="IMG/LOGO_YOROKO.jpg"><figcaption>Exploración 2</figcaption></figure>
             </div>
 
-            <h5 class="wd-subtitle minor">Mockup</h5>
             <div class="wd-grid">
               <figure class="wd-card"><img alt="Mockup Yorokobu" loading="lazy" src="IMG/MOCKUP_YOROKO.jpg"><figcaption>Portada / contra</figcaption></figure>
             </div>
@@ -357,7 +361,6 @@
               <p>El resultado es una obra que no solo retrata un estado emocional fragmentado y en constante movimiento, sino que también pone en valor la potencia expresiva de la imagen y del propio cuerpo como medio narrativo. <b>AORTA</b> se presenta como un ejercicio de experimentación audiovisual donde la emoción se convierte en el eje central de la narrativa.</p>
             </div>
 
-            <h5 class="wd-subtitle minor">Piezas</h5>
             <div class="wd-grid">
               <figure class="wd-card"><img alt="Cartel AORTA" loading="lazy" src="IMG/AORTA1.jpg"><figcaption>Cartel</figcaption></figure>
               <figure class="wd-card"><img alt="Fotograma AORTA" loading="lazy" src="IMG/CARTEL_AORTA - copia.jpg"><figcaption>Fotograma</figcaption></figure>
@@ -380,13 +383,11 @@
                 <div class="wd-media">
                   <img alt="Madrid Gráfica — cartel" loading="lazy" src="IMG/MADRIDGRAFICA_CONCURSO_ALTA2.jpg">
                 </div>
-                <figcaption>Madrid Gráfica — cartel</figcaption>
               </figure>
               <figure class="wd-card illu gif">
                 <div class="wd-media">
                   <img alt="Ilustración animada" loading="lazy" src="MEDIA/GIF_FINAL.gif">
                 </div>
-                <figcaption>Ilustración animada</figcaption>
               </figure>
             </div>
           </section>
@@ -425,7 +426,7 @@
             <!-- =======================================================
           SECCIÓN TFG — bloque con carrusel tfgKeletraCarousel
       ======================================================== -->
-      <section id="tfg" class="section wrap reveal" aria-label="seccion-tfg">
+     <section id="tfg" class="section wrap" aria-label="seccion-tfg">
         <h2 class="title">TFG</h2>
         <p class="sub">
           Proyecto de fin de grado centrado en la creación de la fundición tipográfica
@@ -455,7 +456,6 @@
             </p>
           </div>
 
-          <h5 class="wd-subtitle minor">Logotipo y sub-logos (carrusel)</h5>
           <div id="tfgKeletraCarousel" class="carousel slide nb-carousel" data-bs-touch="true" data-bs-interval="false">
             <div class="carousel-inner">
               <div class="carousel-item active"><div class="ratio ratio-16x9"><img src="IMG/LOGOKE.png" alt="Logotipo base Keletra" class="object-fit-contain" loading="lazy"></div></div>
@@ -494,100 +494,110 @@
 
              <!-- ===== TFG · Galería (2 filas, horizontales y verticales) ===== -->
               <section id="tfg-media" class="work-detail open fluid" aria-hidden="false">
-                <header class="wd-head">
-                  <h3 class="wd-title">Prolexia — galería de exploraciones</h3>
-                  <small class="wd-kicker">Imágenes y vídeo</small>
-                </header>
+                
 
-                <!-- GRID: dos filas en desktop. “h” = horizontal (1 fila), “v” = vertical (2 filas) -->
-                <div class="tfg-grid" role="list">
-                  <!-- 1 -->
-                  <figure class="tfg-tile h" role="listitem">
-                    <div class="tile-media">
-                      <img src="IMG/PROLEXIA_H1.jpg" alt="Exploración horizontal 01">
-                    </div>
-                    <figcaption>Horizontal 01</figcaption>
-                  </figure>
+                <!-- ====== TFG · Galería en 2 columnas (dos primeras verticales) ====== -->
 
-                  <!-- 2 -->
-                  <figure class="tfg-tile h" role="listitem">
-                    <div class="tile-media">
-                      <img src="IMG/PROLEXIA_H2.jpg" alt="Exploración horizontal 02">
-                    </div>
-                    <figcaption>Horizontal 02</figcaption>
-                  </figure>
 
-                  <!-- 3 (vertical: ocupa las dos filas) -->
-                  <figure class="tfg-tile v" role="listitem">
-                    <div class="tile-media">
-                      <img src="IMG/PROLEXIA_V1.jpg" alt="Exploración vertical 01">
-                    </div>
-                    <figcaption>Vertical 01</figcaption>
-                  </figure>
-
-                  <!-- 4 -->
-                  <figure class="tfg-tile h" role="listitem">
-                    <div class="tile-media">
-                      <img src="IMG/PROLEXIA_H3.jpg" alt="Exploración horizontal 03">
-                    </div>
-                    <figcaption>Horizontal 03</figcaption>
-                  </figure>
-
-                  <!-- 5 -->
-                  <figure class="tfg-tile h" role="listitem">
-                    <div class="tile-media">
-                      <img src="IMG/PROLEXIA_H4.jpg" alt="Exploración horizontal 04">
-                    </div>
-                    <figcaption>Horizontal 04</figcaption>
-                  </figure>
-
-                  <!-- 6 (vertical) -->
-                  <figure class="tfg-tile v" role="listitem">
-                    <div class="tile-media">
-                      <img src="IMG/PROLEXIA_V2.jpg" alt="Exploración vertical 02">
-                    </div>
-                    <figcaption>Vertical 02</figcaption>
-                  </figure>
-
-                  <!-- 7 -->
-                  <figure class="tfg-tile h" role="listitem">
-                    <div class="tile-media">
-                      <img src="IMG/PROLEXIA_H5.jpg" alt="Exploración horizontal 05">
-                    </div>
-                    <figcaption>Horizontal 05</figcaption>
-                  </figure>
-
-                  <!-- 8 -->
-                  <figure class="tfg-tile h" role="listitem">
-                    <div class="tile-media">
-                      <img src="IMG/PROLEXIA_H6.jpg" alt="Exploración horizontal 06">
-                    </div>
-                    <figcaption>Horizontal 06</figcaption>
-                  </figure>
-
-                  <!-- 9 (vertical) -->
-                  <figure class="tfg-tile v" role="listitem">
-                    <div class="tile-media">
-                      <img src="IMG/PROLEXIA_V3.jpg" alt="Exploración vertical 03">
-                    </div>
-                    <figcaption>Vertical 03</figcaption>
-                  </figure>
+          <!-- ===== TFG · Galería (2 columnas): primeras 2 verticales, resto horizontales ===== -->
+            <div class="tfg-grid" role="list">
+              <!-- 1 · VERTICAL (sin pie) -->
+              <figure class="tfg-tile v no-caption" role="listitem">
+                <div class="tile-media">
+                  <img src="IMG/KELETRA4.png" alt="Exploración vertical 01">
                 </div>
+                
+              </figure>
+
+              <!-- 2 · VERTICAL (sin pie) -->
+              <figure class="tfg-tile v no-caption" role="listitem">
+                <div class="tile-media">
+                  <img src="IMG/KELETRA6.png" alt="Exploración vertical 02">
+                </div>
+              </figure>
+
+              <!-- Resto · HORIZONTALES -->
+              <figure class="tfg-tile h" role="listitem">
+                <div class="tile-media">
+                  <img src="IMG/KELETRA1.png" alt="Exploración horizontal 01">
+                </div>
+              </figure>
+
+              <figure class="tfg-tile h" role="listitem">
+                <div class="tile-media">
+                  <img src="IMG/KELETRA2.png" alt="Exploración horizontal 02">
+                </div>
+              </figure>
+
+              <figure class="tfg-tile h" role="listitem">
+                <div class="tile-media">
+                  <img src="IMG/KELETRA.png" alt="Exploración horizontal 03">
+                </div>
+              </figure>
+
+              <figure class="tfg-tile h" role="listitem">
+                <div class="tile-media">
+                  <img src="IMG/KELETRA5.png" alt="Exploración horizontal 04">
+                </div>
+              </figure>
+
+              <figure class="tfg-tile h" role="listitem">
+                <div class="tile-media">
+                  <img src="IMG/KELETRA7.png" alt="Exploración horizontal 05">
+                </div>
+              </figure>
+
+              <figure class="tfg-tile h" role="listitem">
+                <div class="tile-media">
+                  <img src="IMG/KELETRA8.png" alt="Exploración horizontal 06">
+                </div>
+              </figure>
+
+              
+            </div>
+
 
                 <!-- Vídeo al final -->
                 <figure class="tfg-video">
                   <div class="ratio ratio-16x9">
                     <video controls playsinline preload="metadata"
                           class="object-fit-contain"
-                          poster="VIDEO/PROLEXIA_POSTER.jpg"
+                          poster="MEDIA/SPOT.mp4"
                           style="width:100%;height:100%;">
-                      <source src="VIDEO/PROLEXIA_REEL.mp4" type="video/mp4">
+                      <source src="MEDIA/SPOT.mp4" type="video/mp4">
                       Tu navegador no soporta vídeo HTML5.
                     </video>
                   </div>
-                  <figcaption>Reel — Prolexia</figcaption>
                 </figure>
               </section>
+
+              <div class="wrap">
+    <h2 class="pgd-title">Visualizador de Glifos Interactivo</h2>
+
+    
+
+    <div class="glyph-box">
+      <div class="glyph-grid" id="pgdGrid" aria-label="Glifos Prolexia"></div>
+      <div class="accent-divider" aria-hidden="true"></div>
+    </div>
+
+    <div class="sub-controls">
+      <label> Tamaño
+        <input id="pgdSize" type="range" min="72" max="220" step="1" value="180">
+        <span id="pgdSizeOut">180 px</span>
+      </label>
+      <label> Tracking
+        <input id="pgdTrack" type="range" min="-1.5" max="3" step="0.1" value="0">
+        <span id="pgdTrackOut">0 px</span>
+      </label>
+    </div>
+
+    <div class="big-area">
+      <div id="pgdBig" class="big-display" contenteditable="true" spellcheck="false" aria-label="Texto grande">
+        Prolexia
+      </div>
+    </div>
+  </div>
 
             </section>
 
@@ -602,7 +612,7 @@
 
     <!-- Footer inferior -->
     <footer class="site-footer">
-      <small>Portafolio diseñado y desarrollado por Mario Robles. Estilo inspirado en experiencias actuales con énfasis tipográfico.</small>
+      <small>Portafolio diseñado y desarrollado por Mario Robles.</small>
     </footer>
 
     <!-- Bootstrap 5 Bundle (con Popper) — deja SOLO este -->
@@ -614,8 +624,8 @@
 
 
     <!-- (Opcional) GSAP si lo usa tu JS; deja solo una vez -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script> -->
 
     <!-- Tu script -->
     <script src="JS/script.js" defer></script>

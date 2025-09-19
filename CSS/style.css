@@ -3,16 +3,24 @@
 ==================================*/
 @font-face{
   font-family:"PPFormula";
-  src:url("https://freight.cargo.site/m/M2511450142216367243668346043417/PPFormula-Medium.woff2") format("woff2"),
-      url("https://freight.cargo.site/m/N2511450142161027011447217388569/PPFormula-Medium.woff") format("woff");
+  src:url("../FONTS/PPFormula-Extrabold.woff") format("woff2"),
+      url("../FONTS/PPFormula-Medium.woff") format("woff");
   font-weight:500; font-style:normal; font-display:swap;
 }
 @font-face{
   font-family:"PPTalisman";
-  src:url("https://freight.cargo.site/m/H2511430518422447678857660529689/PPTalisman-Bold.woff2") format("woff2"),
-      url("https://freight.cargo.site/m/A2511430518367107446636531874841/PPTalisman-Bold.woff") format("woff");
+  src:url("../FONTS/PPTalisman-Bold.woff") format("woff2"),
+      url("../FONTS/PPTalisman-Bold.woff2") format("woff");
   font-weight:700; font-style:normal; font-display:swap;
 }
+ @font-face{
+      font-family:"Prolexia";
+      src:url("../FONTS/PROLEXIA-REGULAR.woff2") format("woff2");
+      font-weight: 300 800;              /* si es variable */
+      font-stretch: 75% 125%;
+      font-style: normal;
+      font-display: swap;
+    }
 
 /* =============================== 
    2) RESET + TOKENS 
@@ -71,7 +79,7 @@ body::before{
 ==================================*/
 .site-header{position:sticky;top:0;z-index:999;background:rgba(10,10,10,.6);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid rgba(255,255,255,.06)}
 .nav{max-width:var(--maxw);margin:auto;padding:12px var(--grid);display:flex;gap:var(--grid);align-items:center;justify-content:space-between}
-.brand{font-weight:800;letter-spacing:.02em;font-size:clamp(18px,2.2vw,28px);display:flex;align-items:center;gap:.5rem}
+.brand{font-weight:800;letter-spacing:.02em;font-size:clamp(18px,2.2vw,24px);display:flex;align-items:center;gap:.5rem}
 .brand .dot{width:.6em;height:.6em;border-radius:50%;background:conic-gradient(from 0deg,var(--acc),var(--acc2));box-shadow:0 0 20px var(--acc)}
 .menu{display:flex;gap:clamp(.5rem,1.6vw,1.2rem);align-items:center}
 .menu a{font-size:clamp(10px,1.2vw,12px);text-transform:uppercase;letter-spacing:.12em;opacity:.85}
@@ -170,6 +178,45 @@ body::before{
   #about.section.wrap{margin:clamp(14px,3vh,24px) var(--grid);border-radius:18px}
   #about.section.wrap .about-shell{padding:clamp(24px,5vw,40px) var(--grid)}
 }
+
+/* === ABOUT: foto + texto arriba, contacto debajo (dos columnas) === */
+.about-grid{
+  display:grid;
+  gap:clamp(16px,2vw,24px);
+  grid-template-columns:minmax(360px,1.1fr) minmax(540px,1.7fr);
+  grid-template-areas:
+    "photo text"
+    "data  data";              /* Contacto ocupa el ancho completo debajo */
+  align-items:stretch;
+}
+
+/* Áreas */
+#aboutPhoto{ grid-area:photo; align-self:stretch; }
+.about-text{ grid-area:text; }
+.about-data{ grid-area:data; margin-top:clamp(10px,1.6vw,18px); }
+
+/* La imagen rellena su tarjeta y toma la altura del texto */
+#aboutPhoto.portrait.popout-card{ height:100%; }
+#aboutPhoto .pop{ height:100%; display:block; }
+#aboutPhoto img.pop__base{
+  width:100%; height:100%;
+  object-fit:cover;          /* recorte elegante sin deformar */
+  display:block;
+}
+
+/* Responsive: 1 columna (foto → texto → contacto) */
+@media (max-width:900px){
+  .about-grid{
+    grid-template-columns:1fr;
+    grid-template-areas:
+      "photo"
+      "text"
+      "data";
+  }
+  #aboutPhoto.portrait.popout-card{ height:auto; }
+  #aboutPhoto .pop, #aboutPhoto img.pop__base{ height:auto; }
+}
+
 
 /* =============================== 
    8) HABILIDADES 
@@ -1187,10 +1234,26 @@ body.has-fixed-header{ padding-top: var(--header-h); }
   box-shadow: 0 10px 28px rgba(0,0,0,.22);
 }
 
-/* Alto según tipo: horizontal = 1 unidad; vertical = 2 unidades */
+/* ===== TFG · Galería en 2 columnas verticales ===== */
+.tfg-grid{
+  --gap: clamp(10px, 1.6vw, 18px);
+  --row-h: clamp(180px, 26vh, 280px);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: var(--row-h);
+  gap: var(--gap);
+}
+.tfg-tile{
+  display: grid;
+  grid-template-rows: 1fr auto;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 14px;
+  background: rgba(255,255,255,.03);
+  overflow: hidden;
+  box-shadow: 0 10px 28px rgba(0,0,0,.22);
+}
 .tfg-tile.h{ grid-row: span 1; }
 .tfg-tile.v{ grid-row: span 2; }
-
 .tfg-tile .tile-media{
   position: relative;
   width: 100%;
@@ -1200,20 +1263,17 @@ body.has-fixed-header{ padding-top: var(--header-h); }
 .tfg-tile img{
   width: 100%;
   height: 100%;
-  object-fit: cover; /* cambia a 'contain' si no quieres recorte */
+  object-fit: cover;
   display: block;
 }
-
 .tfg-tile figcaption{
   padding: .55rem .7rem;
   font-size: .86rem;
   color: #cfcfcf;
   border-top: 1px solid rgba(255,255,255,.08);
 }
-
-/* Vídeo final (queda a ancho de columna; si lo quieres full-bleed, mira nota abajo) */
 .tfg-video{
-  grid-column: 1 / -1;               /* ocupa las dos columnas */
+  grid-column: 1 / -1;
   margin-top: clamp(16px, 3vh, 28px);
 }
 .tfg-video figcaption{
@@ -1221,12 +1281,196 @@ body.has-fixed-header{ padding-top: var(--header-h); }
   color: #cfcfcf;
   font-size: .9rem;
 }
-
-/* Responsive: 1 columna en móvil */
 @media (max-width: 720px){
   .tfg-grid{
     grid-template-columns: 1fr;
     grid-auto-rows: clamp(160px, 28vh, 240px);
   }
 }
+/* ===== TFG · Galería en dos columnas (estructura estable) ===== */
+#tfg-media .tfg-grid{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0,1fr));
+  gap:clamp(12px, 2.2vw, 24px);
+  align-items:start;
+}
+@media (max-width:800px){
+  #tfg-media .tfg-grid{ grid-template-columns:1fr; }
+}
+#tfg-media .tfg-tile{ display:block; margin:0; }
+#tfg-media .tile-media{ width:100%; }
+#tfg-media .tile-media img{
+  display:block;
+  width:100%;
+  height:auto;          /* mantiene proporción */
+  object-fit:contain;
+}
+#tfg-media .tfg-tile figcaption{
+  margin-top:.5rem;
+  font-size:.9rem;
+  opacity:.8;
+}
 
+/* (opcional) vídeo a dos columnas dentro del TFG */
+#tfg-media .tfg-video{ grid-column:1 / -1; margin-top:clamp(16px,3vh,28px); }
+#tfg-media .tfg-video figcaption{ margin-top:.4rem; color:#cfcfcf; font-size:.9rem; }
+
+/* === TFG · Galería limpia en 2 columnas (sin solapes) === */
+#tfg-media .tfg-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:clamp(12px,2vw,24px);
+  align-items:start;             /* no estira items */
+}
+
+/* 1 columna en móvil */
+@media (max-width:820px){
+  #tfg-media .tfg-grid{ grid-template-columns:1fr; }
+}
+
+/* Figure/tile consistente y recorte de bordes redondeados */
+#tfg-media .tfg-tile{
+  margin:0;
+  border-radius:16px;
+  overflow:hidden;               /* recorta la imagen al radio */
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.12);
+}
+
+#tfg-media .tile-media{
+  width:100%;
+  height:auto !important;        /* <-- anula alturas heredadas */
+}
+
+/* La imagen manda: ancho de columna, alto automático */
+#tfg-media .tile-media img{
+  display:block;
+  width:100% !important;
+  height:auto !important;        /* mantiene proporción */
+  object-fit:contain !important; /* no recorta */
+}
+
+/* Pie */
+#tfg-media .tfg-tile figcaption{
+  padding:.55rem .7rem;
+  font-size:.9rem;
+  opacity:.85;
+  border-top:1px solid rgba(255,255,255,.08);
+}
+
+/* ------- kill-switch de conflictos heredados SOLO aquí ------- */
+#tfg-media .tfg-tile,
+#tfg-media .tfg-tile.h,
+#tfg-media .tfg-tile.v{ grid-row:auto !important; }
+
+#tfg-media .tfg-grid{
+  grid-auto-rows:auto !important;  /* nada de filas fijas */
+}
+
+#tfg-media .tile-media,
+#tfg-media .tfg-tile img{
+  max-width:none !important;
+  max-height:none !important;
+}
+/* Quitar bordes redondeados en la galería TFG */
+#tfg-media .tfg-tile,
+#tfg-media .tile-media,
+#tfg-media .tile-media img {
+  border-radius: 0 !important;
+}
+
+/* (opcional) si añadiste sombra y ya no la quieres */
+#tfg-media .tfg-tile {
+  box-shadow: none !important;
+}
+
+
+
+  /* ============= Fuente (ajusta la ruta) ============= */
+    @font-face{
+      font-family: "Prolexia";
+      src: url("../FONTS/PROLEXIA-REGULAR.woff2") format("woff2"); /* <-- cambia la ruta */
+      font-weight: 300 800;         /* si no es variable, usa 400 y los botones solo cambiarán font-weight */
+      font-style: normal;
+      font-display: swap;
+    }
+
+     #prolexia-grid-demo, #prolexia-grid-demo * { box-sizing: border-box; }
+    #prolexia-grid-demo{
+      --bg:#1b1d20; --panel:#202328; --fg:#eaeaea; --muted:#a7adb5;
+      --stroke:#2b2f35; --accent:#FFD401;
+      color:var(--fg); background:var(--bg);
+      font: 400 16px/1.5 system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+      padding: 28px 16px 44px;
+    }
+    /* MÁS ANCHO */
+    #prolexia-grid-demo .wrap{ max-width: 1400px; margin: 0 auto; }
+
+    .pgd-title{
+      text-align:center; font: 700 clamp(24px,4.4vw,36px)/1 "Prolexia", system-ui;
+      margin: 0 0 14px;
+    }
+
+    .pgd-weights{
+      display:flex; gap: clamp(10px,1.5vw,18px); justify-content:space-between;
+      max-width: 1100px; margin: 0 auto 18px;
+    }
+    .pgd-weights button{
+      flex:1 1 auto; background:transparent; color:var(--accent);
+      border:0; border-bottom: 3px solid transparent; padding: 10px 6px; cursor:pointer;
+      font-weight:600; letter-spacing:.02em;
+    }
+    .pgd-weights button[aria-pressed="true"]{ border-bottom-color:var(--accent); }
+
+    /* Paneles CENTRADOS y MÁS ANCHOS */
+    .glyph-box, .big-area{
+      max-width: 1200px;            /* antes 980px */
+      margin: 0 auto;
+      background: var(--panel);
+      border:1px solid var(--stroke);
+      padding: clamp(14px,2vw,18px);
+      border-radius: 8px;
+    }
+
+    .glyph-grid{
+      display:grid; gap:12px;
+      grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
+    }
+    .glyph{
+      display:grid; place-items:center; height:64px;
+      border:1px solid #2f3440; border-radius: 10px;
+      background: transparent; color: var(--fg);
+      cursor: pointer; user-select:none;
+      font-family:"Prolexia", system-ui; font-weight:600; font-size:22px;
+      transition: background .15s ease, border-color .15s ease, transform .06s ease;
+    }
+    .glyph:hover{ background:#262a30; border-color:#3a4150; }
+    .glyph:active{ transform: scale(.98); }
+
+    /* QUITAMOS LA “BARRA” (divider) */
+    .accent-divider{ display:none; }
+
+    .sub-controls{
+      display:flex; gap:16px; align-items:center; flex-wrap:wrap;
+      color:var(--muted); margin: 10px auto 18px; max-width:1200px;
+    }
+    .sub-controls label{ display:flex; gap:.6rem; align-items:center; }
+    .sub-controls input[type="range"]{ width: 320px; }
+
+    /* Display grande: multi-línea, centrado y sin scroll inferior */
+    .big-area{ border-color: var(--accent); }
+    .big-display{
+      width:100%;
+      font-family:"Prolexia", system-ui;
+      font-variation-settings:"wght" 700;
+      font-size: clamp(72px, 10vw, 200px); /* más grande si hay espacio */
+      line-height: 1.02;
+      letter-spacing: 0;                 /* el slider lo cambia */
+      color: var(--accent);
+      white-space: normal;               /* <-- permite varias líneas */
+      word-break: break-word;            /* sin desbordes */
+      overflow: hidden;                  /* <-- sin barra de scroll */
+      text-align: center;
+      outline: none;
+      min-height: 1.2em;                 /* altura base para una línea */
+    }

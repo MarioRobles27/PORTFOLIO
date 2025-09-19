@@ -869,3 +869,71 @@
   };
   ensureBaseStyles();
 })();
+
+
+
+ (function(){
+      const grid  = document.getElementById('pgdGrid');
+      const big   = document.getElementById('pgdBig');
+      const size  = document.getElementById('pgdSize');
+      const track = document.getElementById('pgdTrack');
+      const sizeOut  = document.getElementById('pgdSizeOut');
+      const trackOut = document.getElementById('pgdTrackOut');
+
+      const GLYPHS = (
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZ" +
+        "abcdefghijklmnopqrstuvwxyz" +
+        "0123456789" +
+        "ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞß" +
+        "àáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿ" +
+        "¿?!¡&@#%*()[]{}<>/\\|=+—–-·•…"
+      ).split("");
+
+      // Render rejilla
+      const frag = document.createDocumentFragment();
+      GLYPHS.forEach(ch=>{
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'glyph';
+        b.textContent = ch;
+        b.addEventListener('click', ()=>{
+          big.textContent += ch;
+          big.focus();
+        });
+        frag.appendChild(b);
+      });
+      grid.appendChild(frag);
+
+      // Peso actual y pestañas
+      const weightBtns = Array.from(document.querySelectorAll('#prolexia-grid-demo .wbtn'));
+      let currentW = 600;
+
+      function apply(){
+        const s = +size.value || 180;
+        const t = (parseFloat(track.value)||0) + 'px';
+
+        // aplica a glifos y display grande (TRACKING FUNCIONA)
+        document.querySelectorAll('#prolexia-grid-demo .glyph, #prolexia-grid-demo .big-display')
+          .forEach(el=>{
+            el.style.fontVariationSettings = `"wght" ${currentW}`;
+            el.style.letterSpacing = t;
+          });
+
+        big.style.fontSize = s + 'px';
+        sizeOut.textContent = s + ' px';
+        trackOut.textContent = t;
+      }
+
+      weightBtns.forEach(btn=>{
+        btn.addEventListener('click', ()=>{
+          weightBtns.forEach(b=>b.removeAttribute('aria-pressed'));
+          btn.setAttribute('aria-pressed','true');
+          currentW = +btn.dataset.w || 600;
+          apply();
+        });
+      });
+
+      [size, track].forEach(el=> el.addEventListener('input', apply));
+
+      apply();
+    })();
