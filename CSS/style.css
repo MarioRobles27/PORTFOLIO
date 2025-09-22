@@ -249,11 +249,13 @@ body::before{
     radial-gradient(50% 40% at 110% 120%,rgba(154,140,255,.12),transparent 60%),
     #0e0e12;
   box-shadow:0 30px 80px rgba(0,0,0,.45);overflow:hidden;
+  margin: 30px 0p
 }
 #works.section.wrap::before{content:"";position:absolute;left:-10%;right:-10%;top:0;height:1px;background:linear-gradient(90deg,transparent,var(--acc),var(--acc2),transparent);opacity:.7}
 #works .title{margin-top:.2rem;margin-bottom:1rem;background:linear-gradient(90deg,var(--acc),var(--acc2));-webkit-background-clip:text;background-clip:text;color:transparent}
 #works .work-hub{display:flex;flex-direction:column;gap:10px}
 #works .work-group{display:flex;flex-direction:column;gap:0}
+
 
 /* Botón categoría */
 .work-tile{
@@ -1476,6 +1478,4 @@ body.has-fixed-header{ padding-top: var(--header-h); }
     }
 
 
-    .cta-trabajos {
-  margin-bottom: clamp(64px, 10vh, 200px);
-}
+  
